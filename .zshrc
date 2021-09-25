@@ -92,6 +92,7 @@ plugins=(
 	heroku
 	helm
 	yarn
+	pip
 )
 
 source $ZSH/oh-my-zsh.sh
