@@ -106,6 +106,9 @@ export MANPAGER="less -R --use-color -Dd+r -Du+b"
 # Enable vi mode
 bindkey -v
 
+# source lf icons
+[ -f "$HOME/.config/lf/icons.sh" ] && source "$HOME/.config/lf/icons.sh"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
