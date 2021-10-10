@@ -102,6 +102,8 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/.local/bin:$PATH
 export LESS='-R --use-color -Dd+r$Du+b'
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export FZF_DEFAULT_COMMAND="fd -t f --hidden --exclude .git"
+export FZF_DEFAULT_OPTS="--height 40% --border"
 
 # Enable vi mode
 bindkey -v
@@ -129,12 +131,14 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias c='clear'
-alias ls='ls --color=auto'
-alias la='ls -lAh --color=auto'
+alias ls='ls --color=auto --group-directories-first'
+alias la='ls -lAh --color=auto --group-directories-first'
 alias open='xdg-open'
 alias nvimrc='nvim $HOME/.config/nvim'
 alias zshrc='nvim $HOME/.zshrc'
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias f='cd $(fd -t d | fzf)'
+alias n='nvim $(fzf)'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
