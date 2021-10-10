@@ -137,8 +137,8 @@ alias open='xdg-open'
 alias nvimrc='nvim $HOME/.config/nvim'
 alias zshrc='nvim $HOME/.zshrc'
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-alias f='cd $(fd -t d | fzf)'
-alias n='nvim $(fzf)'
+alias d='cd $(fd -t d | fzf)'
+alias f='nvim $(fzf)'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
