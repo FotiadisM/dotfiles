@@ -93,6 +93,7 @@ plugins=(
 	helm
 	yarn
 	pip
+	fzf
 )
 
 source $ZSH/oh-my-zsh.sh
