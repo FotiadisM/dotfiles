@@ -140,7 +140,7 @@ alias nvimrc='nvim $HOME/.config/nvim'
 alias zshrc='nvim $HOME/.config/zsh/.zshrc'
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias d='cd $(fd -t d --hidden --exclude .git | fzf)'
-alias dt='cd $(fd -t d --hidden --exclude .git | fzf) && tmux new -s ${PWD##*/}'
+alias dt='tmux-sessioner.sh'
 alias f='nvim $(fzf)'
 alias t='tmux'
 
