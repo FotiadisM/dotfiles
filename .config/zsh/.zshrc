@@ -11,7 +11,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.config/.oh-my-zsh
+export ZSH="${XDG_CONFIG_HOME:-$HOME/.config}/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -91,6 +91,7 @@ plugins=(
 	minikube
 	heroku
 	helm
+	npm
 	yarn
 	pip
 	fzf
@@ -100,11 +101,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$HOME/.local/bin:$PATH
-export LESS='-R --use-color -Dd+r$Du+b'
-export MANPAGER="less -R --use-color -Dd+r -Du+b"
-export FZF_DEFAULT_COMMAND="fd -t f --hidden --exclude .git"
-export FZF_DEFAULT_OPTS="--height 40% --border"
+# export PATH=$HOME/.local/bin:$PATH
+# export LESS='-R --use-color -Dd+r$Du+b' export MANPAGER="less -R --use-color -Dd+r -Du+b"
+# export FZF_DEFAULT_COMMAND="fd -t f --hidden --exclude .git"
+# export FZF_DEFAULT_OPTS="--layout=reverse --height 40% --border"
 
 # Enable vi mode
 bindkey -v
@@ -136,7 +136,7 @@ alias ls='ls --color=auto --group-directories-first'
 alias la='ls -lAh --color=auto --group-directories-first'
 alias open='xdg-open'
 alias nvimrc='nvim $HOME/.config/nvim'
-alias zshrc='nvim $HOME/.zshrc'
+alias zshrc='nvim $HOME/.config/zsh/.zshrc'
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias d='cd $(fd -t d --hidden --exclude .git | fzf)'
 alias dt='cd $(fd -t d --hidden --exclude .git | fzf) && tmux new -s ${PWD##*/}'
@@ -144,4 +144,4 @@ alias f='nvim $(fzf)'
 alias t='tmux'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
