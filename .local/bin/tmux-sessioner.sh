@@ -2,13 +2,11 @@
 
 folder=$(fd -t d --hidden --exclude .git | fzf)
 
-if [ $? -eq 0 ]
-then
+if [ $? -eq 0 ]; then
 	name=$(basename $folder)
 
 	tmux has -t $name
-	if [ $? -eq 1 ]
-	then
+	if [ $? -eq 1 ]; then
 		tmux new -d -s $name -c $folder
 	fi
 

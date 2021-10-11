@@ -101,11 +101,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export PATH=$HOME/.local/bin:$PATH
-# export LESS='-R --use-color -Dd+r$Du+b' export MANPAGER="less -R --use-color -Dd+r -Du+b"
-# export FZF_DEFAULT_COMMAND="fd -t f --hidden --exclude .git"
-# export FZF_DEFAULT_OPTS="--layout=reverse --height 40% --border"
-
 # Enable vi mode
 bindkey -v
 
@@ -139,7 +134,7 @@ alias open='xdg-open'
 alias nvimrc='nvim $HOME/.config/nvim'
 alias zshrc='nvim $HOME/.config/zsh/.zshrc'
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-alias d='cd $(fd -t d --hidden --exclude .git | fzf)'
+alias d='cd $(fd -t d -H -E .git -E node_modules | fzf)'
 alias dt='tmux-sessioner.sh'
 alias f='nvim $(fzf)'
 alias t='tmux'
