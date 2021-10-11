@@ -140,6 +140,7 @@ alias zshrc='nvim $HOME/.zshrc'
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias d='cd $(fd -t d | fzf)'
 alias f='nvim $(fzf)'
+alias t='tmux'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
