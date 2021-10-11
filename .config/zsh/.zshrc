@@ -134,6 +134,7 @@ fi
 alias c='clear'
 alias ls='ls --color=auto --group-directories-first'
 alias la='ls -lAh --color=auto --group-directories-first'
+alias lf='lfrun'
 alias open='xdg-open'
 alias nvimrc='nvim $HOME/.config/nvim'
 alias zshrc='nvim $HOME/.config/zsh/.zshrc'
