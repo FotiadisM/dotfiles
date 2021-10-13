@@ -103,6 +103,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Enable vi mode
 bindkey -v
+# Enter Normal mode faster
+KEYTIMEOUT=1
 
 # source lf icons
 [ -f "$HOME/.config/lf/icons.sh" ] && source "$HOME/.config/lf/icons.sh"
