@@ -114,11 +114,9 @@ KEYTIMEOUT=1
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
+# Preferred editor for remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
-else
-  export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -138,6 +136,7 @@ alias nvimrc='nvim $HOME/.config/nvim'
 alias zshrc='nvim $HOME/.config/zsh/.zshrc'
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias d='cd $(fd -t d -H -E .git -E node_modules | fzf)'
+alias dn='nvim $(fd -t d -H -E .git -E node_modules | fzf)'
 alias dt='tmux-sessioner.sh'
 alias f='nvim $(fzf)'
 alias t='tmux'
