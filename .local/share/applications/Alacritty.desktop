@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 TryExec=alacritty
-Exec=env LIBGL_ALWAYS_SOFTWARE=1 alacritty -e tmux new -A -s default
+Exec=alacritty -e tmux new -A -s default
 Icon=Alacritty
 Terminal=false
 Categories=System;TerminalEmulator;
