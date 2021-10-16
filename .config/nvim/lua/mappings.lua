@@ -25,6 +25,21 @@ keymap("n", "<C-Down>", ":resize -3<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize +3<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +3<CR>", opts)
 
+-- move lines quicly
+keymap("n", "[e", ":<C-u>execute 'move -1-'. v:count1<CR>", opts)
+keymap("n", "]e", ":<C-u>execute 'move +'. v:count1<CR>", opts)
+
+-- quicly add empty lines
+keymap("n", "[<space>", ":<C-u>put! =repeat(nr2char(10), v:count1)<CR>", opts)
+keymap("n", "]<space>", ":<C-u>put =repeat(nr2char(10), v:count1)<CR>", opts)
+
+-- edit macros
+keymap("n", "<leader>m", ":<C-u><C-r><C-r>='let @'. v:register .' = '. string(getreg(v:register))<CR><C-f><Left>", opts)
+
+-- don't lose selection when shifting
+keymap("x", "<", "<gv", opts)
+keymap("x", ">", ">gv", opts)
+
 -- disable ex mode
 keymap("n", "Q", "<nop>", opts)
 keymap("n", "q:", "<nop>", opts)
