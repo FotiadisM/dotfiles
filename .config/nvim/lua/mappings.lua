@@ -1,88 +1,66 @@
-local nvim_set_keymap = vim.api.nvim_set_keymap
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
 
-nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
-nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true})
-nvim_set_keymap("i", "<C-s>", "<Esc>:w<CR>a", { noremap = true })
+keymap("i", "jj", "<ESC>", { noremap = true })
+keymap("i", "<C-s>", "<ESC>:w<CR>a", { noremap = true })
+keymap("n", "<C-s>", ":w<CR>", { noremap = true })
 
-local opt = { noremap = true, silent = true}
+keymap("n", "Y", "y$", {})
 
--- fix vim weird behavior
-nvim_set_keymap("n", "Y", "y$", {})
-
--- close current buffer and jump to the previous one
-nvim_set_keymap("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opt)
-
--- moving between windows
-nvim_set_keymap("n", "<C-h>", "<C-w>h", opt)
-
-nvim_set_keymap("n", "<C-j>", "<C-w>j", opt)
-nvim_set_keymap("n", "<C-k>", "<C-w>k", opt)
-nvim_set_keymap("n", "<C-l>", "<C-w>l", opt)
-
--- resizing windows
-nvim_set_keymap("n", "<C-Up>", ":resize +3<CR>", opt)
-nvim_set_keymap("n", "<C-Down>", ":resize -3<CR>", opt)
-nvim_set_keymap("n", "<C-Left>", ":vertical resize +3<CR>", opt)
-nvim_set_keymap("n", "<C-Right>", ":vertical resize -3<CR>", opt)
+-- close current buffer and jump to previous one
+keymap("n", "<leader>q", ":bd<bar>sp<bar>bn<bar>bd<CR>", opts)
 
 -- copy to clipboard
-nvim_set_keymap("", "<C-c>", "\"+y", opt)
+keymap("", "<C-c>", "\"+y", opts)
+
+-- moving between windows
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
+
+-- resize windows
+keymap("n", "<C-Up>", ":resize +3<CR>", opts)
+keymap("n", "<C-Down>", ":resize -3<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize +3<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize +3<CR>", opts)
 
 -- disable ex mode
-nvim_set_keymap("n", "Q", "<nop>", opt)
-nvim_set_keymap("n", "q:", "<nop>", opt)
+keymap("n", "Q", "<nop>", opts)
+keymap("n", "q:", "<nop>", opts)
 
 -- toggle spelling
-nvim_set_keymap("n", "<leader>s", ":set spell!<CR>", opt)
-
--- misc
-nvim_set_keymap("n", "<space>j", "o<ESC>", opt)
-nvim_set_keymap("n", "<space>k", "o<ESC>k", opt)
-
--- Plugins
+keymap("n", "<leader>s", ":set spell!<CR>", opts)
 
 -- nvim-tree
-nvim_set_keymap("n", "<leader>b", ":NvimTreeToggle<CR>", opt)
-
--- telescope
-nvim_set_keymap("n", "<C-p>", ":Telescope find_files<CR>", opt)
-nvim_set_keymap("n", "<leader>fm", ":Telescope media_files<CR>", opt)
-nvim_set_keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opt)
-nvim_set_keymap("n", "<leader>fc", ":Telescope commands<CR>", opt)
-nvim_set_keymap("n", "<leader>fb", ":Telescope builtin<CR>", opt)
-nvim_set_keymap("n", "<leader>fd", ":Telescope find_files cwd=~/.config/nvim<CR>", opt)
+keymap("n", "<leader>b", ":NvimTreeToggle<CR>", opts)
 
 -- bufferline
-nvim_set_keymap("n", "L", ":BufferLineCycleNext<CR>", opt)
-nvim_set_keymap("n", "<space>l", ":BufferLineMoveNext<CR>", opt)
-nvim_set_keymap("n", "H", ":BufferLineCyclePrev<CR>", opt)
-nvim_set_keymap("n", "<space>h", ":BufferLineMovePrev<CR>", opt)
+keymap("n", "L", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<space>l", ":BufferLineMoveNext<CR>", opts)
+keymap("n", "H", ":BufferLineCyclePrev<CR>", opts)
+keymap("n", "<space>h", ":BufferLineMovePrev<CR>", opts)
 
--- nvim-toggleterm
-nvim_set_keymap("n", "<leader>t", ":ToggleTerm<CR>", opt)
-nvim_set_keymap("n", "<leader>T", ":ToggleTerm direction='float'<CR>", opt)
+-- telescope
+keymap("n", "<leader>ff", ":lua require('telescope.builtin').find_files()<CR>", opts)
+keymap("n", "<leader>fg", ":lua require('telescope.builtin').live_grep()<CR>", opts)
+keymap("n", "<leader>fb", ":lua require('telescope.builtin').buffers()<CR>", opts)
+keymap("n", "<leader>fh", ":lua require('telescope.builtin').help_tags()<CR>", opts)
+keymap("n", "<leader>fp", ":lua require('telescope').extensions.packer.plugins()<CR>", opts)
+
+-- debugging
+keymap("n", "<F5>", ":lua require('dap').continue()<CR>", opts)
+keymap("n", "<F10>", ":lua require('dap').step_over()<CR>", opts)
+keymap("n", "<F11>", ":lua require('dap').step_into()<CR>", opts)
+keymap("n", "<F12>", ":lua require('dap').step_out()<CR>", opts)
+keymap("n", "<leader>du", ":lua require('dapui').toggle()<CR>", opts)
+keymap("n", "<leader>db", ":lua require('dap').toggle_breakpoint()<CR>", opts)
 
 -- nvim-comment
-nvim_set_keymap("n", "<leader>c", ":CommentToggle<CR>", opt)
-nvim_set_keymap("v", "<leader>c", ":CommentToggle<CR>", opt)
+keymap("n", "<leader>c", ":CommentToggle<CR>", opts)
+keymap("v", "<leader>c", ":CommentToggle<CR>", opts)
 
--- nvim-spectre
-nvim_set_keymap("n", "<leader>S", ":lua require('spectre').open()<CR>", opt)
-
--- todo-comments
-nvim_set_keymap("n", "<leader>wt", ":TodoQuickFix<CR>", opt)
-
--- trouble
-nvim_set_keymap("n", "<leader>ww", ":LspTroubleWorkspaceToggle<CR>", opt)
-
--- refactoring.nvim
-vim.api.nvim_set_keymap("v", "<leader>rt", ":lua M.refactors()<CR>", opt)
-
--- debuging
-nvim_set_keymap("n", "<F5>", ":lua require('dap').continue()<CR>", opt)
-nvim_set_keymap("n", "<F10>", ":lua require('dap').step_over()<CR>", opt)
-nvim_set_keymap("n", "<F11>", ":lua require('dap').step_into()<CR>", opt)
-nvim_set_keymap("n", "<F12>", ":lua require('dap').step_out()<CR>", opt)
-nvim_set_keymap("n", "<leader>du", ":lua require('dapui').toggle()<CR>", opt)
-nvim_set_keymap("n", "<leader>db", ":lua require('dap').toggle_breakpoint()<CR>", opt)
+-- nvim-toggleterm
+keymap("n", "<leader>t", ":ToggleTerm<CR>", opts)
+keymap("n", "<leader>T", ":ToggleTerm direction='float'<CR>", opts)
 

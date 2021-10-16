@@ -1,19 +1,11 @@
 vim.g.tokyonight_style = "night"
+vim.g.tokyonight_sidebars = { "packer" }
+vim.cmd([[colorscheme tokyonight]])
 
-vim.cmd[[colorscheme tokyonight]]
-
-require("lualine").setup({
+require("lualine").setup {
 	options = {
 		theme = "tokyonight",
-		disabled_filetypes = {
-			"packer",
-			"dapui_scopes",
-			"dapui_breakpoints",
-			"dapui_stacks",
-			"dapui_watches",
-			"dap_repl"
-		}
 	},
-	extensions = { "nvim-tree" },
-})
+	extensions = { "nvim-tree" }
+}
 
