@@ -122,10 +122,8 @@ return packer.startup({
 		}
 		use "windwp/nvim-ts-autotag"
 		use {
-			"terrortylor/nvim-comment",
-			cmd = "CommentToggle",
-			config = function() require("plugins.nvim-comment") end
-
+			"numToStr/Comment.nvim",
+			config = function () require("plugins.comment") end
 		}
 		use "JoosepAlviste/nvim-ts-context-commentstring"
 		use {
