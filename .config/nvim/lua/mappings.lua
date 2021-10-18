@@ -62,6 +62,9 @@ keymap("n", "<leader>fg", ":lua require('telescope.builtin').live_grep()<CR>", o
 keymap("n", "<leader>fb", ":lua require('telescope.builtin').buffers()<CR>", opts)
 keymap("n", "<leader>fh", ":lua require('telescope.builtin').help_tags()<CR>", opts)
 keymap("n", "<leader>fp", ":lua require('telescope').extensions.packer.plugins()<CR>", opts)
+keymap("n", "<leader>fc", ":lua require('telescope').extensions.neoclip.default()<CR>", opts)
+keymap("n", "<leader>fgb", ":lua require('telescope.builtin').git_branches()<CR>", opts)
+keymap("n", "<leader>fgc", ":lua require('telescope.builtin').git_commits()<CR>", opts)
 
 -- debugging
 keymap("n", "<F5>", ":lua require('dap').continue()<CR>", opts)

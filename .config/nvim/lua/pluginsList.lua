@@ -129,6 +129,11 @@ return packer.startup({
 		}
 		use "JoosepAlviste/nvim-ts-context-commentstring"
 		use {
+			"AckslD/nvim-neoclip.lua",
+			config = function() require("neoclip").setup() end,
+		}
+
+		use {
 			"lukas-reineke/indent-blankline.nvim",
 			config = function() require("plugins.indent-blankline") end
 		}
