@@ -8,7 +8,7 @@ keymap("n", "<C-s>", ":w<CR>", { noremap = true })
 keymap("n", "Y", "y$", {})
 
 -- close current buffer and jump to previous one
-keymap("n", "<leader>q", ":bd<bar>sp<bar>bn<bar>bd<CR>", opts)
+keymap("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 
 -- copy to clipboard
 keymap("", "<C-c>", "\"+y", opts)
