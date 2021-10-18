@@ -20,6 +20,7 @@ return packer.startup({
 		-- file managing
 		use {
 			"kyazdani42/nvim-tree.lua",
+			cmd = "NvimTreeToggle",
 			requires = "kyazdani42/nvim-web-devicons",
 			config = function() require("plugins.nvim-tree") end
 		}
@@ -74,7 +75,9 @@ return packer.startup({
 				"hrsh7th/cmp-path",
 				"hrsh7th/cmp-calc",
 				"kdheepak/cmp-latex-symbols",
-				"ray-x/cmp-treesitter"
+				"ray-x/cmp-treesitter",
+				"saadparwaiz1/cmp_luasnip"
+
 			},
 			config = function() require("plugins.nvim-cmp") end
 		}
@@ -82,7 +85,6 @@ return packer.startup({
 
 		-- snipets
 		use "L3MON4D3/LuaSnip"
-		use "saadparwaiz1/cmp_luasnip"
 
 		-- debugging
 		use {
@@ -145,6 +147,7 @@ return packer.startup({
 		}
 		use {
 			"NTBBloodbath/rest.nvim",
+			ft = "http",
 			requires = "nvim-lua/plenary.nvim",
 			config = function() require("rest-nvim").setup() end
 		}

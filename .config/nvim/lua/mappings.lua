@@ -71,10 +71,6 @@ keymap("n", "<F12>", ":lua require('dap').step_out()<CR>", opts)
 keymap("n", "<leader>du", ":lua require('dapui').toggle()<CR>", opts)
 keymap("n", "<leader>db", ":lua require('dap').toggle_breakpoint()<CR>", opts)
 
--- nvim-comment
-keymap("n", "<leader>c", ":CommentToggle<CR>", opts)
-keymap("v", "<leader>c", ":CommentToggle<CR>", opts)
-
 -- nvim-toggleterm
 keymap("n", "<leader>t", ":ToggleTerm<CR>", opts)
 keymap("n", "<leader>T", ":ToggleTerm direction='float'<CR>", opts)
