@@ -64,7 +64,7 @@ function efm.setup(config, on_attach)
 			markdown = { prettier },
 			tex = {{
 				rootMarkers = { "main.tex" },
-				formatCommand = "latexindent -g /dev/null",
+				formatCommand = "latexindent",
 				formatStdin = true,
 			}},
 		}

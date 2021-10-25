@@ -47,6 +47,23 @@ keymap("n", "q:", "<nop>", opts)
 -- toggle spelling
 keymap("n", "<leader>s", ":set spell!<CR>", opts)
 
+Mappings = {}
+Mappings.toggle_qf = function()
+	local gf_open = false
+	for _, win in pairs(vim.fn.getwininfo()) do
+		if win["quickfix"] == 1 then
+			gf_open = true
+		end
+	end
+
+	if gf_open then
+		vim.cmd([[cclose]])
+		return
+	end
+	vim.cmd([[copen]])
+end
+keymap("n", "<leader>c", ":lua Mappings.toggle_qf()<CR>", opts)
+
 -- nvim-tree
 keymap("n", "<leader>b", ":NvimTreeToggle<CR>", opts)
 
@@ -78,3 +95,5 @@ keymap("n", "<leader>db", ":lua require('dap').toggle_breakpoint()<CR>", opts)
 keymap("n", "<leader>t", ":ToggleTerm<CR>", opts)
 keymap("n", "<leader>T", ":ToggleTerm direction='float'<CR>", opts)
 
+-- refactoring
+vim.api.nvim_set_keymap("v", "<leader>r", "<Esc>:lua M.refactors()<CR>", opts)

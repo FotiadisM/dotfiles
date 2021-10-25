@@ -8,7 +8,7 @@ return packer.startup({
 		-- theme
 		use "folke/tokyonight.nvim"
 		use {
-			"hoob3rt/lualine.nvim",
+			"nvim-lualine/lualine.nvim",
 			requires = { "kyazdani42/nvim-web-devicons", opt = true }
 		}
 		use {
@@ -67,6 +67,11 @@ return packer.startup({
 		use "onsails/lspkind-nvim"
 		use "ray-x/lsp_signature.nvim"
 		use {
+			"jose-elias-alvarez/null-ls.nvim",
+			require = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+			config = function() require("lsp.null-ls") end
+		}
+		use {
 			"hrsh7th/nvim-cmp",
 			requires = {
 				"hrsh7th/cmp-nvim-lsp",
@@ -82,6 +87,14 @@ return packer.startup({
 			config = function() require("plugins.nvim-cmp") end
 		}
 		use { "simrat39/symbols-outline.nvim", cmd = "SymbolsOutline" }
+		use {
+			"ThePrimeagen/refactoring.nvim",
+			requires = {
+				{"nvim-lua/plenary.nvim"},
+				{"nvim-treesitter/nvim-treesitter"}
+			},
+			config = function() require("plugins.refactoring") end
+		}
 
 		-- snipets
 		use "L3MON4D3/LuaSnip"
@@ -132,7 +145,6 @@ return packer.startup({
 			"AckslD/nvim-neoclip.lua",
 			config = function() require("neoclip").setup() end,
 		}
-
 		use {
 			"lukas-reineke/indent-blankline.nvim",
 			config = function() require("plugins.indent-blankline") end
@@ -160,6 +172,10 @@ return packer.startup({
 			"folke/todo-comments.nvim",
 			requires = "nvim-lua/plenary.nvim",
 			config = function() require("todo-comments").setup() end
+		}
+		use {
+			"FotiadisM/tabset.nvim",
+			config = function() require("plugins.tabset") end
 		}
 
 	end,

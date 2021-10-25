@@ -28,13 +28,13 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+	buf_set_keymap("n", "<space>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	buf_set_keymap("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
 	buf_set_keymap("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
 	buf_set_keymap("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
 	buf_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 	buf_set_keymap("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-	buf_set_keymap("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+	buf_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	buf_set_keymap("n", "<space>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
 	buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
@@ -47,30 +47,11 @@ local on_attach = function(client, bufnr)
 		vim.cmd([[
 		augroup lsp_format
 			autocmd! * <buffer>
-			autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()
+			autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting_sync()
 			augroup END
 		]])
 	elseif client.resolved_capabilities.document_range_formatting then
 		buf_set_keymap("n", "<space>rf", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
-	end
-
-	-- add lsp workspace diagnostic to quickfix and buffer diagnostics to localist
-	vim.cmd([[
-	augroup lsp_diagnostics
-		autocmd! * <buffer>
-		autocmd User LspDiagnosticsChanged lua vim.lsp.util.set_qflist({ open = false })
-		autocmd User LspDiagnosticsChanged lua vim.lsp.util.set_loclist({ open = false })
-	augroup END
-	]])
-
-	if client.resolved_capabilities.document_highlight then
-		vim.cmd([[
-		augroup lsp_document_highlight
-			autocmd! * <buffer>
-			autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-			autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-		augroup END
-		]])
 	end
 end
 
@@ -91,37 +72,40 @@ local function setup_servers()
 	lsp_installer.on_server_ready(function(server)
 		local config = make_config()
 
-		if server == "sumneko_lua" then
+		if server.name == "sumneko_lua" then
 			config = require("lsp.servers.lua").setup(config, on_attach)
 		end
 
-		if server == "texlab" then
+		if server.name == "texlab" then
 			config = require("lsp.servers.latex").setup(config, on_attach)
 		end
 
-		if server == "html" then
+		if server.name == "html" then
 			config = require("lsp.servers.html").setup(config, on_attach)
 		end
 
-		if server == "jsonls" then
+		if server.name == "jsonls" then
 			config = require("lsp.servers.json").setup(config, on_attach)
 		end
 
-		if server == "gopls" then
-			config = require("lsp.servers.go").setup(config, on_attach)
-		end
-
-		if server == "tsserver" then
+		if server.name == "tsserver" then
 			config = require("lsp.servers.typescript").setup(config, on_attach)
 		end
 
-		if server == "efm" then
-			config = require("lsp.servers.efm").setup(config, on_attach)
+		if server.name == "volar" then
+			config = require("lsp.servers.vue").setup(config, on_attach)
 		end
+
+		-- if server.name == "efm" then
+		-- 	config = require("lsp.servers.efm").setup(config, on_attach)
+		-- end
 
 		server:setup(config)
 		vim.cmd([[ do User LspAttachBuffers ]])
 	end)
+
+	require("lspconfig")["gopls"].setup(require("lsp.servers.go").setup(make_config(), on_attach))
+	require("lspconfig")["null-ls"].setup(make_config())
 end
 
 setup_servers()
