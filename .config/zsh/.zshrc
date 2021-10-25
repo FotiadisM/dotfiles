@@ -95,6 +95,10 @@ plugins=(
 	yarn
 	pip
 	fzf
+	gh
+	rust
+	rustup
+	cargo
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -109,6 +113,9 @@ KEYTIMEOUT=1
 # source lf icons
 [ -f "$HOME/.config/lf/icons.sh" ] && source "$HOME/.config/lf/icons.sh"
 
+export GOBIN="$GOPATH/bin"
+export PATH=$GOBIN:$PATH
+export PATH=$PATH:$CARGO_HOME/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
