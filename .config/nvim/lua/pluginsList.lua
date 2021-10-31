@@ -69,7 +69,6 @@ return packer.startup({
 		use {
 			"jose-elias-alvarez/null-ls.nvim",
 			require = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-			config = function() require("lsp.null-ls") end
 		}
 		use {
 			"hrsh7th/nvim-cmp",

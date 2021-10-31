@@ -65,50 +65,48 @@ local function make_config()
 	}
 end
 
--- lsp-install
-local function setup_servers()
-	local lsp_installer = require("nvim-lsp-installer")
+local lspconf = require("lspconfig")
+lspconf["gopls"].setup(require("lsp.servers.go").setup(make_config(), on_attach))
+require("lsp.servers.null_ls")
+lspconf["null-ls"].setup(make_config())
 
-	lsp_installer.on_server_ready(function(server)
-		local config = make_config()
+-- nvim-lsp-installer
+local lsp_installer = require("nvim-lsp-installer")
 
-		if server.name == "sumneko_lua" then
-			config = require("lsp.servers.lua").setup(config, on_attach)
-		end
+lsp_installer.on_server_ready(function(server)
+	local config = make_config()
 
-		if server.name == "texlab" then
-			config = require("lsp.servers.latex").setup(config, on_attach)
-		end
+	if server.name == "sumneko_lua" then
+		config = require("lsp.servers.lua").setup(config, on_attach)
+	end
 
-		if server.name == "html" then
-			config = require("lsp.servers.html").setup(config, on_attach)
-		end
+	if server.name == "texlab" then
+		config = require("lsp.servers.latex").setup(config, on_attach)
+	end
 
-		if server.name == "jsonls" then
-			config = require("lsp.servers.json").setup(config, on_attach)
-		end
+	if server.name == "html" then
+		config = require("lsp.servers.html").setup(config, on_attach)
+	end
 
-		if server.name == "tsserver" then
-			config = require("lsp.servers.typescript").setup(config, on_attach)
-		end
+	if server.name == "jsonls" then
+		config = require("lsp.servers.json").setup(config, on_attach)
+	end
 
-		if server.name == "volar" then
-			config = require("lsp.servers.vue").setup(config, on_attach)
-		end
+	if server.name == "tsserver" then
+		config = require("lsp.servers.typescript").setup(config, on_attach)
+	end
 
-		-- if server.name == "efm" then
-		-- 	config = require("lsp.servers.efm").setup(config, on_attach)
-		-- end
+	if server.name == "volar" then
+		config = require("lsp.servers.vue").setup(config, on_attach)
+	end
 
-		server:setup(config)
-		vim.cmd([[ do User LspAttachBuffers ]])
-	end)
+	-- if server.name == "efm" then
+	-- 	config = require("lsp.servers.efm").setup(config, on_attach)
+	-- end
 
-	require("lspconfig")["gopls"].setup(require("lsp.servers.go").setup(make_config(), on_attach))
-	require("lspconfig")["null-ls"].setup(make_config())
-end
-
-setup_servers()
+	server:setup(config)
+	vim.cmd([[ do User LspAttachBuffers ]])
+end)
 
 -- replace the default lsp diagnostic letters with prettier symbols
 vim.fn.sign_define("LspDiagnosticsSignError", { text = "", numhl = "LspDiagnosticsDefaultError" })

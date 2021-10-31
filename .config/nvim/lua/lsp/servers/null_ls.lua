@@ -1,5 +1,7 @@
 local null_ls = require("null-ls")
 
+print("inside")
+
 local sources = {
 	null_ls.builtins.formatting.prettier,
 	null_ls.builtins.formatting.gofumpt,
