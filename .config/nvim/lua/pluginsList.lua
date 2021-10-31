@@ -24,7 +24,6 @@ return packer.startup({
 			requires = "kyazdani42/nvim-web-devicons",
 			config = function() require("plugins.nvim-tree") end
 		}
-
 		use {
 			"nvim-telescope/telescope.nvim",
 			requires = "nvim-lua/plenary.nvim",
@@ -134,7 +133,10 @@ return packer.startup({
 				require("plugins.nvim-autopairs")
 			end
 		}
-		use "windwp/nvim-ts-autotag"
+		use {
+			"windwp/nvim-ts-autotag",
+			requires = "nvim-treesitter/nvim-treesitter"
+		}
 		use {
 			"numToStr/Comment.nvim",
 			config = function () require("plugins.comment") end
@@ -176,7 +178,6 @@ return packer.startup({
 			"FotiadisM/tabset.nvim",
 			config = function() require("plugins.tabset") end
 		}
-
 	end,
 	config = {
 		profile ={

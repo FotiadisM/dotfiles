@@ -1,6 +1,5 @@
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
-vim.g.nvim_tree_ignore = { ".git" }
 vim.g.nvim_tree_special_files = {}
 
 require("nvim-tree").setup({
@@ -16,6 +15,9 @@ require("nvim-tree").setup({
 	update_cwd = true,
 	diagnostics = {
 		enable = true,
+	},
+	filters = {
+		custom = { ".git" }
 	},
 	view = {
 		mappings = {
