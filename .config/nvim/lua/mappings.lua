@@ -11,7 +11,7 @@ keymap("n", "Y", "y$", {})
 keymap("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 
 -- copy to clipboard
-keymap("", "<C-c>", "\"+y", opts)
+keymap("", "<C-c>", '"+y', opts)
 
 -- moving between windows
 keymap("n", "<C-h>", "<C-w>h", opts)

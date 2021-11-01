@@ -10,7 +10,7 @@ cmp.setup({
 	snippet = {
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body)
-		end
+		end,
 	},
 	mapping = {
 		["<Tab>"] = cmp.mapping(function(fallback)
@@ -23,7 +23,10 @@ cmp.setup({
 			else
 				fallback()
 			end
-		end, { "i", "s", }),
+		end, {
+			"i",
+			"s",
+		}),
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
@@ -32,13 +35,16 @@ cmp.setup({
 			else
 				fallback()
 			end
-		end, { "i", "s" }),
+		end, {
+			"i",
+			"s",
+		}),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.close(),
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Insert,
 			select = true,
-		})
+		}),
 	},
 	sources = {
 		{ name = "nvim_lsp" },
@@ -52,12 +58,16 @@ cmp.setup({
 		completeopt = "menu,menuone,noinsert",
 	},
 	formatting = {
-		format = require("lspkind").cmp_format({with_text = true, maxwidth = 50, menu = ({
-			buffer = "Buffer",
-			nvim_lsp = "LSP",
-			luasnip = "LuaSnip",
-			nvim_lua = "Lua",
-			latex_symbols = "Latex",
-		})}),
+		format = require("lspkind").cmp_format({
+			with_text = true,
+			maxwidth = 50,
+			menu = {
+				buffer = "Buffer",
+				nvim_lsp = "LSP",
+				luasnip = "LuaSnip",
+				nvim_lua = "Lua",
+				latex_symbols = "Latex",
+			},
+		}),
 	},
 })

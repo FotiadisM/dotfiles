@@ -1,24 +1,20 @@
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-	vim.lsp.handlers.hover,
-	{ border = "single" }
-)
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-	vim.lsp.handlers.signature_help,
-	{ border = "single" }
-)
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
 
 local lspSignatureCfg = {
 	hint_enable = false,
 	handler_opts = {
 		border = "single",
 	},
-	zindex = 50 -- signatureHelp behind completion items
+	zindex = 50, -- signatureHelp behind completion items
 }
 
 -- keymaps
 local on_attach = function(client, bufnr)
-	local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+	local function buf_set_keymap(...)
+		vim.api.nvim_buf_set_keymap(bufnr, ...)
+	end
 
 	require("lsp_signature").on_attach(lspSignatureCfg)
 
@@ -67,8 +63,8 @@ end
 
 local lspconf = require("lspconfig")
 lspconf["gopls"].setup(require("lsp.servers.go").setup(make_config(), on_attach))
-require("lsp.servers.null_ls")
-lspconf["null-ls"].setup(make_config())
+local conf = require("lsp.servers.null_ls").setup(make_config())
+lspconf["null-ls"].setup(conf)
 
 -- nvim-lsp-installer
 local lsp_installer = require("nvim-lsp-installer")
