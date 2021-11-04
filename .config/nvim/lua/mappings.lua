@@ -96,4 +96,7 @@ keymap("n", "<leader>t", ":ToggleTerm<CR>", opts)
 keymap("n", "<leader>T", ":ToggleTerm direction='float'<CR>", opts)
 
 -- refactoring
-vim.api.nvim_set_keymap("v", "<leader>r", "<Esc>:lua M.refactors()<CR>", opts)
+keymap("v", "<leader>r", "<Esc>:lua M.refactors()<CR>", opts)
+
+-- nvim-spectre
+keymap("n", "<leader>S", ":lua require('spectre').open()<CR>", opts)

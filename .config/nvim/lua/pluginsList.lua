@@ -92,6 +92,7 @@ return packer.startup({
 				"kdheepak/cmp-latex-symbols",
 				"ray-x/cmp-treesitter",
 				"saadparwaiz1/cmp_luasnip",
+				"hrsh7th/cmp-nvim-lsp-document-symbol"
 			},
 			config = function()
 				require("plugins.nvim-cmp")
@@ -221,6 +222,7 @@ return packer.startup({
 				require("plugins.tabset")
 			end,
 		})
+		use "davidgranstrom/nvim-markdown-preview"
 	end,
 	config = {
 		profile = {
