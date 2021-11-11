@@ -74,7 +74,7 @@ keymap("n", "H", ":BufferLineCyclePrev<CR>", opts)
 keymap("n", "<space>h", ":BufferLineMovePrev<CR>", opts)
 
 -- telescope
-keymap("n", "<leader>ff", ":lua require('telescope.builtin').find_files()<CR>", opts)
+keymap("n", "<leader>ff", ":lua require('telescope.builtin').find_files({ hidden = true })<CR>", opts)
 keymap("n", "<leader>fg", ":lua require('telescope.builtin').live_grep()<CR>", opts)
 keymap("n", "<leader>fb", ":lua require('telescope.builtin').buffers()<CR>", opts)
 keymap("n", "<leader>fh", ":lua require('telescope.builtin').help_tags()<CR>", opts)
@@ -84,7 +84,9 @@ keymap("n", "<leader>fgb", ":lua require('telescope.builtin').git_branches()<CR>
 keymap("n", "<leader>fgc", ":lua require('telescope.builtin').git_commits()<CR>", opts)
 
 -- debugging
-keymap("n", "<F5>", ":lua require('dap').continue()<CR>", opts)
+keymap("n", "<leader>dc", ":lua require('dap').continue()<CR>", opts)
+keymap("n", "<leader>dt", ":lua require('dap').terminate()<CR>", opts)
+keymap("n", "<leader>dq", ":lua require('dap').repl.close()<CR>", opts)
 keymap("n", "<F10>", ":lua require('dap').step_over()<CR>", opts)
 keymap("n", "<F11>", ":lua require('dap').step_into()<CR>", opts)
 keymap("n", "<F12>", ":lua require('dap').step_out()<CR>", opts)

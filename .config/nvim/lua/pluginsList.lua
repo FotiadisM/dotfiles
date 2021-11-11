@@ -92,7 +92,8 @@ return packer.startup({
 				"kdheepak/cmp-latex-symbols",
 				"ray-x/cmp-treesitter",
 				"saadparwaiz1/cmp_luasnip",
-				"hrsh7th/cmp-nvim-lsp-document-symbol"
+				"hrsh7th/cmp-cmdline",
+				"hrsh7th/cmp-nvim-lsp-document-symbol",
 			},
 			config = function()
 				require("plugins.nvim-cmp")
@@ -125,6 +126,13 @@ return packer.startup({
 			requires = "mfussenegger/nvim-dap",
 			config = function()
 				require("dapui").setup()
+			end,
+		})
+		use({
+			"theHamsta/nvim-dap-virtual-text",
+			requires = { "mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter" },
+			config = function()
+				require("nvim-dap-virtual-text").setup()
 			end,
 		})
 
@@ -222,7 +230,7 @@ return packer.startup({
 				require("plugins.tabset")
 			end,
 		})
-		use "davidgranstrom/nvim-markdown-preview"
+		use("davidgranstrom/nvim-markdown-preview")
 	end,
 	config = {
 		profile = {
