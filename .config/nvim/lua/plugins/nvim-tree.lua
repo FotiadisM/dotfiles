@@ -8,7 +8,7 @@ require("nvim-tree").setup({
 	open_on_setup = false,
 	auto_close = true,
 	open_on_tab = false,
-	update_to_buf_dir  = {
+	update_to_buf_dir = {
 		auto_open = false,
 	},
 	hijack_cursor = true,
@@ -17,14 +17,14 @@ require("nvim-tree").setup({
 		enable = true,
 	},
 	filters = {
-		custom = { ".git" }
+		custom = { ".git" },
 	},
 	view = {
 		mappings = {
 			list = {
 				{ key = "l", cb = tree_cb("edit") },
 				{ key = "h", cb = tree_cb("close_node") },
-			}
-		}
-	}
+			},
+		},
+	},
 })

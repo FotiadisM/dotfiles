@@ -102,6 +102,7 @@ return packer.startup({
 		use({ "simrat39/symbols-outline.nvim", cmd = "SymbolsOutline" })
 		use({
 			"ThePrimeagen/refactoring.nvim",
+			disable = true,
 			requires = {
 				{ "nvim-lua/plenary.nvim" },
 				{ "nvim-treesitter/nvim-treesitter" },
@@ -154,12 +155,15 @@ return packer.startup({
 
 		-- misc
 		use("tpope/vim-surround")
+		use("ggandor/lightspeed.nvim")
 		use({
 			"norcalli/nvim-colorizer.lua",
+			disable = true,
 			config = function()
 				require("colorizer").setup()
 			end,
 		})
+		use("tpope/vim-repeat")
 		use({
 			"windwp/nvim-autopairs",
 			after = "nvim-cmp",

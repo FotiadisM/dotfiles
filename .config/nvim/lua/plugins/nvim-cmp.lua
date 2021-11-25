@@ -54,9 +54,6 @@ cmp.setup({
 		{ name = "nvim_lua" },
 		{ name = "calc" },
 	},
-	completion = {
-		completeopt = "menu,menuone,noinsert",
-	},
 	formatting = {
 		format = require("lspkind").cmp_format({
 			with_text = true,

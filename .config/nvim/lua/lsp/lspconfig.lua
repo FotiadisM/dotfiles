@@ -96,9 +96,9 @@ lsp_installer.on_server_ready(function(server)
 		config = require("lsp.servers.vue").setup(config, on_attach)
 	end
 
-	-- if server.name == "efm" then
-	-- 	config = require("lsp.servers.efm").setup(config, on_attach)
-	-- end
+	if server.name == "rust_analyzer" then
+		config = require("lsp.servers.rust").setup(config, on_attach)
+	end
 
 	server:setup(config)
 	vim.cmd([[ do User LspAttachBuffers ]])

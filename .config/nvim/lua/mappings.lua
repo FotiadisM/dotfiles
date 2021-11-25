@@ -23,7 +23,7 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<C-Up>", ":resize +3<CR>", opts)
 keymap("n", "<C-Down>", ":resize -3<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize +3<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +3<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize -3<CR>", opts)
 
 -- move lines quicly
 keymap("n", "[e", ":<C-u>execute 'move -1-'. v:count1<CR>", opts)
@@ -32,6 +32,14 @@ keymap("n", "]e", ":<C-u>execute 'move +'. v:count1<CR>", opts)
 -- quicly add empty lines
 keymap("n", "[<space>", ":<C-u>put! =repeat(nr2char(10), v:count1)<CR>", opts)
 keymap("n", "]<space>", ":<C-u>put =repeat(nr2char(10), v:count1)<CR>", opts)
+
+-- remap C-a due to tmux
+keymap("n", "<A-a>", "<C-a>", opts)
+keymap("v", "<A-a>", "<C-a>gv", opts)
+keymap("v", "g<A-a>", "g<C-a>gv", opts)
+keymap("n", "<A-x>", "<C-x>", opts)
+keymap("v", "<A-x>", "<C-x>gv", opts)
+keymap("v", "g<A-x>", "g<C-x>gv", opts)
 
 -- edit macros
 keymap("n", "<leader>m", ":<C-u><C-r><C-r>='let @'. v:register .' = '. string(getreg(v:register))<CR><C-f><Left>", opts)
@@ -47,6 +55,7 @@ keymap("n", "q:", "<nop>", opts)
 -- toggle spelling
 keymap("n", "<leader>s", ":set spell!<CR>", opts)
 
+-- quickfix list mappings
 Mappings = {}
 Mappings.toggle_qf = function()
 	local gf_open = false
@@ -62,7 +71,9 @@ Mappings.toggle_qf = function()
 	end
 	vim.cmd([[copen]])
 end
-keymap("n", "<leader>c", ":lua Mappings.toggle_qf()<CR>", opts)
+keymap("n", "<leader>cc", ":lua Mappings.toggle_qf()<CR>", opts)
+keymap("n", "<leader>cn", ":cnext<CR>", opts)
+keymap("n", "<leader>cp", ":cprev<CR>", opts)
 
 -- nvim-tree
 keymap("n", "<leader>b", ":NvimTreeToggle<CR>", opts)
