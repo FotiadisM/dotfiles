@@ -27,7 +27,9 @@ keymap("n", "<C-Right>", ":vertical resize -3<CR>", opts)
 
 -- move lines quicly
 keymap("n", "[e", ":<C-u>execute 'move -1-'. v:count1<CR>", opts)
+keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 keymap("n", "]e", ":<C-u>execute 'move +'. v:count1<CR>", opts)
+keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 
 -- quicly add empty lines
 keymap("n", "[<space>", ":<C-u>put! =repeat(nr2char(10), v:count1)<CR>", opts)
@@ -43,6 +45,9 @@ keymap("v", "g<A-x>", "g<C-x>gv", opts)
 
 -- edit macros
 keymap("n", "<leader>m", ":<C-u><C-r><C-r>='let @'. v:register .' = '. string(getreg(v:register))<CR><C-f><Left>", opts)
+
+-- don't move cursor when concatenating lines
+keymap("n", "J", "mzJ`z", opts)
 
 -- don't lose selection when shifting
 keymap("x", "<", "<gv", opts)
@@ -90,7 +95,7 @@ keymap("n", "<leader>fg", ":lua require('telescope.builtin').live_grep()<CR>", o
 keymap("n", "<leader>fb", ":lua require('telescope.builtin').buffers()<CR>", opts)
 keymap("n", "<leader>fh", ":lua require('telescope.builtin').help_tags()<CR>", opts)
 keymap("n", "<leader>fp", ":lua require('telescope').extensions.packer.plugins()<CR>", opts)
-keymap("n", "<leader>fc", ":lua require('telescope').extensions.neoclip.default()<CR>", opts)
+keymap("n", "<leader>fn", ":lua require('telescope').extensions.neoclip.default()<CR>", opts)
 keymap("n", "<leader>fgb", ":lua require('telescope.builtin').git_branches()<CR>", opts)
 keymap("n", "<leader>fgc", ":lua require('telescope.builtin').git_commits()<CR>", opts)
 
