@@ -181,7 +181,6 @@ return packer.startup({
 				require("plugins.comment")
 			end,
 		})
-		use("JoosepAlviste/nvim-ts-context-commentstring")
 		use({
 			"AckslD/nvim-neoclip.lua",
 			config = function()
@@ -235,6 +234,9 @@ return packer.startup({
 			end,
 		})
 		use("davidgranstrom/nvim-markdown-preview")
+		use({ "stevearc/dressing.nvim", config = function()
+			require("dressing").setup()
+		end })
 	end,
 	config = {
 		profile = {
