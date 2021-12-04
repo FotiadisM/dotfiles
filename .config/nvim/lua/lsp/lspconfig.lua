@@ -62,7 +62,11 @@ local function make_config()
 end
 
 local lspconf = require("lspconfig")
-lspconf["gopls"].setup(require("lsp.servers.go").setup(make_config(), on_attach))
+lspconf["gopls"].setup(require("lsp.servers.gopls").setup(make_config(), on_attach))
+lspconf["clangd"].setup(make_config())
+
+-- need to first call require(...).setup(...), then lspconf["null_ls"].setup()
+-- to work
 local conf = require("lsp.servers.null_ls").setup(make_config())
 lspconf["null-ls"].setup(conf)
 
@@ -73,11 +77,11 @@ lsp_installer.on_server_ready(function(server)
 	local config = make_config()
 
 	if server.name == "sumneko_lua" then
-		config = require("lsp.servers.lua").setup(config, on_attach)
+		config = require("lsp.servers.sumneko_lua").setup(config, on_attach)
 	end
 
 	if server.name == "texlab" then
-		config = require("lsp.servers.latex").setup(config, on_attach)
+		config = require("lsp.servers.texlab").setup(config, on_attach)
 	end
 
 	if server.name == "html" then
@@ -85,19 +89,23 @@ lsp_installer.on_server_ready(function(server)
 	end
 
 	if server.name == "jsonls" then
-		config = require("lsp.servers.json").setup(config, on_attach)
+		config = require("lsp.servers.jsonls").setup(config, on_attach)
 	end
 
 	if server.name == "tsserver" then
-		config = require("lsp.servers.typescript").setup(config, on_attach)
+		config = require("lsp.servers.tsserver").setup(config, on_attach)
+	end
+
+	if server.name == "yamlls" then
+		config = require("lsp.servers.yamlls").setup(config, on_attach)
 	end
 
 	if server.name == "volar" then
-		config = require("lsp.servers.vue").setup(config, on_attach)
+		config = require("lsp.servers.volar").setup(config, on_attach)
 	end
 
 	if server.name == "rust_analyzer" then
-		config = require("lsp.servers.rust").setup(config, on_attach)
+		config = require("lsp.servers.rust_analyzer").setup(config, on_attach)
 	end
 
 	server:setup(config)

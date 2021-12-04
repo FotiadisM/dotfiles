@@ -15,7 +15,7 @@ null_ls.config({ sources = sources })
 
 M = {}
 M.setup = function(config)
-	config.root_dir = require("lspconfig").util.root_pattern("init.lua", "package.lock", "go.mod", ".git")
+	config.root_dir = require("lspconfig").util.root_pattern("init.lua", "package.json", "go.mod", ".git")
 	return config
 end
 
