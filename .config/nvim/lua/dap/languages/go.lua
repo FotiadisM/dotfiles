@@ -39,6 +39,12 @@ return {
 		},
 		{
 			type = "go",
+			name = "Debug folder",
+			request = "launch",
+			program = "${fileDirname}",
+		},
+		{
+			type = "go",
 			name = "Debug test",
 			request = "launch",
 			mode = "test",

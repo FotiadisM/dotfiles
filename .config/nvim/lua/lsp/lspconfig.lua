@@ -17,6 +17,7 @@ local on_attach = function(client, bufnr)
 	end
 
 	require("lsp_signature").on_attach(lspSignatureCfg)
+	require("illuminate").on_attach(client)
 
 	-- Mappings.
 	local opts = { noremap = true, silent = true }
@@ -39,15 +40,15 @@ local on_attach = function(client, bufnr)
 
 	-- Set some keybinds conditional on server capabilities
 	if client.resolved_capabilities.document_formatting then
-		buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+		buf_set_keymap("n", "<space>f", ":lua vim.lsp.buf.formatting()<CR>", opts)
 		vim.cmd([[
 		augroup lsp_format
 			autocmd! * <buffer>
 			autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting_sync()
-			augroup END
+		augroup END
 		]])
 	elseif client.resolved_capabilities.document_range_formatting then
-		buf_set_keymap("n", "<space>rf", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
+		buf_set_keymap("n", "<space>rf", ":lua vim.lsp.buf.range_formatting_sync()<CR>", opts)
 	end
 end
 

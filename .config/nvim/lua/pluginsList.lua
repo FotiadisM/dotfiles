@@ -234,9 +234,13 @@ return packer.startup({
 			end,
 		})
 		use("davidgranstrom/nvim-markdown-preview")
-		use({ "stevearc/dressing.nvim", config = function()
-			require("dressing").setup()
-		end })
+		use({
+			"stevearc/dressing.nvim",
+			config = function()
+				require("dressing").setup()
+			end,
+		})
+		use("RRethy/vim-illuminate")
 	end,
 	config = {
 		profile = {
