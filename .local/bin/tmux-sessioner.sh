@@ -1,14 +1,17 @@
 #!/bin/sh
 
-folder=$(fd -t d --hidden --exclude .git | fzf)
-
-if [ $? -eq 0 ]; then
-	name=$(basename $folder)
-
-	tmux has -t $name
-	if [ $? -eq 1 ]; then
-		tmux new -d -s $name -c $folder
+folder=$1
+if [ $# -eq 0 ]; then
+	folder=$(fd -t d -H -E .git -E node_modules | fzf)
+	if [ $? -ne 0 ]; then
+		exit 0
 	fi
-
-	tmux switch -t $name
 fi
+
+name=$(basename $folder)
+tmux has -t $name
+if [ $? -ne 0 ]; then
+	tmux new -d -s $name -c $folder
+fi
+
+tmux switch -t $name
