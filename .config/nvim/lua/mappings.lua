@@ -79,6 +79,7 @@ end
 keymap("n", "<leader>cc", ":lua Mappings.toggle_qf()<CR>", opts)
 keymap("n", "<leader>cn", ":cnext<CR>", opts)
 keymap("n", "<leader>cp", ":cprev<CR>", opts)
+keymap("n", "<leader>cl", ": lua vim.diagnostic.setqflist()<CR>", opts)
 
 -- nvim-tree
 keymap("n", "<leader>b", ":NvimTreeToggle<CR>", opts)

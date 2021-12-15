@@ -11,7 +11,7 @@ local lspSignatureCfg = {
 }
 
 -- lspkeymaps
-local on_attach = function(client, bufnr)
+local on_attach =                function(client, bufnr)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
 	end
@@ -52,6 +52,7 @@ local on_attach = function(client, bufnr)
 	end
 end
 
+
 -- config that activates keymaps and enables snippet support
 local function make_config()
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -66,10 +67,7 @@ local lspconf = require("lspconfig")
 lspconf["gopls"].setup(require("lsp.servers.gopls").setup(make_config(), on_attach))
 lspconf["clangd"].setup(make_config())
 
--- need to first call require(...).setup(...), then lspconf["null_ls"].setup()
--- to work
-local conf = require("lsp.servers.null_ls").setup(make_config())
-lspconf["null-ls"].setup(conf)
+require("lsp.servers.null_ls")
 
 -- nvim-lsp-installer
 local lsp_installer = require("nvim-lsp-installer")

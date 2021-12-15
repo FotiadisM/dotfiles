@@ -1,17 +1,21 @@
 require("tabset").setup({
 	defaults = {
 		tabwidth = 4,
-		expandtab = false
+		expandtab = false,
 	},
 	languages = {
 		go = {
-			expandtab = false
+			expandtab = false,
+		},
+		yaml = {
+			tabwidth = 2,
+			expandtab = true,
 		},
 		{
-			filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "yaml", "vue", "html" },
+			filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "vue", "html" },
 			config = {
-				tabwidth = 2
-			}
-		}
-	}
+				tabwidth = 2,
+			},
+		},
+	},
 })

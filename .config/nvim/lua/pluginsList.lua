@@ -28,6 +28,12 @@ return packer.startup({
 				require("plugins.nvim-tree")
 			end,
 		})
+		-- use({
+		-- 	"Xuyuanp/yanil",
+		-- 	config = function()
+		-- 		require("plugins.yanil")
+		-- 	end,
+		-- })
 		use({
 			"nvim-telescope/telescope.nvim",
 			requires = "nvim-lua/plenary.nvim",
@@ -102,7 +108,6 @@ return packer.startup({
 		use({ "simrat39/symbols-outline.nvim", cmd = "SymbolsOutline" })
 		use({
 			"ThePrimeagen/refactoring.nvim",
-			disable = true,
 			requires = {
 				{ "nvim-lua/plenary.nvim" },
 				{ "nvim-treesitter/nvim-treesitter" },
@@ -224,7 +229,7 @@ return packer.startup({
 			"folke/todo-comments.nvim",
 			requires = "nvim-lua/plenary.nvim",
 			config = function()
-				require("todo-comments").setup()
+				require("plugins.todo-comments")
 			end,
 		})
 		use({

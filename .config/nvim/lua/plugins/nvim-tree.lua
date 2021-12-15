@@ -19,6 +19,9 @@ require("nvim-tree").setup({
 	filters = {
 		custom = { ".git" },
 	},
+	git = {
+		ignore = false
+	},
 	view = {
 		mappings = {
 			list = {
