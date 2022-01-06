@@ -28,12 +28,13 @@ return packer.startup({
 				require("plugins.nvim-tree")
 			end,
 		})
-		-- use({
-		-- 	"Xuyuanp/yanil",
-		-- 	config = function()
-		-- 		require("plugins.yanil")
-		-- 	end,
-		-- })
+		use({
+			"FotiadisM/yanil",
+			requires = "kyazdani42/nvim-web-devicons",
+			config = function ()
+				require("plugins.yanil")
+			end
+		})
 		use({
 			"nvim-telescope/telescope.nvim",
 			requires = "nvim-lua/plenary.nvim",

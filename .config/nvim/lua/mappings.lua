@@ -13,6 +13,9 @@ keymap("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 -- copy to clipboard
 keymap("", "<C-c>", '"+y', opts)
 
+-- easily source files
+vim.api.nvim_set_keymap("n", "<leader>l", ":so%<CR>", opts)
+
 -- moving between windows
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -82,9 +85,13 @@ keymap("n", "<leader>cp", ":cprev<CR>", opts)
 keymap("n", "<leader>cl", ": lua vim.diagnostic.setqflist()<CR>", opts)
 
 -- nvim-tree
-keymap("n", "<leader>b", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>y", ":NvimTreeToggle<CR>", opts)
+
+-- yanil
+keymap("n", "<leader>b", ":lua require('yanil.canvas').toggle()<CR>", opts)
 
 -- bufferline
+keymap("n", "gb", ":BufferLinePick<CR>", opts)
 keymap("n", "L", ":BufferLineCycleNext<CR>", opts)
 keymap("n", "<space>l", ":BufferLineMoveNext<CR>", opts)
 keymap("n", "H", ":BufferLineCyclePrev<CR>", opts)
