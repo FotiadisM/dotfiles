@@ -14,7 +14,7 @@ keymap("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 keymap("", "<C-c>", '"+y', opts)
 
 -- easily source files
-vim.api.nvim_set_keymap("n", "<leader>l", ":so%<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>l", ":so%<CR>", {})
 
 -- moving between windows
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -98,11 +98,12 @@ keymap("n", "H", ":BufferLineCyclePrev<CR>", opts)
 keymap("n", "<space>h", ":BufferLineMovePrev<CR>", opts)
 
 -- telescope
+keymap("n", "gf", ":lua require('telescope.builtin').find_files({ hidden = true })<CR>", opts)
 keymap("n", "<leader>ff", ":lua require('telescope.builtin').find_files({ hidden = true })<CR>", opts)
 keymap("n", "<leader>fg", ":lua require('telescope.builtin').live_grep()<CR>", opts)
 keymap("n", "<leader>fb", ":lua require('telescope.builtin').buffers()<CR>", opts)
 keymap("n", "<leader>fh", ":lua require('telescope.builtin').help_tags()<CR>", opts)
-keymap("n", "<leader>fp", ":lua require('telescope').extensions.packer.plugins()<CR>", opts)
+keymap("n", "<leader>fp", ":lua require('telescope').extensions.packer.packer()<CR>", opts)
 keymap("n", "<leader>fn", ":lua require('telescope').extensions.neoclip.default()<CR>", opts)
 keymap("n", "<leader>fgb", ":lua require('telescope.builtin').git_branches()<CR>", opts)
 keymap("n", "<leader>fgc", ":lua require('telescope.builtin').git_commits()<CR>", opts)

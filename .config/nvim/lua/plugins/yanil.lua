@@ -1,10 +1,12 @@
 local canvas = require("yanil.canvas")
 local git = require("yanil.git")
 local decorators = require("yanil.decorators")
+local diagnostics = require("yanil.diagnostics")
 local devicons = require("yanil.devicons")
 local colors = require("yanil.colors")
 
 colors.setup()
+diagnostics.setup()
 git.setup()
 
 local tree = require("yanil.sections.tree"):new()
@@ -13,6 +15,8 @@ tree:setup({
 	draw_opts = {
 		decorators = {
 			decorators.pretty_indent,
+			diagnostics.decorator(),
+			decorators.space,
 			devicons.decorator(),
 			decorators.space,
 			decorators.default,
@@ -28,6 +32,10 @@ tree:setup({
 		h = tree.close_node,
 		v = tree:gen_open_file_node("vsplit"),
 		s = tree:gen_open_file_node("split"),
+
+		a = tree.create_node,
+		d = tree.delete_node,
+		r = tree.rename_node,
 
 		["]c"] = git.jump_next,
 		["[c"] = git.jump_prev,
@@ -70,6 +78,14 @@ canvas.setup({
 			pattern = "YanilGitStatusChanged",
 			cmd = function()
 				git.refresh_tree(tree)
+			end,
+		},
+		{
+			event = "DiagnosticChanged",
+			pattern = "*",
+			cmd = function()
+				diagnostics.update()
+				diagnostics.refresh_tree(tree)
 			end,
 		},
 	},

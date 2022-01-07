@@ -32,10 +32,10 @@ local on_attach = function(client, bufnr)
 	keymap("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-	keymap("n", "<space>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
-	keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
-	keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
-	keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
+	keymap("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+	keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+	keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+	keymap("n", "<space>q", "<cmd>lua vim.diagnostic.setqflist()<CR>", opts)
 
 	-- Set some keybinds conditional on server capabilities
 	if client.resolved_capabilities.document_formatting then
