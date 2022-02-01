@@ -9,7 +9,7 @@ if [ $# -eq 0 ]; then
 fi
 
 name=$(basename $folder)
-tmux has -t $name
+tmux has -t $name 2> /dev/null
 if [ $? -ne 0 ]; then
 	tmux new -d -s $name -c $folder
 fi
