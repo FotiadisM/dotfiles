@@ -28,7 +28,7 @@ tree:setup({
 		["<CR>"] = tree.open_node,
 		["<BS>"] = tree.close_node,
 
-		l = tree.open_node,
+		l = tree.toggle_open_node,
 		h = tree.close_node,
 		v = tree:gen_open_file_node("vsplit"),
 		s = tree:gen_open_file_node("split"),
@@ -50,16 +50,16 @@ tree:setup({
 			vim.fn.execute("quit")
 		end,
 	},
-	filters = {
-		function(name)
-			local patterns = { "^%.git$" }
-			for _, pat in ipairs(patterns) do
-				if string.find(name, pat) then
-					return true
-				end
-			end
-		end,
-	},
+	-- filters = {
+	-- 	function(name)
+	-- 		local patterns = { "^%.git$" }
+	-- 		for _, pat in ipairs(patterns) do
+	-- 			if string.find(name, pat) then
+	-- 				return true
+	-- 			end
+	-- 		end
+	-- 	end,
+	-- },
 })
 
 canvas.register_hooks({

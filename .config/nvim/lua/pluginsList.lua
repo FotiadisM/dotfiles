@@ -42,7 +42,6 @@ return packer.startup({
 			after = {
 				"telescope-fzf-native.nvim",
 				"telescope-packer.nvim",
-				"telescope-dap.nvim",
 			},
 			config = function()
 				require("plugins.telescope")
@@ -50,10 +49,6 @@ return packer.startup({
 		})
 		use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 		use("nvim-telescope/telescope-packer.nvim")
-		use({
-			"nvim-telescope/telescope-dap.nvim",
-			requires = "mfussenegger/nvim-dap",
-		})
 		use({
 			"windwp/nvim-spectre",
 			requires = "nvim-lua/plenary.nvim",
@@ -156,6 +151,13 @@ return packer.startup({
 			cmd = "DiffviewOpen",
 			config = function()
 				require("diffview").setup()
+			end,
+		})
+		use({
+			"TimUntersberger/neogit",
+			requires = "nvim-lua/plenary.nvim",
+			config = function()
+				require("neogit").setup()
 			end,
 		})
 

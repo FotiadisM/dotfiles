@@ -4,7 +4,7 @@ require("nvim-treesitter.configs").setup({
 		enable = true,
 	},
 	indent = {
-		enable = false
+		enable = false,
 	},
 	textobjects = {
 		select = {
@@ -54,7 +54,7 @@ require("nvim-treesitter.configs").setup({
 	context_commentstring = {
 		enable = true,
 		enable_autocmd = false,
-	}
+	},
 })
 
 local pc = require("nvim-treesitter.parsers").get_parser_configs()
@@ -63,6 +63,16 @@ pc.http = {
 	install_info = {
 		url = "https://github.com/NTBBloodbath/tree-sitter-http",
 		files = { "src/parser.c" },
-		branch = "main"
-	}
+		branch = "main",
+	},
+}
+
+pc.gotmpl = {
+	install_info = {
+		url = "https://github.com/ngalaiko/tree-sitter-go-template",
+		files = { "src/parser.c" },
+	},
+	filetype = "gotmpl",
+	-- used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl", "yaml" },
+	used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl" },
 }
