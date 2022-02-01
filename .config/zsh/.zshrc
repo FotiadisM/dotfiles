@@ -83,6 +83,7 @@ plugins=(
 	git
 	zsh-syntax-highlighting
 	zsh-autosuggestions
+	zsh-completions
 	docker
 	docker-compose
 	golang
@@ -97,8 +98,7 @@ plugins=(
 	fzf
 	gh
 	rust
-	rustup
-	cargo
+	lxd-completion-zsh
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -114,8 +114,9 @@ KEYTIMEOUT=1
 [ -f "$HOME/.config/lf/icons.sh" ] && source "$HOME/.config/lf/icons.sh"
 
 export GOBIN="$GOPATH/bin"
-export PATH=$GOBIN:$PATH
+export PATH=$PATH:$GOBIN
 export PATH=$PATH:$CARGO_HOME/bin
+export PATH=$PATH:$HOME/.local/share/npm/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -139,14 +140,18 @@ alias la='ls -lAhv --color=auto --group-directories-first'
 alias lf='lfrun'
 alias l='la $(fd -H -E .git -E node_modules | fzf)'
 alias open='xdg-open'
-alias nvimrc='nvim $HOME/.config/nvim'
+alias nvimrc='(cd $HOME/.config/nvim && nvim)' # avoid creating buffer for dir
 alias zshrc='nvim $HOME/.config/zsh/.zshrc'
 alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias d='cd $(fd -t d -H -E .git -E node_modules | fzf)'
-alias dn='nvim $(fd -t d -H -E .git -E node_modules | fzf)'
+alias dn='nvim $(fd -t d -E .git -E node_modules | fzf)'
+alias dnh='nvim $(fd -t d -H -E .git -E node_modules | fzf)'
 alias dt='tmux-sessioner.sh'
 alias f='nvim $(fzf)'
 alias t='tmux'
+alias nv='nvim'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+autoload -U compinit && compinit
