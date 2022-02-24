@@ -2,7 +2,7 @@
 
 folder=$1
 if [ $# -eq 0 ]; then
-	folder=$(fd -t d -H -E .git -E node_modules | fzf)
+	folder=$(fd -t d -H -a -E .git -E node_modules | fzf)
 	if [ $? -ne 0 ]; then
 		exit 0
 	fi
