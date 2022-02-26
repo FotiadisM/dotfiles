@@ -4,7 +4,7 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-function lua.setup(config, _)
+function lua.setup(config, on_attach)
 	config.root_dir = require("lspconfig.util").root_pattern(".git", "init.lua")
 	config.settings = {
 		Lua = {
@@ -24,6 +24,11 @@ function lua.setup(config, _)
 			},
 		},
 	}
+
+	config.on_attach = function(client, bufnr)
+		client.resolved_capabilities.document_formatting = false
+		on_attach(client, bufnr)
+	end
 
 	return config
 end

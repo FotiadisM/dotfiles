@@ -11,9 +11,12 @@ require("tabset").setup({
 			tabwidth = 2,
 			expandtab = true,
 		},
-		terraform = {
-			tabwidth = 2,
-			expandtab = true,
+		{
+			filetypes = { "terraform", "helm" },
+			config = {
+				tabwidth = 2,
+				expandtab = true,
+			},
 		},
 		{
 			filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "vue", "html" },

@@ -85,10 +85,10 @@ keymap("n", "<leader>cp", ":cprev<CR>", opts)
 keymap("n", "<leader>cl", ": lua vim.diagnostic.setqflist()<CR>", opts)
 
 -- nvim-tree
-keymap("n", "<leader>y", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>b", ":NvimTreeToggle<CR>", opts)
 
 -- yanil
-keymap("n", "<leader>b", ":lua require('yanil.canvas').toggle()<CR>", opts)
+-- keymap("n", "<leader>b", ":lua require('yanil.canvas').toggle()<CR>", opts)
 
 -- bufferline
 keymap("n", "gb", ":BufferLinePick<CR>", opts)

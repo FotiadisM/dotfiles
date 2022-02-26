@@ -66,13 +66,3 @@ pc.http = {
 		branch = "main",
 	},
 }
-
-pc.gotmpl = {
-	install_info = {
-		url = "https://github.com/ngalaiko/tree-sitter-go-template",
-		files = { "src/parser.c" },
-	},
-	filetype = "gotmpl",
-	-- used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl", "yaml" },
-	used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl" },
-}

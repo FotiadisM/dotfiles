@@ -49,6 +49,13 @@ local on_attach = function(client, bufnr)
 	elseif client.resolved_capabilities.document_range_formatting then
 		keymap("n", "<space>rf", ":lua vim.lsp.buf.range_formatting_sync()<CR>", opts)
 	end
+
+	if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
+		vim.diagnostic.disable(bufnr)
+		vim.defer_fn(function()
+			vim.diagnostic.reset(nil, bufnr)
+		end, 1000)
+	end
 end
 
 local function make_config()

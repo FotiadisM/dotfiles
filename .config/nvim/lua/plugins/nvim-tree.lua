@@ -1,5 +1,3 @@
-local tree_cb = require("nvim-tree.config").nvim_tree_callback
-
 vim.g.nvim_tree_special_files = {}
 
 require("nvim-tree").setup({
@@ -20,13 +18,17 @@ require("nvim-tree").setup({
 		custom = { ".git" },
 	},
 	git = {
-		ignore = false
+		ignore = false,
 	},
 	view = {
 		mappings = {
 			list = {
-				{ key = "l", cb = tree_cb("edit") },
-				{ key = "h", cb = tree_cb("close_node") },
+				{ key = "l", action = "edit" },
+				{ key = "h", action = "close_node" },
+				{ key = "v", action = "vsplit" },
+				{ key = "x", action = "split" },
+				{ key = "]c", action = "cd" },
+				{ key = "[c", action = "dir_up" },
 			},
 		},
 	},

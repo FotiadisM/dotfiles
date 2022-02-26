@@ -116,6 +116,9 @@ return packer.startup({
 		-- snipets
 		use("L3MON4D3/LuaSnip")
 
+		-- language specific
+		use({ "towolf/vim-helm" })
+
 		-- debugging
 		use({
 			"mfussenegger/nvim-dap",
