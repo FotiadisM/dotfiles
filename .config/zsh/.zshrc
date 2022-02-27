@@ -110,8 +110,9 @@ bindkey -v
 # Enter Normal mode faster
 KEYTIMEOUT=1
 
-# source lf icons
-[ -f "$HOME/.config/lf/icons.sh" ] && source "$HOME/.config/lf/icons.sh"
+# commands that start with space are not
+# writtern in history
+setopt HIST_IGNORE_SPACE
 
 export GOBIN="$GOPATH/bin"
 export PATH=$PATH:$GOBIN
@@ -119,8 +120,13 @@ export PATH=$PATH:$CARGO_HOME/bin
 export PATH=$PATH:$HOME/.local/share/npm/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# Ctrl-x-e to edit command in nvim
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
+# source lf icons
+[ -f "$HOME/.config/lf/icons.sh" ] && source "$HOME/.config/lf/icons.sh"
 
 # Preferred editor for remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
