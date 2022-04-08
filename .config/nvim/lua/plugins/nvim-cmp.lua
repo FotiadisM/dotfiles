@@ -3,8 +3,8 @@ local has_words_before = function()
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
+-- local ls = require("luasnip")
 require("plugins.luasnip")
-local ls = require("luasnip")
 local cmp = require("cmp")
 
 cmp.setup({
@@ -17,8 +17,8 @@ cmp.setup({
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-			elseif ls.expand_or_locally_jumpable() then
-				ls.expand_or_jump()
+				-- elseif ls.expand_or_locally_jumpable() then
+				-- 	ls.expand_or_jump()
 			elseif has_words_before() then
 				cmp.complete()
 			else
@@ -31,8 +31,8 @@ cmp.setup({
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-			elseif ls.jumpable(-1) then
-				ls.jump(-1)
+				-- elseif ls.jumpable(-1) then
+				-- 	ls.jump(-1)
 			else
 				fallback()
 			end
@@ -53,7 +53,6 @@ cmp.setup({
 		{ name = "buffer", keyword_length = 4 },
 		{ name = "path" },
 		{ name = "nvim_lua" },
-		{ name = "calc" },
 	},
 	completion = {
 		completeopt = "menu,menuone",

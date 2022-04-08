@@ -90,7 +90,6 @@ return packer.startup({
 				"hrsh7th/cmp-nvim-lua",
 				"hrsh7th/cmp-buffer",
 				"hrsh7th/cmp-path",
-				"hrsh7th/cmp-calc",
 				"kdheepak/cmp-latex-symbols",
 				"ray-x/cmp-treesitter",
 				"saadparwaiz1/cmp_luasnip",
@@ -101,6 +100,7 @@ return packer.startup({
 				require("plugins.nvim-cmp")
 			end,
 		})
+		use("L3MON4D3/LuaSnip")
 		use({ "simrat39/symbols-outline.nvim", cmd = "SymbolsOutline" })
 		use({
 			"ThePrimeagen/refactoring.nvim",
@@ -113,10 +113,7 @@ return packer.startup({
 			end,
 		})
 
-		-- snipets
-		use("L3MON4D3/LuaSnip")
-
-		-- language specific
+		-- language specific plugins
 		use({ "towolf/vim-helm" })
 
 		-- debugging

@@ -36,19 +36,18 @@ local on_attach = function(client, bufnr)
 	keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 	keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 	keymap("n", "<space>q", "<cmd>lua vim.diagnostic.setqflist()<CR>", opts)
+	keymap("n", "<space>f", ":lua vim.lsp.buf.formatting()<CR>", opts)
+	keymap("n", "<space>rf", ":lua vim.lsp.buf.range_formatting()<CR>", opts)
 
 	-- Set some keybinds conditional on server capabilities
-	if client.resolved_capabilities.document_formatting then
-		keymap("n", "<space>f", ":lua vim.lsp.buf.formatting()<CR>", opts)
-		vim.cmd([[
-		augroup lsp_format
-			autocmd! * <buffer>
-			autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting_sync()
-		augroup END
-		]])
-	elseif client.resolved_capabilities.document_range_formatting then
-		keymap("n", "<space>rf", ":lua vim.lsp.buf.range_formatting_sync()<CR>", opts)
-	end
+	-- if client.resolved_capabilities.document_formatting then
+	-- 	vim.cmd([[
+	-- 	augroup lsp_format
+	-- 		autocmd! * <buffer>
+	-- 		autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting_sync()
+	-- 	augroup END
+	-- 	]])
+	-- end
 
 	if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
 		vim.diagnostic.disable(bufnr)

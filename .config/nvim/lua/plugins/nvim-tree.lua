@@ -4,7 +4,6 @@ require("nvim-tree").setup({
 	disable_netrw = false,
 	hijack_netrw = false,
 	open_on_setup = false,
-	auto_close = true,
 	open_on_tab = false,
 	update_to_buf_dir = {
 		auto_open = false,
@@ -33,3 +32,5 @@ require("nvim-tree").setup({
 		},
 	},
 })
+
+vim.cmd([[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]])

@@ -2,10 +2,9 @@ local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 keymap("i", "jj", "<ESC>", { noremap = true })
+keymap("v", "<space>", "<ESC>", { noremap = true })
 keymap("i", "<C-s>", "<ESC>:w<CR>a", { noremap = true })
 keymap("n", "<C-s>", ":w<CR>", { noremap = true })
-
-keymap("n", "Y", "y$", {})
 
 -- close current buffer and jump to previous one
 keymap("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
@@ -14,7 +13,7 @@ keymap("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 keymap("", "<C-c>", '"+y', opts)
 
 -- easily source files
-vim.api.nvim_set_keymap("n", "<leader>l", ":so%<CR>", {})
+keymap("n", "<leader>l", ":so%<CR>", {})
 
 -- moving between windows
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -80,15 +79,34 @@ Mappings.toggle_qf = function()
 	vim.cmd([[copen]])
 end
 keymap("n", "<leader>cc", ":lua Mappings.toggle_qf()<CR>", opts)
+keymap("n", "<leader>cc", "<ESC>:lua Mappings.toggle_qf()<CR>a", opts)
 keymap("n", "<leader>cn", ":cnext<CR>", opts)
 keymap("n", "<leader>cp", ":cprev<CR>", opts)
-keymap("n", "<leader>cl", ": lua vim.diagnostic.setqflist()<CR>", opts)
+keymap("n", "<leader>cl", ":lua vim.diagnostic.setqflist()<CR>", opts)
 
 -- nvim-tree
 keymap("n", "<leader>b", ":NvimTreeToggle<CR>", opts)
 
 -- yanil
 -- keymap("n", "<leader>b", ":lua require('yanil.canvas').toggle()<CR>", opts)
+
+-- luasnip
+local ls = require("luasnip")
+vim.keymap.set({ "i", "s" }, "<C-k>", function()
+	if ls.expand_or_jumpable() then
+		ls.expand_or_jump()
+	end
+end, opts)
+vim.keymap.set({ "i", "s" }, "<C-j>", function()
+	if ls.jumpable(-1) then
+		ls.jump(-1)
+	end
+end, opts)
+vim.keymap.set({ "i", "s" }, "<C-l>", function()
+	if ls.choice_active() then
+		ls.change_choice(1)
+	end
+end, opts)
 
 -- bufferline
 keymap("n", "gb", ":BufferLinePick<CR>", opts)
