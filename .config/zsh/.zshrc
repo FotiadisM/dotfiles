@@ -123,7 +123,7 @@ export PATH=$PATH:$HOME/.local/share/npm/bin
 # Ctrl-x-e to edit command in nvim
 autoload -z edit-command-line
 zle -N edit-command-line
-bindkey "^X^E" edit-command-line
+bindkey "^E" edit-command-line
 
 # source lf icons
 [ -f "$HOME/.config/lf/icons.sh" ] && source "$HOME/.config/lf/icons.sh"
