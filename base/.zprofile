@@ -6,13 +6,14 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+export HISTFILE="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zsh_history"
+
 export LESS='-R --use-color -Dd+r$Du+b'
 export LESSHISTFILE="-"
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
-# export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
-export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history/.zsh_history"
-export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export GNUPGHOME="${XDG_CONFIG_HOME:-$HOME/.config}/gnupg"
+
 export FZF_DEFAULT_COMMAND="fd -t f -H -E .git -E node_modules"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40% --border"
 
