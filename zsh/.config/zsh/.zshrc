@@ -11,7 +11,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="${XDG_CONFIG_HOME:-$HOME/.config}/.oh-my-zsh"
+export ZSH="${XDG_DATA_HOME:-$HOME/.local/share}/oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -72,7 +72,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# ZSH_CUSTOM=${XDG_DATA_HOME:-$HOME/.local/share}/oh-my-zsh/custom
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -80,10 +80,13 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
+	# custom
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 	zsh-completions
+
+	# included
+	git
 	docker
 	docker-compose
 	golang
@@ -98,7 +101,6 @@ plugins=(
 	fzf
 	gh
 	rust
-	lxd-completion-zsh
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -143,18 +145,17 @@ fi
 alias c='clear'
 alias ls='ls -v --color=auto --group-directories-first'
 alias la='ls -lAhv --color=auto --group-directories-first'
-alias lf='lfrun'
 alias l='la $(fd -H -E .git -E node_modules | fzf)'
 alias open='xdg-open'
 alias nvimrc='(cd $HOME/.config/nvim && nvim)' # avoid creating buffer for dir
 alias zshrc='nvim $HOME/.config/zsh/.zshrc'
-alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias d='cd $(fd -t d -H -E .git -E node_modules | fzf)'
 alias dn='nvim $(fd -t d -E .git -E node_modules | fzf)'
 alias dnh='nvim $(fd -t d -H -E .git -E node_modules | fzf)'
 alias dt='tmux-sessioner.sh'
 alias f='nvim $(fzf)'
 alias t='tmux'
+alias ta='tmux new -A -s default'
 alias nv='nvim'
 
 alias kn='kubectl config set-context --current --namespace'
