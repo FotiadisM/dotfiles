@@ -5,5 +5,5 @@
 </p>
 
 My dotfiles  
-Feel free to copy anything you want.  
-I also recommend checking out [this](https://www.atlassian.com/git/tutorials/dotfiles) article, for managing dotfiles.
+Feel free to use anything you want.  
+I highly recommend using [GNU Stow](https://www.gnu.org/software/stow/) for managing your dotfiles. Using a git bare repository gets very mess.
