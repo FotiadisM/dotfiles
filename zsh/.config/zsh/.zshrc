@@ -101,6 +101,7 @@ plugins=(
 	fzf
 	gh
 	rust
+	colored-man-pages
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -155,7 +156,7 @@ alias dnh='nvim $(fd -t d -H -E .git -E node_modules | fzf)'
 alias dt='tmux-sessioner.sh'
 alias f='nvim $(fzf)'
 alias t='tmux'
-alias ta='tmux new -A -s default'
+alias tn='tmux new -A -s default'
 alias nv='nvim'
 
 alias kn='kubectl config set-context --current --namespace'
