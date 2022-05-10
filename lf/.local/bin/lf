@@ -1,5 +1,6 @@
-#!/bin/sh
-set -e
+#! /bin/env bash
+
+set -eu
 
 cleanup() {
     exec 3>&-
