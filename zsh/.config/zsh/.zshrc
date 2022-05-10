@@ -130,6 +130,8 @@ bindkey "^E" edit-command-line
 
 # source lf icons
 [ -f "$HOME/.config/lf/icons.sh" ] && source "$HOME/.config/lf/icons.sh"
+# source lfcd
+[ -f "$HOME/.config/lf/lfcd.sh" ] && source $HOME/.config/lf/lfcd.sh
 
 # Preferred editor for remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
