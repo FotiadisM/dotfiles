@@ -6,4 +6,4 @@
 
 My dotfiles  
 Feel free to use anything you want.  
-I highly recommend using [GNU Stow](https://www.gnu.org/software/stow/) for managing your dotfiles. Using a git bare repository gets very mess.
+I highly recommend using [GNU Stow](https://www.gnu.org/software/stow/) for managing your dotfiles. Using a git bare repository gets very messy.
