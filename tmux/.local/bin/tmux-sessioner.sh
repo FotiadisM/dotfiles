@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /bin/env bash
 
 folder=$1
 if [ $# -eq 0 ]; then
