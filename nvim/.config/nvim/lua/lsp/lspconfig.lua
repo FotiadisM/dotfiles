@@ -70,7 +70,7 @@ local lspconf = require("lspconfig")
 lspconf["gopls"].setup(require("lsp.servers.gopls").setup(make_config(), on_attach))
 lspconf["clangd"].setup(make_config())
 
-require("lsp.servers.null_ls")
+require("lsp.servers.null_ls").setup(on_attach)
 
 local lsp_installer = require("nvim-lsp-installer")
 
