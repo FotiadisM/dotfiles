@@ -1,6 +1,6 @@
 #! /bin/env bash
 
-set -eu
+set -e
 
 cleanup() {
     exec 3>&-
@@ -8,7 +8,7 @@ cleanup() {
 }
 
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-	lf "$@"
+	/usr/bin/lf "$@"
 else
 	[ ! -d "$HOME/.cache/lf" ] && mkdir --parents "$HOME/.cache/lf"
 	export FIFO_UEBERZUG="$HOME/.cache/lf/ueberzug-$$"
@@ -16,5 +16,5 @@ else
 	ueberzug layer -s <"$FIFO_UEBERZUG" -p json &
 	exec 3>"$FIFO_UEBERZUG"
 	trap cleanup EXIT
-	lf "$@" 3>&-
+	/usr/bin/lf "$@" 3>&-
 fi
