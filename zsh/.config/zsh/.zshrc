@@ -83,7 +83,7 @@ plugins=(
 	# custom
 	zsh-syntax-highlighting
 	zsh-autosuggestions
-	zsh-completions
+	lxd-completion-zsh
 
 	# included
 	git

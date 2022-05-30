@@ -12,7 +12,7 @@ export HISTFILE="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zsh_history"
 export LESS='-R --use-color -Dd+r$Du+b'
 export LESSHISTFILE="-"
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
-export GNUPGHOME="${XDG_CONFIG_HOME:-$HOME/.config}/gnupg"
+export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 
 export FZF_DEFAULT_COMMAND="fd -t f -H -E .git -E node_modules"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40% --border"
