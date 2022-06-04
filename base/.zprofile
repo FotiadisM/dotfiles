@@ -17,8 +17,16 @@ export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 export FZF_DEFAULT_COMMAND="fd -t f -H -E .git -E node_modules"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40% --border"
 
+export PATH=$PATH:/usr/local/go/bin
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+export GOBIN="$GOPATH/bin"
+export PATH=$PATH:$GOBIN
+
 export RUSTUP_HOME="${XDG_DATA_HOME:-$HOME/.local/share/}/rustup"
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share/}/cargo"
+export PATH=$PATH:$CARGO_HOME/bin
+
 export NPM_CONFIG_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/npm"
 export NPM_CONFIG_PREFIX="${XDG_DATA_HOME:-$HOME/.local/share/}/npm"
+export PATH=$PATH:$NPM_CONFIG_PREFIX/bin
+

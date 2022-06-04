@@ -117,12 +117,6 @@ KEYTIMEOUT=1
 # writtern in history
 setopt HIST_IGNORE_SPACE
 
-export GOBIN="$GOPATH/bin"
-export PATH=$PATH:$GOBIN
-export PATH=$PATH:$CARGO_HOME/bin
-export PATH=$PATH:$HOME/.local/share/npm/bin
-# export MANPATH="/usr/local/man:$MANPATH"
-
 # Ctrl-x-e to edit command in nvim
 autoload -z edit-command-line
 zle -N edit-command-line
