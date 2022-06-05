@@ -1,5 +1,3 @@
-vim.g.nvim_tree_special_files = {}
-
 require("nvim-tree").setup({
 	disable_netrw = false,
 	hijack_netrw = false,
@@ -10,6 +8,9 @@ require("nvim-tree").setup({
 	},
 	hijack_cursor = true,
 	update_cwd = true,
+	renderer = {
+		special_files = {},
+	},
 	diagnostics = {
 		enable = true,
 	},

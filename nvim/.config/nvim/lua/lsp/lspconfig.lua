@@ -40,14 +40,14 @@ local on_attach = function(client, bufnr)
 	keymap("n", "<space>rf", ":lua vim.lsp.buf.range_formatting()<CR>", opts)
 
 	-- Set some keybinds conditional on server capabilities
-	-- if client.resolved_capabilities.document_formatting then
-	-- 	vim.cmd([[
-	-- 	augroup lsp_format
-	-- 		autocmd! * <buffer>
-	-- 		autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting_sync()
-	-- 	augroup END
-	-- 	]])
-	-- end
+	if client.resolved_capabilities.document_formatting then
+		vim.cmd([[
+		augroup lsp_format
+			autocmd! * <buffer>
+			autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting_sync()
+		augroup END
+		]])
+	end
 
 	if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
 		vim.diagnostic.disable(bufnr)
@@ -67,51 +67,24 @@ local function make_config()
 end
 
 local lspconf = require("lspconfig")
+
 lspconf["gopls"].setup(require("lsp.servers.gopls").setup(make_config(), on_attach))
+lspconf["sumneko_lua"].setup(require("lsp.servers.sumneko_lua").setup(make_config(), on_attach))
+lspconf["texlab"].setup(require("lsp.servers.texlab").setup(make_config(), on_attach))
+lspconf["html"].setup(require("lsp.servers.html").setup(make_config(), on_attach))
+lspconf["jsonls"].setup(require("lsp.servers.jsonls").setup(make_config(), on_attach))
+lspconf["tsserver"].setup(require("lsp.servers.tsserver").setup(make_config(), on_attach))
+lspconf["yamlls"].setup(require("lsp.servers.yamlls").setup(make_config(), on_attach))
+lspconf["volar"].setup(require("lsp.servers.volar").setup(make_config(), on_attach))
+lspconf["rust_analyzer"].setup(require("lsp.servers.rust_analyzer").setup(make_config(), on_attach))
+
 lspconf["clangd"].setup(make_config())
+lspconf["bashls"].setup(make_config())
+lspconf["dockerls"].setup(make_config())
+lspconf["tailwindcss"].setup(make_config())
+lspconf["terraformls"].setup(make_config())
 
 require("lsp.servers.null_ls").setup(on_attach)
-
-local lsp_installer = require("nvim-lsp-installer")
-
-lsp_installer.on_server_ready(function(server)
-	local config = make_config()
-
-	if server.name == "sumneko_lua" then
-		config = require("lsp.servers.sumneko_lua").setup(config, on_attach)
-	end
-
-	if server.name == "texlab" then
-		config = require("lsp.servers.texlab").setup(config, on_attach)
-	end
-
-	if server.name == "html" then
-		config = require("lsp.servers.html").setup(config, on_attach)
-	end
-
-	if server.name == "jsonls" then
-		config = require("lsp.servers.jsonls").setup(config, on_attach)
-	end
-
-	if server.name == "tsserver" then
-		config = require("lsp.servers.tsserver").setup(config, on_attach)
-	end
-
-	if server.name == "yamlls" then
-		config = require("lsp.servers.yamlls").setup(config, on_attach)
-	end
-
-	if server.name == "volar" then
-		config = require("lsp.servers.volar").setup(config, on_attach)
-	end
-
-	if server.name == "rust_analyzer" then
-		config = require("lsp.servers.rust_analyzer").setup(config, on_attach)
-	end
-
-	server:setup(config)
-	vim.cmd([[ do User LspAttachBuffers ]])
-end)
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
