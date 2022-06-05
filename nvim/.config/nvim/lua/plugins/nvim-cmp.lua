@@ -67,6 +67,9 @@ cmp.setup.cmdline("/", {
 		{ name = "buffer" },
 		{ name = "nvim_lsp_document_symbol" },
 	},
+	completion = {
+		completeopt = "menu,menuone,noselect",
+	},
 })
 
 cmp.setup.cmdline("?", {
@@ -74,6 +77,9 @@ cmp.setup.cmdline("?", {
 	sources = {
 		{ name = "buffer" },
 		{ name = "nvim_lsp_document_symbol" },
+	},
+	completion = {
+		completeopt = "menu,menuone,noselect",
 	},
 })
 
@@ -84,4 +90,7 @@ cmp.setup.cmdline(":", {
 	}, {
 		{ name = "cmdline" },
 	}),
+	completion = {
+		completeopt = "menu,menuone,noselect",
+	},
 })
