@@ -7,7 +7,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 vim.o.mouse = "a"
-vim.o.wrap = false
+vim.o.wrap = true
 vim.o.scrolloff = 10
 vim.o.updatetime = 100
 vim.o.cursorline = true
@@ -21,3 +21,6 @@ vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 
 vim.o.spelllang = "en_us"
+
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"

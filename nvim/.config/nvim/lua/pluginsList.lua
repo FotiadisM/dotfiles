@@ -70,6 +70,12 @@ return packer.startup({
 			end,
 		})
 		use({
+			"anuvyklack/pretty-fold.nvim",
+			config = function()
+				require('pretty-fold').setup()
+			end
+		})
+		use({
 			"neovim/nvim-lspconfig",
 			config = function()
 				require("lsp.lspconfig")
