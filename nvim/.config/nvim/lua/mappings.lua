@@ -6,6 +6,11 @@ keymap("v", "<space>", "<ESC>", { noremap = true })
 keymap("i", "<C-s>", "<ESC>:w<CR>a", { noremap = true })
 keymap("n", "<C-s>", ":w<CR>", { noremap = true })
 
+keymap("n", "j", "gj", { noremap = true })
+keymap("n", "k", "gk", { noremap = true })
+keymap("v", "j", "gj", { noremap = true })
+keymap("v", "k", "gk", { noremap = true })
+
 -- close current buffer and jump to previous one
 keymap("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 
