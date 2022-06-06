@@ -66,6 +66,7 @@ local function make_config()
 	}
 end
 
+require("plugins.nvim-lsp-installer")
 local lspconf = require("lspconfig")
 
 lspconf["gopls"].setup(require("lsp.servers.gopls").setup(make_config(), on_attach))

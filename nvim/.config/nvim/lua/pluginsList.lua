@@ -75,12 +75,7 @@ return packer.startup({
 				require("lsp.lspconfig")
 			end,
 		})
-		use({
-			"williamboman/nvim-lsp-installer",
-			config = function()
-				require("plugins.nvim-lsp-installer")
-			end,
-		})
+		use("williamboman/nvim-lsp-installer")
 		use("kosayoda/nvim-lightbulb")
 		use("onsails/lspkind-nvim")
 		use("ray-x/lsp_signature.nvim")
