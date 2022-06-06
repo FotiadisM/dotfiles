@@ -1,6 +1,6 @@
 #! /bin/env bash
 
-set -ux
+set -eu
 
 go_version=$(wget --no-check-certificate -qO- https://golang.org/dl | grep -oP "go([0-9\.]+)\.linux-amd64\.tar\.gz" | head -n 1)
 wget https://go.dev/dl/$go_version -O /tmp/$go_version
