@@ -38,10 +38,6 @@ return packer.startup({
 		use({
 			"nvim-telescope/telescope.nvim",
 			requires = "nvim-lua/plenary.nvim",
-			-- after = {
-			-- 	"telescope-fzf-native.nvim",
-			-- 	"telescope-packer.nvim",
-			-- },
 			config = function()
 				require("plugins.telescope")
 			end,
@@ -68,9 +64,12 @@ return packer.startup({
 			end,
 		})
 		use({
-			"anuvyklack/pretty-fold.nvim",
+			"nvim-treesitter/nvim-treesitter-context",
+			requires = {
+				"nvim-treesitter/nvim-treesitter",
+			},
 			config = function()
-				require("pretty-fold").setup()
+				require("treesitter-context").setup()
 			end,
 		})
 		use({
@@ -252,6 +251,12 @@ return packer.startup({
 			end,
 		})
 		use("RRethy/vim-illuminate")
+		use({
+			"anuvyklack/pretty-fold.nvim",
+			config = function()
+				require("pretty-fold").setup()
+			end,
+		})
 	end,
 	config = {
 		profile = {
