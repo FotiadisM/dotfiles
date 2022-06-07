@@ -1,4 +1,4 @@
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 keymap("i", "jj", "<ESC>", { noremap = true })
@@ -68,8 +68,7 @@ keymap("n", "q:", "<nop>", opts)
 keymap("n", "<leader>s", ":set spell!<CR>", opts)
 
 -- quickfix list mappings
-Mappings = {}
-Mappings.toggle_qf = function()
+keymap("n", "<leader>cc", function()
 	local gf_open = false
 	for _, win in pairs(vim.fn.getwininfo()) do
 		if win["quickfix"] == 1 then
@@ -82,9 +81,7 @@ Mappings.toggle_qf = function()
 		return
 	end
 	vim.cmd([[copen]])
-end
-keymap("n", "<leader>cc", ":lua Mappings.toggle_qf()<CR>", opts)
-keymap("n", "<leader>cc", "<ESC>:lua Mappings.toggle_qf()<CR>a", opts)
+end)
 keymap("n", "<leader>cn", ":cnext<CR>", opts)
 keymap("n", "<leader>cp", ":cprev<CR>", opts)
 keymap("n", "<leader>cl", ":lua vim.diagnostic.setqflist()<CR>", opts)
@@ -97,17 +94,17 @@ keymap("n", "<leader>b", ":NvimTreeToggle<CR>", opts)
 
 -- luasnip
 local ls = require("luasnip")
-vim.keymap.set({ "i", "s" }, "<C-k>", function()
+keymap({ "i", "s" }, "<C-k>", function()
 	if ls.expand_or_jumpable() then
 		ls.expand_or_jump()
 	end
 end, opts)
-vim.keymap.set({ "i", "s" }, "<C-j>", function()
+keymap({ "i", "s" }, "<C-j>", function()
 	if ls.jumpable(-1) then
 		ls.jump(-1)
 	end
 end, opts)
-vim.keymap.set({ "i", "s" }, "<C-l>", function()
+keymap({ "i", "s" }, "<C-l>", function()
 	if ls.choice_active() then
 		ls.change_choice(1)
 	end
