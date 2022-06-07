@@ -96,10 +96,18 @@ return packer.startup({
 				"saadparwaiz1/cmp_luasnip",
 				"hrsh7th/cmp-cmdline",
 				"hrsh7th/cmp-nvim-lsp-document-symbol",
+				"petertriho/cmp-git"
 			},
 			config = function()
 				require("plugins.nvim-cmp")
 			end,
+		})
+		use({
+			"petertriho/cmp-git",
+			requires = "nvim-lua/plenary.nvim",
+			config = function ()
+				require("cmp_git").setup()
+			end
 		})
 		use("L3MON4D3/LuaSnip")
 		use({ "simrat39/symbols-outline.nvim", cmd = "SymbolsOutline" })
