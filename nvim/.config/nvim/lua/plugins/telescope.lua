@@ -9,8 +9,8 @@ telescope.setup({
 			fuzzy = true,
 			override_generic_sorter = true,
 			override_file_sorter = true,
-		}
-	}
+		},
+	},
 })
 
 telescope.load_extension("fzf")

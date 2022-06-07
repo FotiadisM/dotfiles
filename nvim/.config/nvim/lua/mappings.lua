@@ -84,7 +84,7 @@ keymap("n", "<leader>cc", function()
 end)
 keymap("n", "<leader>cn", ":cnext<CR>", opts)
 keymap("n", "<leader>cp", ":cprev<CR>", opts)
-keymap("n", "<leader>cl", ":lua vim.diagnostic.setqflist()<CR>", opts)
+keymap("n", "<leader>cl", vim.diagnostic.setqflist, opts)
 
 -- nvim-tree
 keymap("n", "<leader>b", ":NvimTreeToggle<CR>", opts)
@@ -118,32 +118,33 @@ keymap("n", "H", ":BufferLineCyclePrev<CR>", opts)
 keymap("n", "<space>h", ":BufferLineMovePrev<CR>", opts)
 
 -- telescope
-keymap("n", "gf", ":lua require('telescope.builtin').find_files({ hidden = true })<CR>", opts)
-keymap("n", "<leader>ff", ":lua require('telescope.builtin').find_files({ hidden = true })<CR>", opts)
-keymap("n", "<leader>fg", ":lua require('telescope.builtin').live_grep()<CR>", opts)
-keymap("n", "<leader>fb", ":lua require('telescope.builtin').buffers()<CR>", opts)
-keymap("n", "<leader>fh", ":lua require('telescope.builtin').help_tags()<CR>", opts)
-keymap("n", "<leader>fp", ":lua require('telescope').extensions.packer.packer()<CR>", opts)
-keymap("n", "<leader>fn", ":lua require('telescope').extensions.neoclip.default()<CR>", opts)
-keymap("n", "<leader>fgb", ":lua require('telescope.builtin').git_branches()<CR>", opts)
-keymap("n", "<leader>fgc", ":lua require('telescope.builtin').git_commits()<CR>", opts)
+keymap("n", "gf", function()
+	require("telescope.builtin").find_files({ hidden = true })
+end, opts)
+keymap("n", "<leader>fg", require("telescope.builtin").live_grep, opts)
+keymap("n", "<leader>fb", require("telescope.builtin").buffers, opts)
+keymap("n", "<leader>fh", require("telescope.builtin").help_tags, opts)
+keymap("n", "<leader>fp", require("telescope").extensions.packer.packer, opts)
+keymap("n", "<leader>fn", require("telescope").extensions.neoclip.default, opts)
+keymap("n", "<leader>fgb", require("telescope.builtin").git_branches, opts)
+keymap("n", "<leader>fgc", require("telescope.builtin").git_commits, opts)
 
 -- debugging
-keymap("n", "<leader>dc", ":lua require('dap').continue()<CR>", opts)
-keymap("n", "<leader>dt", ":lua require('dap').terminate()<CR>", opts)
-keymap("n", "<leader>dq", ":lua require('dap').repl.close()<CR>", opts)
-keymap("n", "<F10>", ":lua require('dap').step_over()<CR>", opts)
-keymap("n", "<F11>", ":lua require('dap').step_into()<CR>", opts)
-keymap("n", "<F12>", ":lua require('dap').step_out()<CR>", opts)
-keymap("n", "<leader>du", ":lua require('dapui').toggle()<CR>", opts)
-keymap("n", "<leader>db", ":lua require('dap').toggle_breakpoint()<CR>", opts)
+keymap("n", "<leader>dc", require("dap").continue, opts)
+keymap("n", "<leader>dt", require("dap").terminate, opts)
+keymap("n", "<leader>dq", require("dap").repl.close, opts)
+keymap("n", "<F10>", require("dap").step_over, opts)
+keymap("n", "<F11>", require("dap").step_into, opts)
+keymap("n", "<F12>", require("dap").step_out, opts)
+keymap("n", "<leader>du", require("dapui").toggle, opts)
+keymap("n", "<leader>db", require("dap").toggle_breakpoint, opts)
 
 -- nvim-toggleterm
 keymap("n", "<leader>t", ":ToggleTerm<CR>", opts)
 keymap("n", "<leader>T", ":ToggleTerm direction='float'<CR>", opts)
 
 -- refactoring
-keymap("v", "<leader>r", "<Esc>:lua M.refactors()<CR>", opts)
+keymap({ "n", "v" }, "<leader>r", require("refactoring").select_refactor, opts)
 
 -- nvim-spectre
-keymap("n", "<leader>S", ":lua require('spectre').open()<CR>", opts)
+keymap("n", "<leader>S", require("spectre").open, opts)

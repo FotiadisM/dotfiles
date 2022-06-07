@@ -38,11 +38,10 @@ return packer.startup({
 		use({
 			"nvim-telescope/telescope.nvim",
 			requires = "nvim-lua/plenary.nvim",
-			module = "telescope",
-			after = {
-				"telescope-fzf-native.nvim",
-				"telescope-packer.nvim",
-			},
+			-- after = {
+			-- 	"telescope-fzf-native.nvim",
+			-- 	"telescope-packer.nvim",
+			-- },
 			config = function()
 				require("plugins.telescope")
 			end,
@@ -52,7 +51,6 @@ return packer.startup({
 		use({
 			"windwp/nvim-spectre",
 			requires = "nvim-lua/plenary.nvim",
-			module = "spectre",
 			config = function()
 				require("spectre").setup()
 			end,
@@ -113,7 +111,7 @@ return packer.startup({
 				{ "nvim-treesitter/nvim-treesitter" },
 			},
 			config = function()
-				require("plugins.refactoring")
+				require("refactoring").setup()
 			end,
 		})
 
@@ -214,6 +212,7 @@ return packer.startup({
 		})
 		use({
 			"folke/which-key.nvim",
+			disable = true,
 			config = function()
 				require("which-key").setup()
 			end,
