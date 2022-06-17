@@ -96,7 +96,7 @@ return packer.startup({
 				"saadparwaiz1/cmp_luasnip",
 				"hrsh7th/cmp-cmdline",
 				"hrsh7th/cmp-nvim-lsp-document-symbol",
-				"petertriho/cmp-git"
+				"petertriho/cmp-git",
 			},
 			config = function()
 				require("plugins.nvim-cmp")
@@ -105,12 +105,18 @@ return packer.startup({
 		use({
 			"petertriho/cmp-git",
 			requires = "nvim-lua/plenary.nvim",
-			config = function ()
+			config = function()
 				require("cmp_git").setup()
-			end
+			end,
 		})
 		use("L3MON4D3/LuaSnip")
-		use({ "simrat39/symbols-outline.nvim", cmd = "SymbolsOutline" })
+		use({
+			"simrat39/symbols-outline.nvim",
+			cmd = "SymbolsOutline",
+			config = function()
+				require("plugins.symbols-outline")
+			end,
+		})
 		use({
 			"ThePrimeagen/refactoring.nvim",
 			requires = {
@@ -227,7 +233,7 @@ return packer.startup({
 		use({
 			"rcarriga/nvim-notify",
 			config = function()
-				vim.notify = require("notify")
+				require("plugins.nvim-notify")
 			end,
 		})
 		use({

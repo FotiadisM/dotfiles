@@ -13,6 +13,7 @@ vim.o.updatetime = 100
 vim.o.cursorline = true
 vim.o.signcolumn = "yes"
 vim.o.termguicolors = true
+vim.o.laststatus = 3
 
 vim.o.splitbelow = true
 vim.o.splitright = true

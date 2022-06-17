@@ -29,4 +29,3 @@ export PATH=$PATH:$CARGO_HOME/bin
 export NPM_CONFIG_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/npm"
 export NPM_CONFIG_PREFIX="${XDG_DATA_HOME:-$HOME/.local/share/}/npm"
 export PATH=$PATH:$NPM_CONFIG_PREFIX/bin
-
