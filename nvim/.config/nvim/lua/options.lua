@@ -25,3 +25,4 @@ vim.o.spelllang = "en_us"
 
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldlevelstart = 99

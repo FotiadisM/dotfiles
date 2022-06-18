@@ -225,7 +225,6 @@ return packer.startup({
 		})
 		use({
 			"folke/which-key.nvim",
-			disable = true,
 			config = function()
 				require("which-key").setup()
 			end,
