@@ -2,9 +2,6 @@
 
 ```
 .
-├── after
-│   └── ftplugin
-│       └── netrw.vim
 ├── lua
 │   ├── dap
 │   │   ├── languages
@@ -32,9 +29,11 @@
 │   │   ├── luasnip.lua
 │   │   ├── nvim-autopairs.lua
 │   │   ├── nvim-cmp.lua
+│   │   ├── nvim-lsp-installer.lua
+│   │   ├── nvim-notify.lua
 │   │   ├── nvim-tree.lua
 │   │   ├── nvim-treesitter.lua
-│   │   ├── refactoring.lua
+│   │   ├── symbols-outline.lua
 │   │   ├── tabset.lua
 │   │   ├── telescope.lua
 │   │   ├── todo-comments.lua
@@ -43,6 +42,9 @@
 │   ├── options.lua
 │   ├── pluginsList.lua
 │   └── theme.lua
+├── after
+│   └── ftplugin
+│       └── netrw.vim
 ├── init.lua
 └── README.md
 ```
