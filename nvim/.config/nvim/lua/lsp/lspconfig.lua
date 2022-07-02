@@ -41,7 +41,7 @@ local on_attach = function(client, bufnr)
 	-- Set some keybinds conditional on server capabilities
 	if client.resolved_capabilities.document_formatting then
 		local gr = vim.api.nvim_create_augroup("lsp_format", { clear = true })
-		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+		vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 			group = gr,
 			buffer = bufnr,
 			callback = function()
