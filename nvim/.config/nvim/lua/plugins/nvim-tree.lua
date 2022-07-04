@@ -3,24 +3,10 @@ require("nvim-tree").setup({
 	hijack_netrw = false,
 	open_on_setup = false,
 	open_on_tab = false,
-	update_to_buf_dir = {
-		auto_open = false,
-	},
 	hijack_cursor = true,
 	update_cwd = true,
-	renderer = {
-		special_files = {},
-	},
-	diagnostics = {
-		enable = true,
-	},
-	filters = {
-		custom = { ".git" },
-	},
-	git = {
-		ignore = false,
-	},
 	view = {
+		adaptive_size = true,
 		mappings = {
 			list = {
 				{ key = "l", action = "edit" },
@@ -32,6 +18,34 @@ require("nvim-tree").setup({
 			},
 		},
 	},
+	renderer = {
+		root_folder_modifier = ":t",
+		indent_markers = {
+			enable = true,
+		},
+		special_files = {},
+	},
+	diagnostics = {
+		enable = true,
+		show_on_dirs = true,
+	},
+	filters = {
+		custom = { ".git" },
+	},
+	filesystem_watchers = {
+		enable = true,
+	},
+	git = {
+		ignore = false,
+	},
+	actions = {
+		open_file = {
+			resize_window = false,
+		},
+	},
 })
 
+-- quit nvim if the only window is NvimTree
 vim.cmd([[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]])
+
+vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", { fg = "#00ffd2" })
