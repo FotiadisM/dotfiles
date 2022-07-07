@@ -32,7 +32,7 @@ cmp.setup({
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<ESC>"] = cmp.mapping.close(),
 		["<CR>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Insert,
+			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
 		}),
 	},
@@ -63,7 +63,7 @@ cmp.setup({
 
 cmp.setup.filetype("gitcommit", {
 	sources = cmp.config.sources({
-		{ name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
+		{ name = "cmp_git" },
 	}, {
 		{ name = "buffer" },
 	}),
