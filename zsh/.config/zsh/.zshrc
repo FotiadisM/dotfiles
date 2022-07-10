@@ -158,6 +158,9 @@ alias nv='nvim'
 alias kn='kubectl config set-context --current --namespace'
 alias kuc='kubectl config use-context'
 
+# don't generate the history file at $HOME
+alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
