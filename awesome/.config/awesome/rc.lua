@@ -2,6 +2,8 @@
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
+require("config")
+
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -49,12 +51,14 @@ do
 end
 -- }}}
 
+local confDir = gears.filesystem.get_configuration_dir()
+
 -- XDG autostart
-awful.spawn("~/.config/awesome/autorun.sh")
+awful.spawn(confDir .. "autorun.sh")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("~/.config/awesome/theme.lua")
+beautiful.init(confDir .. "theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
