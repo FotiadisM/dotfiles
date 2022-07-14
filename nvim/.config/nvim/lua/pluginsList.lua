@@ -170,6 +170,8 @@ return packer.startup({
 		})
 
 		-- misc
+		use("dstein64/vim-startuptime")
+		use("lewis6991/impatient.nvim")
 		use("tpope/vim-surround")
 		use("ggandor/lightspeed.nvim")
 		use({

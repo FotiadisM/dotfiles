@@ -1,3 +1,5 @@
+require("impatient")
+
 require("pluginsList")
 
 require("theme")
