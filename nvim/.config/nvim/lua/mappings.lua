@@ -135,10 +135,6 @@ keymap("n", "<F12>", require("dap").step_out, opts)
 keymap("n", "<leader>du", require("dapui").toggle, opts)
 keymap("n", "<leader>db", require("dap").toggle_breakpoint, opts)
 
--- nvim-toggleterm
-keymap("n", "<leader>t", ":ToggleTerm<CR>", opts)
-keymap("n", "<leader>T", ":ToggleTerm direction='float'<CR>", opts)
-
 -- refactoring
 keymap({ "n", "v" }, "<leader>r", require("refactoring").select_refactor, opts)
 

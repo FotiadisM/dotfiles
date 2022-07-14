@@ -204,13 +204,6 @@ return packer.startup({
 			end,
 		})
 		use({
-			"akinsho/nvim-toggleterm.lua",
-			cmd = "ToggleTerm",
-			config = function()
-				require("toggleterm").setup()
-			end,
-		})
-		use({
 			"folke/which-key.nvim",
 			config = function()
 				require("which-key").setup()
