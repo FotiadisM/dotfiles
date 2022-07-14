@@ -122,7 +122,6 @@ keymap("n", "<leader>fg", require("telescope.builtin").live_grep, opts)
 keymap("n", "<leader>fb", require("telescope.builtin").buffers, opts)
 keymap("n", "<leader>fh", require("telescope.builtin").help_tags, opts)
 keymap("n", "<leader>fp", require("telescope").extensions.packer.packer, opts)
-keymap("n", "<leader>fn", require("telescope").extensions.neoclip.default, opts)
 keymap("n", "<leader>fgb", require("telescope.builtin").git_branches, opts)
 keymap("n", "<leader>fgc", require("telescope.builtin").git_commits, opts)
 
