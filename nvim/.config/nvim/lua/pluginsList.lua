@@ -29,13 +29,6 @@ return packer.startup({
 			end,
 		})
 		use({
-			"FotiadisM/yanil",
-			requires = { "nvim-lua/plenary.nvim", "kyazdani42/nvim-web-devicons" },
-			config = function()
-				require("plugins.yanil")
-			end,
-		})
-		use({
 			"nvim-telescope/telescope.nvim",
 			requires = "nvim-lua/plenary.nvim",
 			config = function()

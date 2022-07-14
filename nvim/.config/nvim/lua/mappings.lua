@@ -89,9 +89,6 @@ keymap("n", "<leader>cl", vim.diagnostic.setqflist, opts)
 -- nvim-tree
 keymap("n", "<leader>b", ":NvimTreeToggle<CR>", opts)
 
--- yanil
--- keymap("n", "<leader>b", ":lua require('yanil.canvas').toggle()<CR>", opts)
-
 -- luasnip
 local ls = require("luasnip")
 keymap({ "i", "s" }, "<C-k>", function()
