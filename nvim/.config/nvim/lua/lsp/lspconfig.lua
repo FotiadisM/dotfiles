@@ -92,11 +92,3 @@ for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
-
--- show lightbulb when a code actions is available
-vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-	pattern = "*",
-	callback = function()
-		require("nvim-lightbulb").update_lightbulb()
-	end,
-})

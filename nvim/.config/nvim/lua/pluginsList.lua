@@ -72,7 +72,13 @@ return packer.startup({
 			end,
 		})
 		use("williamboman/nvim-lsp-installer")
-		use("kosayoda/nvim-lightbulb")
+		use({
+			"kosayoda/nvim-lightbulb",
+			requires = "antoinemadec/FixCursorHold.nvim",
+			config = function()
+				require("plugins.nvim-lightbulb")
+			end,
+		})
 		use("onsails/lspkind-nvim")
 		use("ray-x/lsp_signature.nvim")
 		use({
