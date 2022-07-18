@@ -257,6 +257,8 @@ return packer.startup({
 				require("pretty-fold").setup()
 			end,
 		})
+		use("tpope/vim-dispatch")
+		use("AndrewRadev/splitjoin.vim")
 	end,
 	config = {
 		profile = {
