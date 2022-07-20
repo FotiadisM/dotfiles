@@ -14,6 +14,17 @@ keymap("v", "k", "gk", { noremap = true })
 -- close current buffer and jump to previous one
 keymap("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 
+-- don't 'copy' empty lines when 'dd'
+keymap("n", "dd", function()
+	local line_data = vim.api.nvim_win_get_cursor(0) -- returns {row, col}
+	local current_line = vim.api.nvim_buf_get_lines(0, line_data[1] - 1, line_data[1], false)
+	if current_line[1] == "" then
+		return '"_dd'
+	else
+		return "dd"
+	end
+end, { noremap = true, expr = true })
+
 -- copy to clipboard
 keymap("", "<C-c>", '"+y', opts)
 
@@ -81,7 +92,7 @@ keymap("n", "<leader>cc", function()
 		return
 	end
 	vim.cmd([[copen]])
-end)
+end, opts)
 keymap("n", "<leader>cn", ":cnext<CR>", opts)
 keymap("n", "<leader>cp", ":cprev<CR>", opts)
 keymap("n", "<leader>cl", vim.diagnostic.setqflist, opts)
