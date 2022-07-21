@@ -7,7 +7,8 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 vim.o.mouse = "a"
-vim.o.wrap = true
+vim.o.wrap = false
+vim.o.linebreak = true
 vim.o.scrolloff = 10
 vim.o.updatetime = 100
 vim.o.cursorline = true

@@ -126,6 +126,7 @@ keymap("n", "H", ":BufferLineCyclePrev<CR>", opts)
 keymap("n", "<space>h", ":BufferLineMovePrev<CR>", opts)
 
 -- telescope
+keymap("n", "gt", require("telescope.builtin").builtin, opts)
 keymap("n", "gf", function()
 	require("telescope.builtin").find_files({ hidden = true })
 end, opts)

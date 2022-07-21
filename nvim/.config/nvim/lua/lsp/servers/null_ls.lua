@@ -6,11 +6,13 @@ function M.setup(on_attach)
 	local sources = {
 		-- null_ls.builtins.formatting.prettier,
 		nl.builtins.formatting.prettierd, -- faster than prettier, doesn't support range formatting
+		nl.builtins.formatting.goimports,
 		nl.builtins.formatting.gofumpt,
 		nl.builtins.formatting.rustfmt,
 		nl.builtins.formatting.stylua,
 
 		-- nl.builtins.diagnostics.yamllint,
+		nl.builtins.diagnostics.staticcheck
 	}
 
 	nl.setup({
