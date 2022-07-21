@@ -259,6 +259,15 @@ return packer.startup({
 		})
 		use("tpope/vim-dispatch")
 		use("AndrewRadev/splitjoin.vim")
+		use("b0o/schemastore.nvim")
+		use({
+			"someone-stole-my-name/yaml-companion.nvim",
+			requires = {
+				{ "neovim/nvim-lspconfig" },
+				{ "nvim-lua/plenary.nvim" },
+				{ "nvim-telescope/telescope.nvim" },
+			},
+		})
 	end,
 	config = {
 		profile = {
