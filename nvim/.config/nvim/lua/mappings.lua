@@ -12,7 +12,7 @@ keymap("v", "j", "gj", { noremap = true })
 keymap("v", "k", "gk", { noremap = true })
 
 -- close current buffer and jump to previous one
-keymap("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
+keymap("n", "<space>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 
 -- don't 'copy' empty lines when 'dd'
 keymap("n", "dd", function()
