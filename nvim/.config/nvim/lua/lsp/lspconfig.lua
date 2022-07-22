@@ -74,10 +74,14 @@ lspconf["sumneko_lua"].setup(require("lsp.servers.sumneko_lua").setup(make_confi
 lspconf["texlab"].setup(require("lsp.servers.texlab").setup(make_config(), on_attach))
 lspconf["html"].setup(require("lsp.servers.html").setup(make_config(), on_attach))
 lspconf["jsonls"].setup(require("lsp.servers.jsonls").setup(make_config(), on_attach))
-lspconf["tsserver"].setup(require("lsp.servers.tsserver").setup(make_config(), on_attach))
 lspconf["yamlls"].setup(require("lsp.servers.yamlls").setup(make_config(), on_attach))
 lspconf["volar"].setup(require("lsp.servers.volar").setup(make_config(), on_attach))
-lspconf["rust_analyzer"].setup(require("lsp.servers.rust_analyzer").setup(make_config(), on_attach))
+require("typescript").setup({
+    server = require("lsp.servers.tsserver").setup(make_config(), on_attach)
+})
+require("rust-tools").setup({
+	server = require("lsp.servers.rust_analyzer").setup(make_config(), on_attach)
+})
 
 lspconf["clangd"].setup(make_config())
 lspconf["bashls"].setup(make_config())

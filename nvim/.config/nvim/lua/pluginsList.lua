@@ -122,6 +122,8 @@ return packer.startup({
 
 		-- language specific plugins
 		use({ "towolf/vim-helm" })
+		use("simrat39/rust-tools.nvim")
+		use("jose-elias-alvarez/typescript.nvim")
 
 		-- debugging
 		use({
