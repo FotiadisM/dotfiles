@@ -257,6 +257,15 @@ return packer.startup({
 				require("pretty-fold").setup()
 			end,
 		})
+		-- TODO: enable this plugin when https://github.com/neovim/neovim/pull/17446 is merged
+		use({
+			"kevinhwang91/nvim-ufo",
+			disable = true,
+			requires = "kevinhwang91/promise-async",
+			config = function()
+				require("plugins.nvim-ufo")
+			end,
+		})
 		use("tpope/vim-dispatch")
 		use("AndrewRadev/splitjoin.vim")
 		use("b0o/schemastore.nvim")
