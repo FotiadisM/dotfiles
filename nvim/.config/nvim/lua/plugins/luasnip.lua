@@ -2,10 +2,8 @@ local ls = require("luasnip")
 local types = require("luasnip.util.types")
 
 local s = ls.snippet
-local t = ls.text_node
 local i = ls.insert_node
 local fmt = require("luasnip.extras.fmt").fmt
-local rep = require("luasnip.extras").rep
 
 ls.config.set_config({
 	history = true,
@@ -20,9 +18,6 @@ ls.config.set_config({
 	},
 })
 
-ls.snippets = {
-	lua = {
-		s("test", t("hello")),
-		s("req", fmt('local {} = require("{}")', { i(0), i(1) })),
-	},
-}
+ls.add_snippets("lua", {
+	s("lr", fmt('local {} = require("{}"){}', { i(2), i(1), i(0) })),
+})

@@ -56,13 +56,3 @@ require("nvim-treesitter.configs").setup({
 		enable_autocmd = false,
 	},
 })
-
-local pc = require("nvim-treesitter.parsers").get_parser_configs()
-
-pc.http = {
-	install_info = {
-		url = "https://github.com/NTBBloodbath/tree-sitter-http",
-		files = { "src/parser.c" },
-		branch = "main",
-	},
-}
