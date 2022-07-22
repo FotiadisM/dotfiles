@@ -9,7 +9,6 @@
 │   │   └── nvim-dap.lua
 │   ├── lsp
 │   │   ├── servers
-│   │   │   ├── efm.lua
 │   │   │   ├── gopls.lua
 │   │   │   ├── html.lua
 │   │   │   ├── jsonls.lua
@@ -29,15 +28,15 @@
 │   │   ├── luasnip.lua
 │   │   ├── nvim-autopairs.lua
 │   │   ├── nvim-cmp.lua
+│   │   ├── nvim-lightbulb.lua
 │   │   ├── nvim-lsp-installer.lua
 │   │   ├── nvim-notify.lua
 │   │   ├── nvim-tree.lua
 │   │   ├── nvim-treesitter.lua
-│   │   ├── symbols-outline.lua
+│   │   ├── nvim-ufo.lua
 │   │   ├── tabset.lua
 │   │   ├── telescope.lua
-│   │   ├── todo-comments.lua
-│   │   └── yanil.lua
+│   │   └── todo-comments.lua
 │   ├── mappings.lua
 │   ├── options.lua
 │   ├── pluginsList.lua

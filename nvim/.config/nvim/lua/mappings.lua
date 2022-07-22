@@ -38,10 +38,10 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- resize windows
-keymap("n", "<C-Up>", ":resize +3<CR>", opts)
-keymap("n", "<C-Down>", ":resize -3<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize +3<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize -3<CR>", opts)
+keymap("n", "<C-Up>", ":resize +1<CR>", opts)
+keymap("n", "<C-Down>", ":resize -1<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize +1<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize -1<CR>", opts)
 
 -- move lines quicly
 keymap("n", "[e", ":<C-u>execute 'move -1-'. v:count1<CR>", opts)
@@ -78,7 +78,7 @@ keymap("n", "q:", "<nop>", opts)
 -- toggle spelling
 keymap("n", "<leader>s", ":set spell!<CR>", opts)
 
--- quickfix list mappings
+-- quickfix mappings
 keymap("n", "<leader>cc", function()
 	local gf_open = false
 	for _, win in pairs(vim.fn.getwininfo()) do
@@ -95,7 +95,6 @@ keymap("n", "<leader>cc", function()
 end, opts)
 keymap("n", "<leader>cn", ":cnext<CR>", opts)
 keymap("n", "<leader>cp", ":cprev<CR>", opts)
-keymap("n", "<leader>cl", vim.diagnostic.setqflist, opts)
 
 -- nvim-tree
 keymap("n", "<leader>b", ":NvimTreeToggle<CR>", opts)

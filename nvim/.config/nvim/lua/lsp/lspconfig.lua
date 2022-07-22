@@ -33,7 +33,7 @@ local on_attach = function(client, bufnr)
 	keymap("n", "<space>e", vim.diagnostic.open_float, opts)
 	keymap("n", "[d", vim.diagnostic.goto_prev, opts)
 	keymap("n", "]d", vim.diagnostic.goto_next, opts)
-	keymap("n", "<space>q", vim.diagnostic.setqflist, opts)
+	keymap("n", "<space>cl", vim.diagnostic.setqflist, opts)
 	keymap("n", "<space>f", vim.lsp.buf.formatting, opts)
 	keymap("n", "<space>rf", vim.lsp.buf.range_formatting, opts)
 

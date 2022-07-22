@@ -110,13 +110,6 @@ return packer.startup({
 		})
 		use("L3MON4D3/LuaSnip")
 		use({
-			"simrat39/symbols-outline.nvim",
-			cmd = "SymbolsOutline",
-			config = function()
-				require("plugins.symbols-outline")
-			end,
-		})
-		use({
 			"ThePrimeagen/refactoring.nvim",
 			requires = {
 				{ "nvim-lua/plenary.nvim" },
