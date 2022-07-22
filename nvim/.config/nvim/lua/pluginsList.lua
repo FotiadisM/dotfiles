@@ -270,6 +270,12 @@ return packer.startup({
 				{ "nvim-telescope/telescope.nvim" },
 			},
 		})
+		use({
+			"j-hui/fidget.nvim",
+			config = function()
+				require("plugins.fidget")
+			end,
+		})
 	end,
 	config = {
 		profile = {
