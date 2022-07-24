@@ -1,6 +1,15 @@
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
 
+vim.diagnostic.config({
+	virtual_text = {
+		source = "always",
+	},
+	float = {
+		source = "always",
+	},
+})
+
 local lspSignatureCfg = {
 	hint_enable = false,
 	handler_opts = {
@@ -39,12 +48,23 @@ local on_attach = function(client, bufnr)
 
 	-- Set some keybinds conditional on server capabilities
 	if client.resolved_capabilities.document_formatting then
-		local gr = vim.api.nvim_create_augroup("lsp_format", { clear = true })
 		vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-			group = gr,
+			group = vim.api.nvim_create_augroup("lsp_format", { clear = true }),
 			buffer = bufnr,
 			callback = function()
 				vim.lsp.buf.formatting_sync()
+			end,
+		})
+	end
+
+	if client.resolved_capabilities.code_lens then
+		keymap("n", "<space>lr", vim.lsp.codelens.run, opts)
+		-- keymap("n", "<space>lr", vim.lsp.codelens.refresh, opts)
+		vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+			group = vim.api.nvim_create_augroup("lsp_codelens", { clear = true }),
+			buffer = bufnr,
+			callback = function()
+				vim.lsp.codelens.refresh()
 			end,
 		})
 	end
@@ -77,10 +97,10 @@ lspconf["jsonls"].setup(require("lsp.servers.jsonls").setup(make_config(), on_at
 lspconf["yamlls"].setup(require("lsp.servers.yamlls").setup(make_config(), on_attach))
 lspconf["volar"].setup(require("lsp.servers.volar").setup(make_config(), on_attach))
 require("typescript").setup({
-    server = require("lsp.servers.tsserver").setup(make_config(), on_attach)
+	server = require("lsp.servers.tsserver").setup(make_config(), on_attach),
 })
 require("rust-tools").setup({
-	server = require("lsp.servers.rust_analyzer").setup(make_config(), on_attach)
+	server = require("lsp.servers.rust_analyzer").setup(make_config(), on_attach),
 })
 
 lspconf["clangd"].setup(make_config())
@@ -96,3 +116,5 @@ for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
+
+vim.api.nvim_set_hl(0, "LspCodeLens", { fg = "#ffffff" })

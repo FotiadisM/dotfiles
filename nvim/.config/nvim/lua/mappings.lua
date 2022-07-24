@@ -79,7 +79,7 @@ keymap("n", "q:", "<nop>", opts)
 keymap("n", "<leader>s", ":set spell!<CR>", opts)
 
 -- quickfix mappings
-keymap("n", "<leader>cc", function()
+keymap("n", "<space>cc", function()
 	local gf_open = false
 	for _, win in pairs(vim.fn.getwininfo()) do
 		if win["quickfix"] == 1 then
@@ -93,8 +93,8 @@ keymap("n", "<leader>cc", function()
 	end
 	vim.cmd([[copen]])
 end, opts)
-keymap("n", "<leader>cn", ":cnext<CR>", opts)
-keymap("n", "<leader>cp", ":cprev<CR>", opts)
+keymap("n", "<space>cn", ":cnext<CR>", opts)
+keymap("n", "<space>cp", ":cprev<CR>", opts)
 
 -- nvim-tree
 keymap("n", "<leader>b", ":NvimTreeToggle<CR>", opts)
