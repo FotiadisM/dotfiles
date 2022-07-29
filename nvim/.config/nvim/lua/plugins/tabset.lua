@@ -11,6 +11,10 @@ require("tabset").setup({
 			tabwidth = 2,
 			expandtab = true,
 		},
+		groovy = {
+			tabwidth = 4,
+			expandtab = true,
+		},
 		{
 			filetypes = { "terraform", "helm" },
 			config = {

@@ -9,9 +9,9 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export HISTFILE="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zsh_history"
 
-export LESS='-R --use-color -Dd+r$Du+b'
+# export LESS='-R --use-color -Dd+r$Du+b'
 export LESSHISTFILE="-"
-export MANPAGER="less -R --use-color -Dd+r -Du+b"
+# export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 
 export FZF_DEFAULT_COMMAND="fd -t f -H -E .git -E node_modules"

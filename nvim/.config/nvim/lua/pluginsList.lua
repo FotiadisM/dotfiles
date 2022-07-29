@@ -157,7 +157,6 @@ return packer.startup({
 		})
 		use({
 			"sindrets/diffview.nvim",
-			cmd = "DiffviewOpen",
 			config = function()
 				require("diffview").setup()
 			end,
@@ -249,7 +248,7 @@ return packer.startup({
 		use({
 			"anuvyklack/pretty-fold.nvim",
 			config = function()
-				require("pretty-fold").setup()
+				require("pretty-fold").setup({})
 			end,
 		})
 		-- TODO: enable this plugin when https://github.com/neovim/neovim/pull/17446 is merged
