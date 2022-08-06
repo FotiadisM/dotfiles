@@ -176,6 +176,7 @@ return packer.startup({
 		use("ggandor/lightspeed.nvim")
 		use({
 			"norcalli/nvim-colorizer.lua",
+			disable = true,
 			config = function()
 				require("colorizer").setup()
 			end,

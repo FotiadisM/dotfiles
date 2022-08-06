@@ -12,7 +12,9 @@ function M.setup(on_attach)
 		nl.builtins.formatting.stylua,
 
 		-- nl.builtins.diagnostics.yamllint,
-		nl.builtins.diagnostics.staticcheck
+		nl.builtins.diagnostics.golangci_lint.with({
+			args = { "run", "--fix=false", "--out-format=json", "$DIRNAME", "--path-prefix", "$ROOT" },
+		}),
 	}
 
 	nl.setup({
@@ -22,4 +24,3 @@ function M.setup(on_attach)
 end
 
 return M
-
