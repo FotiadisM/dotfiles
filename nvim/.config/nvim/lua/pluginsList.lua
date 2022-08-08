@@ -174,13 +174,6 @@ return packer.startup({
 		use("lewis6991/impatient.nvim")
 		use("tpope/vim-surround")
 		use("ggandor/lightspeed.nvim")
-		use({
-			"norcalli/nvim-colorizer.lua",
-			disable = true,
-			config = function()
-				require("colorizer").setup()
-			end,
-		})
 		use("tpope/vim-repeat")
 		use({
 			"windwp/nvim-autopairs",
