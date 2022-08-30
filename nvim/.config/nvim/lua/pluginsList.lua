@@ -1,8 +1,20 @@
-local packer = require("packer")
-local use = packer.use
+local packer_bootstrap = nil
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+	packer_bootstrap = vim.fn.system({
+		"git",
+		"clone",
+		"--depth",
+		"1",
+		"https://github.com/wbthomason/packer.nvim",
+		install_path,
+	})
+	vim.cmd([[packadd packer.nvim]])
+end
 
-return packer.startup({
-	function()
+local packer = require("packer")
+packer.startup({
+	function(use)
 		use("wbthomason/packer.nvim")
 
 		-- theme
@@ -71,7 +83,8 @@ return packer.startup({
 				require("lsp.lspconfig")
 			end,
 		})
-		use("williamboman/nvim-lsp-installer")
+		use("williamboman/mason.nvim")
+		use("williamboman/mason-lspconfig.nvim")
 		use({
 			"kosayoda/nvim-lightbulb",
 			requires = "antoinemadec/FixCursorHold.nvim",
@@ -172,9 +185,13 @@ return packer.startup({
 		-- misc
 		use("dstein64/vim-startuptime")
 		use("lewis6991/impatient.nvim")
-		use("tpope/vim-surround")
 		use("ggandor/lightspeed.nvim")
-		use("tpope/vim-repeat")
+		use({
+			"kylechui/nvim-surround",
+			config = function()
+				require("nvim-surround").setup()
+			end,
+		})
 		use({
 			"windwp/nvim-autopairs",
 			after = "nvim-cmp",
@@ -231,7 +248,14 @@ return packer.startup({
 				require("plugins.tabset")
 			end,
 		})
-		use("davidgranstrom/nvim-markdown-preview")
+		use({
+			"iamcco/markdown-preview.nvim",
+			run = "cd app && npm install",
+			setup = function()
+				vim.g.mkdp_filetypes = { "markdown" }
+			end,
+			ft = { "markdown" },
+		})
 		use({
 			"stevearc/dressing.nvim",
 			config = function()
@@ -242,7 +266,7 @@ return packer.startup({
 		use({
 			"anuvyklack/pretty-fold.nvim",
 			config = function()
-				require("pretty-fold").setup()
+				require("pretty-fold").setup({})
 			end,
 		})
 		-- TODO: enable this plugin when https://github.com/neovim/neovim/pull/17446 is merged
@@ -254,7 +278,6 @@ return packer.startup({
 				require("plugins.nvim-ufo")
 			end,
 		})
-		use("tpope/vim-dispatch")
 		use("AndrewRadev/splitjoin.vim")
 		use("b0o/schemastore.nvim")
 		use({
@@ -275,7 +298,10 @@ return packer.startup({
 	config = {
 		profile = {
 			enable = true,
-			threshold = 1,
 		},
 	},
 })
+
+if packer_bootstrap then
+	packer.sync()
+end

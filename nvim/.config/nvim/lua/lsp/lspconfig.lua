@@ -86,7 +86,8 @@ local function make_config()
 	}
 end
 
-require("plugins.nvim-lsp-installer")
+require("mason").setup()
+require("mason-lspconfig").setup()
 local lspconf = require("lspconfig")
 
 lspconf["gopls"].setup(require("lsp.servers.gopls").setup(make_config(), on_attach))
@@ -102,7 +103,6 @@ require("typescript").setup({
 require("rust-tools").setup({
 	server = require("lsp.servers.rust_analyzer").setup(make_config(), on_attach),
 })
-
 lspconf["clangd"].setup(make_config())
 lspconf["bashls"].setup(make_config())
 lspconf["dockerls"].setup(make_config())
@@ -116,5 +116,3 @@ for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
-
-vim.api.nvim_set_hl(0, "LspCodeLens", { fg = "#ffffff" })

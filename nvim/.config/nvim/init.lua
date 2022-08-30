@@ -1,4 +1,5 @@
-require("impatient")
+-- using pcal to avoid errors on initial run
+pcall(require, "impatient")
 
 require("pluginsList")
 
