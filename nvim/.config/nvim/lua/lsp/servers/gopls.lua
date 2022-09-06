@@ -25,12 +25,15 @@ function go.setup(config, on_attach)
 				useany = true,
 				unusedvariable = true,
 			},
-			-- not yet supported by neovim
-			-- hints = {
-			-- 	compositeLiteralFields = true,
-			-- 	functionTypeParameters = true,
-			-- 	parameterNames = true,
-			-- }
+			hints = {
+				assignVariableTypes = true,
+				compositeLiteralFields = true,
+				compositeLiteralTypes = true,
+				constantValues = true,
+				functionTypeParameters = true,
+				parameterNames = true,
+				rangeVariableTypes = true,
+			},
 		},
 	}
 

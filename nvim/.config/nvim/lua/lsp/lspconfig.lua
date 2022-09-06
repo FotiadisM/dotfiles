@@ -50,7 +50,6 @@ local on_attach = function(client, bufnr)
 	if client.resolved_capabilities.document_formatting then
 		vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 			group = vim.api.nvim_create_augroup("lsp_format", { clear = true }),
-			buffer = bufnr,
 			callback = function()
 				vim.lsp.buf.formatting_sync()
 			end,
@@ -62,7 +61,6 @@ local on_attach = function(client, bufnr)
 		-- keymap("n", "<space>lr", vim.lsp.codelens.refresh, opts)
 		vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
 			group = vim.api.nvim_create_augroup("lsp_codelens", { clear = true }),
-			buffer = bufnr,
 			callback = function()
 				vim.lsp.codelens.refresh()
 			end,
