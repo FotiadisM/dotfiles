@@ -31,30 +31,30 @@ items:
 colors:
   # Default colors
   primary:
-    background: '#101421'
-    foreground: '#fffbf6'
+    background: "#101421"
+    foreground: "#fffbf6"
 
   # Normal colors
   normal:
-    black: '#2e2e2e'
-    red: '#eb4129'
-    green: '#abe047'
-    yellow: '#f6c744'
-    blue: '#47a0f3'
-    magenta: '#7b5cb0'
-    cyan: '#64dbed'
-    white: '#e5e9f0'
+    black: "#2e2e2e"
+    red: "#eb4129"
+    green: "#abe047"
+    yellow: "#f6c744"
+    blue: "#47a0f3"
+    magenta: "#7b5cb0"
+    cyan: "#64dbed"
+    white: "#e5e9f0"
 
   # Bright colors
   bright:
-    black: '#565656'
-    red: '#ec5357'
-    green: '#c0e17d'
-    yellow: '#f9da6a'
-    blue: '#49a4f8'
-    magenta: '#a47de9'
-    cyan: '#99faf2'
-    white: '#ffffff'
+    black: "#565656"
+    red: "#ec5357"
+    green: "#c0e17d"
+    yellow: "#f9da6a"
+    blue: "#49a4f8"
+    magenta: "#a47de9"
+    cyan: "#99faf2"
+    white: "#ffffff"
 
 # Import additional configuration files
 #
@@ -159,7 +159,6 @@ font:
     family: DejaVuSansMono Nerd Font Mono
     style: Bold Italic
   size: 12
-
 # Offset is the extra space around each character. `offset.y` can be thought
 # of as modifying the line spacing, and `offset.x` as modifying the letter
 # spacing.
