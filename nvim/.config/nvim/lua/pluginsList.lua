@@ -284,7 +284,7 @@ packer.startup({
 				require("plugins.nvim-ufo")
 			end,
 		})
-		use("AndrewRadev/splitjoin.vim")
+		use({ "aarondiel/spread.nvim", after = "nvim-treesitter" })
 		use("b0o/schemastore.nvim")
 		use({
 			"someone-stole-my-name/yaml-companion.nvim",

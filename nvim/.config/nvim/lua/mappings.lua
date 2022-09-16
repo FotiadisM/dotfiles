@@ -153,3 +153,7 @@ keymap({ "n", "v" }, "<leader>r", require("refactoring").select_refactor, opts)
 
 -- nvim-spectre
 keymap("n", "<leader>S", require("spectre").open, opts)
+
+-- spread.nvim
+keymap("n", "gS", require("spread").out, opts)
+keymap("n", "gJ", require("spread").combine, opts)
