@@ -200,11 +200,10 @@ packer.startup({
 			end,
 		})
 		use({
-			"windwp/nvim-ts-autotag",
-			requires = "nvim-treesitter/nvim-treesitter",
-		})
-		use({
 			"numToStr/Comment.nvim",
+			requires = {
+				{ "JoosepAlviste/nvim-ts-context-commentstring", requires = "nvim-treesitter/nvim-treesitter" },
+			},
 			config = function()
 				require("plugins.comment")
 			end,
