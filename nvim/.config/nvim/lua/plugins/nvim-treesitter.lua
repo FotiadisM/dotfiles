@@ -55,4 +55,10 @@ require("nvim-treesitter.configs").setup({
 		enable = true,
 		enable_autocmd = false,
 	},
+	playground = {
+		enable = true,
+	},
+	query_linter = {
+		enable = true,
+	},
 })

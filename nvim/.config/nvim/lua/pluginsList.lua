@@ -21,7 +21,7 @@ packer.startup({
 		use("folke/tokyonight.nvim")
 		use({
 			"nvim-lualine/lualine.nvim",
-			requires = { "kyazdani42/nvim-web-devicons", opt = true },
+			requires = "kyazdani42/nvim-web-devicons",
 		})
 		use({
 			"akinsho/nvim-bufferline.lua",
@@ -61,18 +61,18 @@ packer.startup({
 		use({
 			"nvim-treesitter/nvim-treesitter",
 			run = ":TSUpdate",
-			requires = {
-				"nvim-treesitter/nvim-treesitter-textobjects",
-			},
+			requires = "nvim-treesitter/nvim-treesitter-textobjects",
 			config = function()
 				require("plugins.nvim-treesitter")
 			end,
 		})
 		use({
+			"nvim-treesitter/playground",
+			requires = "nvim-treesitter/nvim-treesitter",
+		})
+		use({
 			"nvim-treesitter/nvim-treesitter-context",
-			requires = {
-				"nvim-treesitter/nvim-treesitter",
-			},
+			requires = "nvim-treesitter/nvim-treesitter",
 			config = function()
 				require("treesitter-context").setup()
 			end,
@@ -298,6 +298,11 @@ packer.startup({
 			config = function()
 				require("plugins.fidget")
 			end,
+		})
+		use({
+			-- TODO: doesn't work, open an issue
+			"axieax/urlview.nvim",
+			disable = true,
 		})
 	end,
 	config = {
