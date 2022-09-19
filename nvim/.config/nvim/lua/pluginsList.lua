@@ -19,48 +19,19 @@ packer.startup({
 
 		-- theme
 		use("folke/tokyonight.nvim")
-		use({
-			"nvim-lualine/lualine.nvim",
-			requires = "kyazdani42/nvim-web-devicons",
-		})
-		use({
-			"akinsho/nvim-bufferline.lua",
-			requires = "kyazdani42/nvim-web-devicons",
-			config = function()
-				require("plugins.bufferline")
-			end,
-		})
+		use({ "nvim-lualine/lualine.nvim", requires = "kyazdani42/nvim-web-devicons" })
+		use({ "akinsho/nvim-bufferline.lua", requires = "kyazdani42/nvim-web-devicons" })
 
 		-- file managing
-		use({
-			"kyazdani42/nvim-tree.lua",
-			cmd = "NvimTreeToggle",
-			requires = "kyazdani42/nvim-web-devicons",
-			config = function()
-				require("plugins.nvim-tree")
-			end,
-		})
-		use({
-			"nvim-telescope/telescope.nvim",
-			requires = "nvim-lua/plenary.nvim",
-			config = function()
-				require("plugins.telescope")
-			end,
-		})
+		use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
+		use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" })
 		use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 		use("nvim-telescope/telescope-packer.nvim")
-		use({
-			"windwp/nvim-spectre",
-			requires = "nvim-lua/plenary.nvim",
-			config = function()
-				require("spectre").setup()
-			end,
-		})
+		use({ "windwp/nvim-spectre", requires = "nvim-lua/plenary.nvim" })
 
 		-- language stuff
 		use({
 			"nvim-treesitter/nvim-treesitter",
-			run = ":TSUpdate",
 			requires = "nvim-treesitter/nvim-treesitter-textobjects",
 			config = function()
 				require("plugins.nvim-treesitter")
@@ -128,9 +99,6 @@ packer.startup({
 				{ "nvim-lua/plenary.nvim" },
 				{ "nvim-treesitter/nvim-treesitter" },
 			},
-			config = function()
-				require("refactoring").setup()
-			end,
 		})
 
 		-- language specific plugins
@@ -161,37 +129,15 @@ packer.startup({
 		})
 
 		-- git
-		use({
-			"lewis6991/gitsigns.nvim",
-			requires = "nvim-lua/plenary.nvim",
-			config = function()
-				require("plugins.gitsigns")
-			end,
-		})
-		use({
-			"sindrets/diffview.nvim",
-			config = function()
-				require("diffview").setup()
-			end,
-		})
-		use({
-			"TimUntersberger/neogit",
-			requires = "nvim-lua/plenary.nvim",
-			config = function()
-				require("neogit").setup()
-			end,
-		})
+		use({ "lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim" })
+		use("sindrets/diffview.nvim")
+		use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
 
 		-- misc
 		use("dstein64/vim-startuptime")
 		use("lewis6991/impatient.nvim")
 		use("ggandor/lightspeed.nvim")
-		use({
-			"kylechui/nvim-surround",
-			config = function()
-				require("nvim-surround").setup()
-			end,
-		})
+		use("kylechui/nvim-surround")
 		use({
 			"windwp/nvim-autopairs",
 			after = "nvim-cmp",
@@ -204,34 +150,11 @@ packer.startup({
 			requires = {
 				{ "JoosepAlviste/nvim-ts-context-commentstring", requires = "nvim-treesitter/nvim-treesitter" },
 			},
-			config = function()
-				require("plugins.comment")
-			end,
 		})
-		use({
-			"lukas-reineke/indent-blankline.nvim",
-			config = function()
-				require("plugins.indent-blankline")
-			end,
-		})
-		use({
-			"folke/which-key.nvim",
-			config = function()
-				require("which-key").setup()
-			end,
-		})
-		use({
-			"rcarriga/nvim-notify",
-			config = function()
-				require("plugins.nvim-notify")
-			end,
-		})
-		use({
-			"NvChad/nvim-colorizer.lua",
-			config = function()
-				require("colorizer").setup({ user_default_options = { names = false } })
-			end,
-		})
+		use("lukas-reineke/indent-blankline.nvim")
+		use("folke/which-key.nvim")
+		use("rcarriga/nvim-notify")
+		use("NvChad/nvim-colorizer.lua")
 		use({
 			"NTBBloodbath/rest.nvim",
 			ft = "http",
@@ -240,19 +163,8 @@ packer.startup({
 				require("rest-nvim").setup()
 			end,
 		})
-		use({
-			"folke/todo-comments.nvim",
-			requires = "nvim-lua/plenary.nvim",
-			config = function()
-				require("plugins.todo-comments")
-			end,
-		})
-		use({
-			"FotiadisM/tabset.nvim",
-			config = function()
-				require("plugins.tabset")
-			end,
-		})
+		use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
+		use("FotiadisM/tabset.nvim")
 		use({
 			"iamcco/markdown-preview.nvim",
 			run = "cd app && npm install",
@@ -261,19 +173,9 @@ packer.startup({
 			end,
 			ft = { "markdown" },
 		})
-		use({
-			"stevearc/dressing.nvim",
-			config = function()
-				require("dressing").setup()
-			end,
-		})
+		use("stevearc/dressing.nvim")
 		use("RRethy/vim-illuminate")
-		use({
-			"anuvyklack/pretty-fold.nvim",
-			config = function()
-				require("pretty-fold").setup()
-			end,
-		})
+		use("anuvyklack/pretty-fold.nvim")
 		-- TODO: enable this plugin when https://github.com/neovim/neovim/pull/17446 is merged
 		use({
 			"kevinhwang91/nvim-ufo",
@@ -293,12 +195,7 @@ packer.startup({
 				{ "nvim-telescope/telescope.nvim" },
 			},
 		})
-		use({
-			"j-hui/fidget.nvim",
-			config = function()
-				require("plugins.fidget")
-			end,
-		})
+		use("j-hui/fidget.nvim")
 		use({
 			-- TODO: doesn't work, open an issue
 			"axieax/urlview.nvim",

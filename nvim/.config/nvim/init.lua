@@ -3,8 +3,6 @@ pcall(require, "impatient")
 
 require("pluginsList")
 
-require("theme")
-require("options")
 require("mappings")
 
 -- if nvim starts with a directory as an argument, cd into it
