@@ -1,4 +1,6 @@
 local dap = require("dap")
+require("dapui").setup()
+require("nvim-dap-virtual-text").setup()
 
 dap.defaults.fallback.force_external_terminal = true
 dap.defaults.fallback.external_terminal = {

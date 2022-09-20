@@ -48,21 +48,10 @@ packer.startup({
 				require("treesitter-context").setup()
 			end,
 		})
-		use({
-			"neovim/nvim-lspconfig",
-			config = function()
-				require("lsp.lspconfig")
-			end,
-		})
+		use("neovim/nvim-lspconfig")
 		use("williamboman/mason.nvim")
 		use("williamboman/mason-lspconfig.nvim")
-		use({
-			"kosayoda/nvim-lightbulb",
-			requires = "antoinemadec/FixCursorHold.nvim",
-			config = function()
-				require("plugins.nvim-lightbulb")
-			end,
-		})
+		use({ "kosayoda/nvim-lightbulb", requires = "antoinemadec/FixCursorHold.nvim" })
 		use("onsails/lspkind-nvim")
 		use("ray-x/lsp_signature.nvim")
 		use({
@@ -107,25 +96,11 @@ packer.startup({
 		use("jose-elias-alvarez/typescript.nvim")
 
 		-- debugging
-		use({
-			"mfussenegger/nvim-dap",
-			config = function()
-				require("dap.nvim-dap")
-			end,
-		})
-		use({
-			"rcarriga/nvim-dap-ui",
-			requires = "mfussenegger/nvim-dap",
-			config = function()
-				require("dapui").setup()
-			end,
-		})
+		use("mfussenegger/nvim-dap")
+		use({ "rcarriga/nvim-dap-ui", requires = "mfussenegger/nvim-dap" })
 		use({
 			"theHamsta/nvim-dap-virtual-text",
 			requires = { "mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter" },
-			config = function()
-				require("nvim-dap-virtual-text").setup()
-			end,
 		})
 
 		-- git
@@ -175,7 +150,6 @@ packer.startup({
 		})
 		use("stevearc/dressing.nvim")
 		use("RRethy/vim-illuminate")
-		use("anuvyklack/pretty-fold.nvim")
 		-- TODO: enable this plugin when https://github.com/neovim/neovim/pull/17446 is merged
 		use({
 			"kevinhwang91/nvim-ufo",
@@ -196,11 +170,7 @@ packer.startup({
 			},
 		})
 		use("j-hui/fidget.nvim")
-		use({
-			-- TODO: doesn't work, open an issue
-			"axieax/urlview.nvim",
-			disable = true,
-		})
+		use("axieax/urlview.nvim")
 	end,
 	config = {
 		profile = {
