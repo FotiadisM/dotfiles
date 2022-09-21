@@ -2,7 +2,7 @@ local telescope = require("telescope")
 
 telescope.setup({
 	defaults = {
-		file_ignore_patterns = { ".git", "node_modules" },
+		file_ignore_patterns = { "node_modules", "vendor" },
 	},
 	extensions = {
 		fzf = {

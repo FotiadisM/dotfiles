@@ -42,9 +42,6 @@ require("nvim-tree").setup({
 		enable = true,
 		show_on_dirs = true,
 	},
-	filters = {
-		custom = { ".git" },
-	},
 	filesystem_watchers = {
 		enable = true,
 	},
