@@ -24,30 +24,22 @@ packer.startup({
 
 		-- file managing
 		use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
-		use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" })
-		use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-		use("nvim-telescope/telescope-packer.nvim")
+		use({
+			"nvim-telescope/telescope.nvim",
+			requires = {
+				{ "nvim-lua/plenary.nvim" },
+			},
+		})
+		use({ "nvim-telescope/telescope-packer.nvim", requires = "nvim-telescope/telescope.nvim" })
+		use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make", requires = "nvim-telescope/telescope.nvim" })
 		use({ "windwp/nvim-spectre", requires = "nvim-lua/plenary.nvim" })
 
 		-- language stuff
-		use({
-			"nvim-treesitter/nvim-treesitter",
-			requires = "nvim-treesitter/nvim-treesitter-textobjects",
-			config = function()
-				require("plugins.nvim-treesitter")
-			end,
-		})
-		use({
-			"nvim-treesitter/playground",
-			requires = "nvim-treesitter/nvim-treesitter",
-		})
-		use({
-			"nvim-treesitter/nvim-treesitter-context",
-			requires = "nvim-treesitter/nvim-treesitter",
-			config = function()
-				require("treesitter-context").setup()
-			end,
-		})
+		use("nvim-treesitter/nvim-treesitter")
+		use({ "nvim-treesitter/nvim-treesitter-textobjects", requires = "nvim-treesitter/nvim-treesitter" })
+		use({ "nvim-treesitter/nvim-treesitter-context", requires = "nvim-treesitter/nvim-treesitter" })
+		use({ "nvim-treesitter/nvim-tree-docs", requires = "nvim-treesitter/nvim-treesitter" })
+		use({ "nvim-treesitter/playground", requires = "nvim-treesitter/nvim-treesitter" })
 		use("neovim/nvim-lspconfig")
 		use("williamboman/mason.nvim")
 		use("williamboman/mason-lspconfig.nvim")
@@ -159,7 +151,7 @@ packer.startup({
 				require("plugins.nvim-ufo")
 			end,
 		})
-		use({ "aarondiel/spread.nvim", after = "nvim-treesitter" })
+		use({ "aarondiel/spread.nvim", require = "nvim-treesitter" })
 		use("b0o/schemastore.nvim")
 		use({
 			"someone-stole-my-name/yaml-companion.nvim",
