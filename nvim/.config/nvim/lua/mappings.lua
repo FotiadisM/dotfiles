@@ -125,32 +125,36 @@ keymap("n", "H", ":BufferLineCyclePrev<CR>", opts)
 keymap("n", "<space>h", ":BufferLineMovePrev<CR>", opts)
 
 -- telescope
-keymap("n", "gt", require("telescope.builtin").builtin, opts)
+local tsb = require("telescope.builtin")
+keymap("n", "gt", tsb.builtin, opts)
+keymap("n", "gh", tsb.help_tags, opts)
 keymap("n", "gf", function()
-	require("telescope.builtin").find_files({
+	tsb.find_files({
 		follow = true,
 		hidden = true,
 		no_ignore = true,
 		no_ignore_parent = true,
 	})
 end, opts)
-keymap("n", "gh", require("telescope.builtin").help_tags, opts)
-keymap("n", "<leader>fg", require("telescope.builtin").live_grep, opts)
-keymap("n", "<leader>fb", require("telescope.builtin").buffers, opts)
-keymap("n", "<leader>fh", require("telescope.builtin").help_tags, opts)
+keymap("n", "<leader>fg", tsb.live_grep, opts)
+keymap("n", "<leader>fb", tsb.buffers, opts)
+keymap("n", "<leader>fh", function()
+	tsb.find_files({ cwd = "~/.config/nvim", follow = true, hidden = true })
+end, opts)
 keymap("n", "<leader>fp", require("telescope").extensions.packer.packer, opts)
-keymap("n", "<leader>fgb", require("telescope.builtin").git_branches, opts)
-keymap("n", "<leader>fgc", require("telescope.builtin").git_commits, opts)
+keymap("n", "<leader>fgb", tsb.git_branches, opts)
+keymap("n", "<leader>fgc", tsb.git_commits, opts)
 
 -- debugging
-keymap("n", "<leader>dc", require("dap").continue, opts)
-keymap("n", "<leader>dt", require("dap").terminate, opts)
-keymap("n", "<leader>dq", require("dap").repl.close, opts)
-keymap("n", "<F10>", require("dap").step_over, opts)
-keymap("n", "<F11>", require("dap").step_into, opts)
-keymap("n", "<F12>", require("dap").step_out, opts)
+local dap = require("dap")
+keymap("n", "<leader>dc", dap.continue, opts)
+keymap("n", "<leader>dt", dap.terminate, opts)
+keymap("n", "<leader>dq", dap.repl.close, opts)
+keymap("n", "<F10>", dap.step_over, opts)
+keymap("n", "<F11>", dap.step_into, opts)
+keymap("n", "<F12>", dap.step_out, opts)
+keymap("n", "<leader>db", dap.toggle_breakpoint, opts)
 keymap("n", "<leader>du", require("dapui").toggle, opts)
-keymap("n", "<leader>db", require("dap").toggle_breakpoint, opts)
 
 -- refactoring
 keymap({ "n", "v" }, "<leader>r", require("refactoring").select_refactor, opts)
