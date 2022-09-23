@@ -3,10 +3,11 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 
 vim.diagnostic.config({
 	virtual_text = {
-		source = "always",
+		prefix = "●",
+		source = "if_many",
 	},
 	float = {
-		source = "always",
+		source = "if_many",
 	},
 })
 

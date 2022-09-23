@@ -23,8 +23,6 @@ require("nvim-treesitter.configs").setup({
 				["if"] = "@function.inner",
 				["al"] = "@loop.outer",
 				["il"] = "@loop.inner",
-				["ap"] = "@parameter.outer",
-				["ip"] = "@parameter.inner",
 			},
 		},
 		move = {

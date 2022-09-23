@@ -103,7 +103,7 @@ packer.startup({
 		-- misc
 		use("dstein64/vim-startuptime")
 		use("lewis6991/impatient.nvim")
-		use("ggandor/lightspeed.nvim")
+		use("ggandor/leap.nvim")
 		use("kylechui/nvim-surround")
 		use({
 			"windwp/nvim-autopairs",
