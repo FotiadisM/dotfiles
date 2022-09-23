@@ -35,6 +35,10 @@ map("", "<C-c>", '"+y')
 -- easily source files
 map("n", "<leader>l", ":so%<CR>", {})
 
+-- greatest remap ever
+-- don't copy text when pasting in vidual mode
+map("x", "p", '"_dP')
+
 -- moving between windows
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-j>", "<C-w>j")
