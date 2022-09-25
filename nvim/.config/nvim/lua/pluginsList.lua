@@ -45,7 +45,6 @@ packer.startup({
 		use("williamboman/mason-lspconfig.nvim")
 		use({ "kosayoda/nvim-lightbulb", requires = "antoinemadec/FixCursorHold.nvim" })
 		use("onsails/lspkind-nvim")
-		use("ray-x/lsp_signature.nvim")
 		use({
 			"jose-elias-alvarez/null-ls.nvim",
 			require = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
@@ -60,18 +59,9 @@ packer.startup({
 				"saadparwaiz1/cmp_luasnip",
 				"hrsh7th/cmp-cmdline",
 				"hrsh7th/cmp-nvim-lsp-document-symbol",
-				"petertriho/cmp-git",
+				"hrsh7th/cmp-nvim-lsp-signature-help",
+				{ "petertriho/cmp-git", requires = "nvim-lua/plenary.nvim" },
 			},
-			config = function()
-				require("plugins.nvim-cmp")
-			end,
-		})
-		use({
-			"petertriho/cmp-git",
-			requires = "nvim-lua/plenary.nvim",
-			config = function()
-				require("cmp_git").setup()
-			end,
 		})
 		use("L3MON4D3/LuaSnip")
 		use({
@@ -86,6 +76,15 @@ packer.startup({
 		use({ "towolf/vim-helm" })
 		use("simrat39/rust-tools.nvim")
 		use("jose-elias-alvarez/typescript.nvim")
+		use("b0o/schemastore.nvim")
+		use({
+			"someone-stole-my-name/yaml-companion.nvim",
+			requires = {
+				{ "neovim/nvim-lspconfig" },
+				{ "nvim-lua/plenary.nvim" },
+				{ "nvim-telescope/telescope.nvim" },
+			},
+		})
 
 		-- debugging
 		use("mfussenegger/nvim-dap")
@@ -105,13 +104,7 @@ packer.startup({
 		use("lewis6991/impatient.nvim")
 		use("ggandor/leap.nvim")
 		use("kylechui/nvim-surround")
-		use({
-			"windwp/nvim-autopairs",
-			after = "nvim-cmp",
-			config = function()
-				require("plugins.nvim-autopairs")
-			end,
-		})
+		use("windwp/nvim-autopairs")
 		use({
 			"numToStr/Comment.nvim",
 			requires = {
@@ -151,16 +144,7 @@ packer.startup({
 				require("plugins.nvim-ufo")
 			end,
 		})
-		use({ "aarondiel/spread.nvim", require = "nvim-treesitter" })
-		use("b0o/schemastore.nvim")
-		use({
-			"someone-stole-my-name/yaml-companion.nvim",
-			requires = {
-				{ "neovim/nvim-lspconfig" },
-				{ "nvim-lua/plenary.nvim" },
-				{ "nvim-telescope/telescope.nvim" },
-			},
-		})
+		use({ "aarondiel/spread.nvim", require = "nvim-treesitter/nvim-treesitter" })
 		use("j-hui/fidget.nvim")
 		use("axieax/urlview.nvim")
 	end,

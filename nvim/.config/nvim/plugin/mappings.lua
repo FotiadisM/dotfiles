@@ -33,7 +33,7 @@ end, "", { noremap = true, expr = true })
 map("", "<C-c>", '"+y')
 
 -- easily source files
-map("n", "<leader>l", ":so%<CR>", {})
+map("n", "<leader>l", ":so%<CR>", "source buffer")
 
 -- greatest remap ever
 -- don't copy text when pasting in vidual mode

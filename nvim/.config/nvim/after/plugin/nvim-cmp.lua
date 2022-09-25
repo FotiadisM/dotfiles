@@ -5,12 +5,17 @@ end
 
 require("plugins.luasnip")
 local cmp = require("cmp")
+require("cmp_git").setup()
 
 cmp.setup({
 	snippet = {
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body)
 		end,
+	},
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
 	},
 	mapping = {
 		["<Tab>"] = cmp.mapping(function(fallback)
@@ -39,6 +44,7 @@ cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
+		{ name = "nvim_lsp_signature_help" },
 		{ name = "buffer", keyword_length = 4 },
 		{ name = "path" },
 		{ name = "nvim_lua" },

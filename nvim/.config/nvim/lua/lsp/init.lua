@@ -1,13 +1,4 @@
-local lspSignatureCfg = {
-	hint_enable = false,
-	handler_opts = {
-		border = "single",
-	},
-	zindex = 50, -- signatureHelp behind completion items
-}
-
 local on_attach = function(client, bufnr)
-	require("lsp_signature").on_attach(lspSignatureCfg)
 	require("illuminate").on_attach(client)
 
 	-- Mappings.
