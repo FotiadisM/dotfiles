@@ -1,29 +1,33 @@
 local on_attach = function(client, bufnr)
 	require("illuminate").on_attach(client)
 
-	-- Mappings.
-	local keymap = vim.keymap.set
-	local opts = { buffer = bufnr, noremap = true, silent = true }
-	keymap("n", "gD", vim.lsp.buf.declaration, opts)
-	keymap("n", "gd", vim.lsp.buf.definition, opts)
-	keymap("n", "K", vim.lsp.buf.hover, opts)
-	keymap("n", "gi", vim.lsp.buf.implementation, opts)
-	keymap("n", "<space>k", vim.lsp.buf.signature_help, opts)
-	keymap("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-	keymap("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
-	keymap("n", "<space>wl", function()
+	-- Mappings
+	local map = function(m, l, r, desc, opts)
+		opts = opts or { buffer = bufnr, noremap = true, silent = true }
+		desc = desc or ""
+		opts.desc = desc
+		vim.keymap.set(m, l, r, opts)
+	end
+	map("n", "gD", vim.lsp.buf.declaration, "go declaration")
+	map("n", "gd", vim.lsp.buf.definition, "go definition")
+	map("n", "K", vim.lsp.buf.hover, "hover")
+	map("n", "gi", vim.lsp.buf.implementation, "go implementation")
+	map("n", "<space>k", vim.lsp.buf.signature_help, "signature help")
+	map("n", "<space>wa", vim.lsp.buf.add_workspace_folder, "add workspace folder")
+	map("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, "remove workspace folder")
+	map("n", "<space>wl", function()
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, opts)
-	keymap("n", "<space>D", vim.lsp.buf.type_definition, opts)
-	keymap("n", "<space>ca", vim.lsp.buf.code_action, opts)
-	keymap("n", "<space>rn", vim.lsp.buf.rename, opts)
-	keymap("n", "gr", vim.lsp.buf.references, opts)
-	keymap("n", "<space>e", vim.diagnostic.open_float, opts)
-	keymap("n", "[d", vim.diagnostic.goto_prev, opts)
-	keymap("n", "]d", vim.diagnostic.goto_next, opts)
-	keymap("n", "<space>cl", vim.diagnostic.setqflist, opts)
-	keymap("n", "<space>f", vim.lsp.buf.formatting, opts)
-	keymap("n", "<space>rf", vim.lsp.buf.range_formatting, opts)
+	end, "list workspace folders")
+	map("n", "<space>D", vim.lsp.buf.type_definition, "type definition")
+	map("n", "<space>ca", vim.lsp.buf.code_action, "code action")
+	map("n", "<space>rn", vim.lsp.buf.rename, "rename")
+	map("n", "gr", vim.lsp.buf.references, "references")
+	map("n", "<space>e", vim.diagnostic.open_float, "open diagnostics")
+	map("n", "[d", vim.diagnostic.goto_prev, "diagnostics prev")
+	map("n", "]d", vim.diagnostic.goto_next, "diagnostics next")
+	map("n", "<space>cl", vim.diagnostic.setqflist, "diagnostics quicklist")
+	map("n", "<space>f", vim.lsp.buf.formatting, "format")
+	map("n", "<space>rf", vim.lsp.buf.range_formatting, "range format")
 
 	-- Set some keybinds conditional on server capabilities
 	if client.resolved_capabilities.document_formatting then
@@ -36,8 +40,8 @@ local on_attach = function(client, bufnr)
 	end
 
 	if client.resolved_capabilities.code_lens then
-		keymap("n", "<space>lr", vim.lsp.codelens.run, opts)
-		-- keymap("n", "<space>lr", vim.lsp.codelens.refresh, opts)
+		map("n", "<space>lr", vim.lsp.codelens.run, "codelens")
+		-- map("n", "<space>lr", vim.lsp.codelens.refresh, "codelens refreash")
 		vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
 			group = vim.api.nvim_create_augroup("lsp_codelens", { clear = true }),
 			callback = function()
@@ -46,6 +50,7 @@ local on_attach = function(client, bufnr)
 		})
 	end
 
+	-- NOTE: find a better solution
 	if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
 		vim.diagnostic.disable(bufnr)
 		vim.defer_fn(function()
