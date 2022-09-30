@@ -88,24 +88,20 @@ map("n", "<leader>s", ":set spell!<CR>")
 
 -- quickfix mappings
 map("n", "<space>cc", function()
-	local gf_open = false
 	for _, win in pairs(vim.fn.getwininfo()) do
 		if win["quickfix"] == 1 then
-			gf_open = true
+			return ":cclose<CR>"
 		end
 	end
-
-	if gf_open then
-		vim.cmd([[cclose]])
-		return
-	end
-	vim.cmd([[copen]])
-end, "toggle quickfix")
+	return ":copen<CR>"
+end, "toggle quickfix", { silent = true, expr = true })
 map("n", "<space>cn", ":cnext<CR>", "cnext")
 map("n", "<space>cp", ":cprev<CR>", "cprev")
 
 -- nvim-tree
-map("n", "<leader>b", ":NvimTreeToggle<CR>", "toggle NvimTree")
+map("n", "<leader>b", function()
+	require("nvim-tree").toggle()
+end, "toggle NvimTree")
 
 -- luasnip
 local ls = require("luasnip")

@@ -13,10 +13,13 @@
 │       ├── indent-blankline.lua
 │       ├── lspconfig.lua
 │       ├── mappings.lua
+│       ├── nvim-autopairs.lua
+│       ├── nvim-cmp.lua
 │       ├── nvim-dap.lua
 │       ├── nvim-lightbulb.lua
 │       ├── nvim-notify.lua
 │       ├── nvim-tree.lua
+│       ├── nvim-treesitter.lua
 │       ├── rest.lua
 │       ├── tabset.lua
 │       ├── telescope.lua
@@ -40,14 +43,11 @@
 │   │   └── init.lua
 │   ├── plugins
 │   │   ├── luasnip.lua
-│   │   ├── nvim-autopairs.lua
-│   │   ├── nvim-cmp.lua
-│   │   ├── nvim-treesitter.lua
 │   │   └── nvim-ufo.lua
-│   ├── mappings.lua
 │   └── pluginsList.lua
 ├── plugin
 │   ├── commands.lua
+│   ├── mappings.lua
 │   ├── options.lua
 │   ├── packer_compiled.lua
 │   └── theme.lua
