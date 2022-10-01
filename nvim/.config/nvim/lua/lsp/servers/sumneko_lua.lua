@@ -30,7 +30,7 @@ function lua.setup(config, on_attach)
 	}
 
 	config.on_attach = function(client, bufnr)
-		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.document_formatting = false
 		on_attach(client, bufnr)
 	end
 

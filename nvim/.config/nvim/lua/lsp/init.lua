@@ -26,20 +26,19 @@ local on_attach = function(client, bufnr)
 	map("n", "[d", vim.diagnostic.goto_prev, "diagnostics prev")
 	map("n", "]d", vim.diagnostic.goto_next, "diagnostics next")
 	map("n", "<space>cl", vim.diagnostic.setqflist, "diagnostics quicklist")
-	map("n", "<space>f", vim.lsp.buf.formatting, "format")
-	map("n", "<space>rf", vim.lsp.buf.range_formatting, "range format")
+	map("n", "<space>f", vim.lsp.buf.format, "format")
 
 	-- Set some keybinds conditional on server capabilities
-	if client.resolved_capabilities.document_formatting then
+	if client.server_capabilities.documentFormattingProvider then
 		vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 			group = vim.api.nvim_create_augroup("lsp_format", { clear = true }),
 			callback = function()
-				vim.lsp.buf.formatting_sync()
+				vim.lsp.buf.format()
 			end,
 		})
 	end
 
-	if client.resolved_capabilities.code_lens then
+	if client.server_capabilities.code_lens then
 		map("n", "<space>lr", vim.lsp.codelens.run, "codelens")
 		-- map("n", "<space>lr", vim.lsp.codelens.refresh, "codelens refreash")
 		vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
