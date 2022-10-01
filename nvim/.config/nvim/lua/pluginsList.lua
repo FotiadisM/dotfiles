@@ -73,7 +73,7 @@ packer.startup({
 		})
 
 		-- language specific plugins
-		use({ "towolf/vim-helm" })
+		use({ "towolf/vim-helm", disable = true })
 		use("simrat39/rust-tools.nvim")
 		use("jose-elias-alvarez/typescript.nvim")
 		use("b0o/schemastore.nvim")
