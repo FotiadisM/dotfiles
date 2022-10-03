@@ -1,14 +1,12 @@
 local helm = function(path)
-	while path ~= "/" do
-		path = vim.fn.fnamemodify(path, ":h")
-		if vim.fn.fnamemodify(path, ":t") == "templates" then
-			path = vim.fn.fnamemodify(path, ":h")
-			if vim.fn.filereadable(path .. "/Chart.yaml") == 1 then
+	for dir in vim.fs.parents(path) do
+		if vim.fn.fnamemodify(dir, ":t") == "templates" then
+			if vim.fn.filereadable(vim.fs.dirname(dir) .. "/Chart.yaml") == 1 then
 				return "helm"
 			end
 		end
-		return "yaml"
 	end
+	return "yaml"
 end
 
 vim.filetype.add({
