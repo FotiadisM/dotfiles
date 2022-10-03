@@ -1,6 +1,7 @@
 require("spectre").setup()
 require("refactoring").setup()
 require("leap").set_default_keymaps()
+require("flit").setup()
 require("diffview").setup()
 require("neogit").setup()
 require("nvim-surround").setup()

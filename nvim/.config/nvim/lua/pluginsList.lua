@@ -102,7 +102,10 @@ packer.startup({
 		-- misc
 		use("dstein64/vim-startuptime")
 		use("lewis6991/impatient.nvim")
-		use("ggandor/leap.nvim")
+		use({
+			"ggandor/leap.nvim",
+			requires = { "tpope/vim-repeat", "ggandor/flit.nvim" },
+		})
 		use("kylechui/nvim-surround")
 		use("windwp/nvim-autopairs")
 		use({
