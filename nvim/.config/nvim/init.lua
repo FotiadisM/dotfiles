@@ -4,6 +4,9 @@ pcall(require, "impatient")
 require("pluginsList")
 
 -- if nvim starts with a directory as an argument, cd into it
-vim.cmd([[
-	autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) | execute 'cd '.argv()[0] | wincmd l | endif
-]])
+if vim.fn.argc() == 1 then
+	local arg = vim.fn.argv()[1]
+	if vim.fn.isdirectory(arg) then
+		vim.fn.chdir(arg)
+	end
+end

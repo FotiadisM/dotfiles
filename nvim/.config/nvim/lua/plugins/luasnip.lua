@@ -20,4 +20,5 @@ ls.config.set_config({
 
 ls.add_snippets("lua", {
 	s("lr", fmt('local {} = require("{}"){}', { i(2), i(1), i(0) })),
+	s("rr", fmt('require("{}"){}', { i(1), i(0) })),
 })
