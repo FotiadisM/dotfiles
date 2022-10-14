@@ -40,10 +40,15 @@ require("nvim-tree").setup({
 		enable = true,
 		show_on_dirs = true,
 	},
+	filters = {
+		custom = { "^.git$" },
+	},
 	git = {
 		ignore = false,
 	},
 })
+
+require("nvim-tree.view").View.winopts.foldcolumn = "1"
 
 -- quit nvim if the only window is NvimTree
 vim.api.nvim_create_autocmd("BufEnter", {

@@ -150,6 +150,7 @@ packer.startup({
 		use({ "aarondiel/spread.nvim", require = "nvim-treesitter/nvim-treesitter" })
 		use("j-hui/fidget.nvim")
 		use("axieax/urlview.nvim")
+		use("klen/nvim-config-local")
 	end,
 	config = {
 		profile = {
