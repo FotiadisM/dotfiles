@@ -51,8 +51,13 @@ local on_attach = function(client, bufnr)
 end
 
 local function make_config()
+	local capabilities = require("cmp_nvim_lsp").default_capabilities()
+	capabilities.textDocument.foldingRange = {
+		dynamicRegistration = false,
+		lineFoldingOnly = true,
+	}
 	return {
-		capabilities = require("cmp_nvim_lsp").default_capabilities(),
+		capabilities = capabilities,
 		on_attach = on_attach,
 	}
 end

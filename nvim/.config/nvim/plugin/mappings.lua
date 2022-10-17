@@ -203,3 +203,11 @@ end, "spread out")
 map("n", "gJ", function()
 	require("spread").combine()
 end, "spread combine")
+
+-- nvim-ufo
+map("n", "zR", function()
+	require("ufo").openAllFolds()
+end, "open all folds")
+map("n", "zM", function()
+	require("ufo").closeAllFolds()
+end, "close all folds")

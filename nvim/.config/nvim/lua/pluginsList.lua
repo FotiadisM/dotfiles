@@ -117,6 +117,22 @@ packer.startup({
 		use("lukas-reineke/indent-blankline.nvim")
 		use("folke/which-key.nvim")
 		use("rcarriga/nvim-notify")
+		use({
+			"folke/noice.nvim",
+			disable = true,
+			event = "VimEnter",
+			config = function()
+				require("noice").setup({
+					popupmenu = {
+						enabled = false,
+					},
+				})
+			end,
+			requires = {
+				"MunifTanjim/nui.nvim",
+				"rcarriga/nvim-notify",
+			},
+		})
 		use("NvChad/nvim-colorizer.lua")
 		use({
 			"NTBBloodbath/rest.nvim",
@@ -141,11 +157,7 @@ packer.startup({
 		-- TODO: enable this plugin when https://github.com/neovim/neovim/pull/17446 is merged
 		use({
 			"kevinhwang91/nvim-ufo",
-			disable = true,
 			requires = "kevinhwang91/promise-async",
-			config = function()
-				require("plugins.nvim-ufo")
-			end,
 		})
 		use({ "aarondiel/spread.nvim", require = "nvim-treesitter/nvim-treesitter" })
 		use("j-hui/fidget.nvim")

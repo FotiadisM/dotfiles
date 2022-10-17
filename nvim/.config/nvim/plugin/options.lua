@@ -25,6 +25,8 @@ vim.o.shiftwidth = 4
 
 vim.o.spelllang = "en_us"
 
-vim.o.foldmethod = "expr"
-vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+-- nvim-ufo
+vim.o.foldcolumn = "0"
+vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
+vim.o.foldenable = true
