@@ -147,16 +147,16 @@ colors:
 # Font configuration
 font:
   normal:
-    family: DejaVuSansMono Nerd Font Mono
+    family: monospace
     style: Regular
   bold:
-    family: DejaVuSansMono Nerd Font Mono
+    family: monospace
     style: Bold
   italic:
-    family: DejaVuSansMono Nerd Font Mono
+    family: monospace
     style: Italic
   bold_italic:
-    family: DejaVuSansMono Nerd Font Mono
+    family: monospace
     style: Bold Italic
   size: 12
 # Offset is the extra space around each character. `offset.y` can be thought
