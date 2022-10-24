@@ -7,8 +7,7 @@ end
 
 map("i", "jj", "<ESC>", { noremap = true })
 map("v", "<space>", "<ESC>", { noremap = true })
-map("i", "<C-s>", "<ESC>:w<CR>a", { noremap = true })
-map("n", "<C-s>", ":w<CR>", { noremap = true })
+map({ "n", "i" }, "<C-s>", "<CMD>w<CR>", { noremap = true })
 
 map("n", "j", "gj", { noremap = true })
 map("n", "k", "gk", { noremap = true })

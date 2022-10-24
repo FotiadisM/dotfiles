@@ -17,10 +17,10 @@ function go.setup(config, on_attach)
 			},
 			usePlaceholders = true,
 			analyses = {
-				fieldalignment = true,
+				fieldalignment = false,
 				nilness = true,
 				shadow = true,
-				unusedparams = false, -- not ideal behavior
+				unusedparams = false,
 				unusedwrite = true,
 				useany = true,
 				unusedvariable = true,

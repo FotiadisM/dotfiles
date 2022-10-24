@@ -73,7 +73,6 @@ packer.startup({
 		})
 
 		-- language specific plugins
-		use({ "towolf/vim-helm", disable = true })
 		use("simrat39/rust-tools.nvim")
 		use("jose-elias-alvarez/typescript.nvim")
 		use("b0o/schemastore.nvim")
@@ -116,17 +115,11 @@ packer.startup({
 		})
 		use("lukas-reineke/indent-blankline.nvim")
 		use("folke/which-key.nvim")
-		use("rcarriga/nvim-notify")
 		use({
 			"folke/noice.nvim",
-			disable = true,
 			event = "VimEnter",
 			config = function()
-				require("noice").setup({
-					popupmenu = {
-						enabled = false,
-					},
-				})
+				require("plugins.noice")
 			end,
 			requires = {
 				"MunifTanjim/nui.nvim",
@@ -154,13 +147,11 @@ packer.startup({
 		})
 		use("stevearc/dressing.nvim")
 		use("RRethy/vim-illuminate")
-		-- TODO: enable this plugin when https://github.com/neovim/neovim/pull/17446 is merged
 		use({
 			"kevinhwang91/nvim-ufo",
 			requires = "kevinhwang91/promise-async",
 		})
 		use({ "aarondiel/spread.nvim", require = "nvim-treesitter/nvim-treesitter" })
-		use("j-hui/fidget.nvim")
 		use("axieax/urlview.nvim")
 		use("klen/nvim-config-local")
 	end,
