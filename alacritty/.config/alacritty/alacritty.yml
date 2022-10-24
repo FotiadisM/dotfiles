@@ -147,16 +147,16 @@ colors:
 # Font configuration
 font:
   normal:
-    family: monospace
-    style: Regular
+    family: dejavusansmono
+    style: Bold
   bold:
-    family: monospace
+    family: dejavusansmono
     style: Bold
   italic:
-    family: monospace
-    style: Italic
+    family: dejavusansmono
+    style: Bold Italic
   bold_italic:
-    family: monospace
+    family: dejavusansmono
     style: Bold Italic
   size: 12
 # Offset is the extra space around each character. `offset.y` can be thought
