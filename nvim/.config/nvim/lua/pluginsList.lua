@@ -117,10 +117,6 @@ packer.startup({
 		use("folke/which-key.nvim")
 		use({
 			"folke/noice.nvim",
-			event = "VimEnter",
-			config = function()
-				require("plugins.noice")
-			end,
 			requires = {
 				"MunifTanjim/nui.nvim",
 				"rcarriga/nvim-notify",
