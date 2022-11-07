@@ -147,17 +147,17 @@ colors:
 # Font configuration
 font:
   normal:
-    family: dejavusansmono
-    style: Bold
-  bold:
-    family: dejavusansmono
-    style: Bold
+    family: DejaVuSansMono Nerd Font Mono
+    style: Regular
   italic:
-    family: dejavusansmono
-    style: Bold Italic
+    family: DejaVuSansMono Nerd Font Mono
+    style: Oblique
+  bold:
+    family: DejaVuSansMono Nerd Font Mono
+    style: Bold
   bold_italic:
-    family: dejavusansmono
-    style: Bold Italic
+    family: DejaVuSansMono Nerd Font Mono
+    style: Bold Oblique
   size: 12
 # Offset is the extra space around each character. `offset.y` can be thought
 # of as modifying the line spacing, and `offset.x` as modifying the letter
