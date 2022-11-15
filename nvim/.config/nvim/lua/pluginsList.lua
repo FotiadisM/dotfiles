@@ -107,6 +107,7 @@ packer.startup({
 		})
 		use("kylechui/nvim-surround")
 		use("windwp/nvim-autopairs")
+		use({ "windwp/nvim-ts-autotag", requires = "nvim-treesitter/nvim-treesitter" })
 		use({
 			"numToStr/Comment.nvim",
 			requires = {

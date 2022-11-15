@@ -4,4 +4,14 @@ require("noice").setup({
 		long_message_to_split = true,
 		lsp_doc_border = true,
 	},
+	routes = {
+		{
+			filter = {
+				event = "msg_show",
+				kind = "",
+				find = "written",
+			},
+			opts = { skip = true },
+		},
+	},
 })
