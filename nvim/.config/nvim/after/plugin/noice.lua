@@ -1,3 +1,7 @@
+if not package.loaded["noice"] then
+	return
+end
+
 require("noice").setup({
 	lsp = {
 		override = {

@@ -118,6 +118,7 @@ packer.startup({
 		use("folke/which-key.nvim")
 		use({
 			"folke/noice.nvim",
+			disable = true,
 			requires = {
 				"MunifTanjim/nui.nvim",
 				"rcarriga/nvim-notify",
