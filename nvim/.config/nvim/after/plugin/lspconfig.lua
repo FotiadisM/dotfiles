@@ -15,7 +15,9 @@ local on_attach = require("lsp").on_attach
 local make_config = require("lsp").make_config
 
 require("mason").setup()
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({
+	automatic_installation = { exclude = { "clangd", "gopls" } },
+})
 
 local lspconf = require("lspconfig")
 lspconf["gopls"].setup(require("lsp.servers.gopls").setup(make_config(), on_attach))
@@ -36,6 +38,7 @@ lspconf["bashls"].setup(make_config())
 lspconf["dockerls"].setup(make_config())
 lspconf["tailwindcss"].setup(make_config())
 lspconf["terraformls"].setup(make_config())
+lspconf["emmet_ls"].setup(make_config())
 
 require("lsp.servers.null_ls").setup(on_attach)
 

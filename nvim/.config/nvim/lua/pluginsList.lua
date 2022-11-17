@@ -41,8 +41,10 @@ packer.startup({
 		use({ "nvim-treesitter/nvim-tree-docs", requires = "nvim-treesitter/nvim-treesitter" })
 		use({ "nvim-treesitter/playground", requires = "nvim-treesitter/nvim-treesitter" })
 		use("neovim/nvim-lspconfig")
-		use("williamboman/mason.nvim")
-		use("williamboman/mason-lspconfig.nvim")
+		use({
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+		})
 		use({ "kosayoda/nvim-lightbulb", requires = "antoinemadec/FixCursorHold.nvim" })
 		use("onsails/lspkind-nvim")
 		use({
