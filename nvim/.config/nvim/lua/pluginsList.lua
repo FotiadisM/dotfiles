@@ -41,6 +41,7 @@ packer.startup({
 		use({ "nvim-treesitter/nvim-tree-docs", requires = "nvim-treesitter/nvim-treesitter" })
 		use({ "nvim-treesitter/playground", requires = "nvim-treesitter/nvim-treesitter" })
 		use("neovim/nvim-lspconfig")
+		use("j-hui/fidget.nvim")
 		use({
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",

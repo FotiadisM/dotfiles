@@ -14,6 +14,8 @@ vim.diagnostic.config({
 local on_attach = require("lsp").on_attach
 local make_config = require("lsp").make_config
 
+require("fidget").setup({ text = { spinner = "dots" } })
+
 require("mason").setup()
 require("mason-lspconfig").setup({
 	automatic_installation = { exclude = { "clangd", "gopls" } },
