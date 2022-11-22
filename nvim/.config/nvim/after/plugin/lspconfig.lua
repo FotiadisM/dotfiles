@@ -18,7 +18,7 @@ require("fidget").setup({ text = { spinner = "dots" } })
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-	automatic_installation = { exclude = { "clangd", "gopls" } },
+	automatic_installation = { exclude = { "clangd" } },
 })
 
 local lspconf = require("lspconfig")
@@ -43,6 +43,9 @@ lspconf["terraformls"].setup(make_config())
 lspconf["emmet_ls"].setup(make_config())
 
 require("lsp.servers.null_ls").setup(on_attach)
+require("mason-null-ls").setup({
+	automatic_installation = { exclude = { "golangci_lint" } },
+})
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do

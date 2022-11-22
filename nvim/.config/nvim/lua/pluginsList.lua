@@ -45,6 +45,7 @@ packer.startup({
 		use({
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
+			"jayp0521/mason-null-ls.nvim",
 		})
 		use({ "kosayoda/nvim-lightbulb", requires = "antoinemadec/FixCursorHold.nvim" })
 		use("onsails/lspkind-nvim")

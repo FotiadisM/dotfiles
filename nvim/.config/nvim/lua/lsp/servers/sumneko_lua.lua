@@ -5,7 +5,6 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 function lua.setup(config, on_attach)
-	config.root_dir = require("lspconfig.util").root_pattern(".git", "init.lua")
 	config.settings = {
 		Lua = {
 			runtime = {
