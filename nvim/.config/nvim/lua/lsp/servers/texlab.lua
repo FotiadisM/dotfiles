@@ -17,14 +17,13 @@ function latex.setup(config, on_attach)
 					"-file-line-error",
 					"-pdf",
 					"-outdir=build",
-					"%f"
+					"%f",
 				},
 			},
-		}
+		},
 	}
 
 	return config
 end
 
 return latex
-

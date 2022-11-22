@@ -10,4 +10,3 @@ function typescript.setup(config, on_attach)
 end
 
 return typescript
-

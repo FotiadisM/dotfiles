@@ -10,4 +10,3 @@ function html.setup(config, on_attach)
 end
 
 return html
-
