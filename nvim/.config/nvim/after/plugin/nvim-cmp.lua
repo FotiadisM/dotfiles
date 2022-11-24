@@ -47,7 +47,6 @@ cmp.setup({
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "buffer", keyword_length = 4 },
 		{ name = "path" },
-		{ name = "nvim_lua" },
 	},
 	completion = {
 		completeopt = "menu,menuone",

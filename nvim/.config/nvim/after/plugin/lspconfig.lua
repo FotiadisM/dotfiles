@@ -22,8 +22,11 @@ require("mason-lspconfig").setup({
 })
 
 local lspconf = require("lspconfig")
-lspconf["gopls"].setup(require("lsp.servers.gopls").setup(make_config(), on_attach))
+
+require("neodev").setup()
 lspconf["sumneko_lua"].setup(require("lsp.servers.sumneko_lua").setup(make_config(), on_attach))
+
+lspconf["gopls"].setup(require("lsp.servers.gopls").setup(make_config(), on_attach))
 lspconf["texlab"].setup(require("lsp.servers.texlab").setup(make_config(), on_attach))
 lspconf["html"].setup(require("lsp.servers.html").setup(make_config(), on_attach))
 lspconf["jsonls"].setup(require("lsp.servers.jsonls").setup(make_config(), on_attach))

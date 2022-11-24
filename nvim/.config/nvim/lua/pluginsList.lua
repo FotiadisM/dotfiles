@@ -57,7 +57,6 @@ packer.startup({
 			"hrsh7th/nvim-cmp",
 			requires = {
 				"hrsh7th/cmp-nvim-lsp",
-				"hrsh7th/cmp-nvim-lua",
 				"hrsh7th/cmp-buffer",
 				"hrsh7th/cmp-path",
 				"saadparwaiz1/cmp_luasnip",
@@ -88,6 +87,7 @@ packer.startup({
 				{ "nvim-telescope/telescope.nvim" },
 			},
 		})
+		use("folke/neodev.nvim")
 
 		-- debugging
 		use("mfussenegger/nvim-dap")
@@ -156,6 +156,7 @@ packer.startup({
 		use({ "aarondiel/spread.nvim", require = "nvim-treesitter/nvim-treesitter" })
 		use("axieax/urlview.nvim")
 		use("klen/nvim-config-local")
+		use("folke/drop.nvim")
 	end,
 	config = {
 		profile = {
