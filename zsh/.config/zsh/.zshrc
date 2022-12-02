@@ -83,12 +83,13 @@ plugins=(
 	# custom
 	zsh-syntax-highlighting
 	zsh-autosuggestions
-	lxd-completion-zsh
 
 	# included
 	git
 	docker
 	docker-compose
+	lxd
+	tmux
 	golang
 	terraform
 	kubectl
