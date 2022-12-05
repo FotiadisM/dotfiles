@@ -38,7 +38,7 @@ local on_attach = function(client, bufnr)
 		})
 	end
 
-	if client.server_capabilities.code_lens then
+	if client.server_capabilities.codeLensProvider then
 		map("n", "<space>lr", vim.lsp.codelens.run, "codelens")
 		-- map("n", "<space>lr", vim.lsp.codelens.refresh, "codelens refreash")
 		vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
