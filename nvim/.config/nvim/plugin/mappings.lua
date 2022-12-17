@@ -15,7 +15,7 @@ map("v", "j", "gj", { noremap = true })
 map("v", "k", "gk", { noremap = true })
 
 -- close current buffer and jump to previous one
-map("n", "<space>q", ":bp<bar>sp<bar>bn<bar>bd<CR>")
+map("n", "<space>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", "close buffer")
 
 -- don't 'copy' empty lines when 'dd'
 map("n", "dd", function()
@@ -121,19 +121,15 @@ map({ "i", "s" }, "<C-l>", function()
 end)
 
 -- bufferline
-map("n", "gb", ":BufferLinePick<CR>")
+map("n", "gb", ":BufferLinePick<CR>", "go to buffer")
 map("n", "L", ":BufferLineCycleNext<CR>")
-map("n", "<space>l", ":BufferLineMoveNext<CR>")
+map("n", "<space>l", ":BufferLineMoveNext<CR>", "move buffer next")
 map("n", "H", ":BufferLineCyclePrev<CR>")
-map("n", "<space>h", ":BufferLineMovePrev<CR>")
+map("n", "<space>h", ":BufferLineMovePrev<CR>", "move buffer prev")
+
+-- stylua: ignore start
 
 -- telescope
-map("n", "gt", function()
-	require("telescope.builtin").builtin()
-end, "Telescope builtin")
-map("n", "gh", function()
-	require("telescope.builtin").help_tags()
-end, "help_tags")
 map("n", "gf", function()
 	require("telescope.builtin").find_files({
 		follow = true,
@@ -142,71 +138,39 @@ map("n", "gf", function()
 		no_ignore_parent = true,
 	})
 end, "find_files")
-map("n", "<leader>fb", function()
-	require("telescope.builtin").live_grep()
-end, "live_grep")
-map("n", "<leader>fh", function()
-	require("telescope.builtin").find_files({ cwd = "~/.config/nvim", follow = true, hidden = true })
-end, "nvim config")
-map("n", "<leader>fp", function()
-	require("telescope").extensions.packer.packer()
-end, "packer")
-map("n", "<leader>fgb", function()
-	require("telescope.builtin").git_branches()
-end, "git_branches")
-map("n", "<leader>fgc", function()
-	require("telescope.builtin").git_commits()
-end, "git_commits")
+map("n", "<leader>fh", function() require("telescope.builtin").find_files({
+	cwd = "~/.config/nvim",
+	follow = true,
+	hidden = true
+}) end, "nvim config")
+map("n", "gt", function() require("telescope.builtin").builtin() end, "Telescope builtin")
+map("n", "gh", function() require("telescope.builtin").help_tags() end, "help_tags")
+map("n", "<leader>fg", function() require("telescope.builtin").live_grep() end, "live_grep")
+map("n", "<leader>fd", function() require("telescope.builtin").diagnostics() end, "diagnostics")
+map("n", "<leader>fb", function() require("telescope.builtin").git_branches() end, "git_branches")
+map("n", "<leader>fc", function() require("telescope.builtin").git_commits() end, "git_commits")
 
 -- debugging
-map("n", "<leader>dc", function()
-	require("dap").continue()
-end, "continue")
-map("n", "<leader>dt", function()
-	require("dap").terminate()
-end, "terminate")
-map("n", "<leader>dq", function()
-	require("dap").repl.close()
-end, "repl.close")
-map("n", "<F10>", function()
-	require("dap").step_over()
-end, "step_over")
-map("n", "<F11>", function()
-	require("dap").step_into()
-end, "step_into")
-map("n", "<F12>", function()
-	require("dap").step_out()
-end, "step_out")
-map("n", "<leader>db", function()
-	require("dap").toggle_breakpoint()
-end, "toggle_breakpoint")
-map("n", "<leader>du", function()
-	require("dapui").toggle()
-end, "toggle dapui")
+map("n", "<leader>dc", function() require("dap").continue() end, "continue")
+map("n", "<leader>dt", function() require("dap").terminate() end, "terminate")
+map("n", "<leader>dq", function() require("dap").repl.close() end, "repl.close")
+map("n", "<F10>", function() require("dap").step_over() end, "step_over")
+map("n", "<F11>", function() require("dap").step_into() end, "step_into")
+map("n", "<F12>", function() require("dap").step_out() end, "step_out")
+map("n", "<leader>db", function() require("dap").toggle_breakpoint() end, "toggle_breakpoint")
+map("n", "<leader>du", function() require("dapui").toggle() end, "toggle dapui")
 
 -- refactoring
-map({ "n", "v" }, "<leader>r", function()
-	require("refactoring").select_refactor()
-end, "refactoring")
+map({ "n", "v" }, "<leader>r", function() require("refactoring").select_refactor() end, "refactoring")
 
 -- nvim-spectre
-map("n", "<leader>S", function()
-	require("spectre").open()
-end, "toggle spectre")
+map("n", "<leader>S", function() require("spectre").open() end, "toggle spectre")
 
 -- spread.nvim
-map("n", "gS", function()
-	require("spread").out()
-end, "spread out")
+map("n", "gS", function() require("spread").out() end, "spread out")
 
-map("n", "gJ", function()
-	require("spread").combine()
-end, "spread combine")
+map("n", "gJ", function() require("spread").combine() end, "spread combine")
 
 -- nvim-ufo
-map("n", "zR", function()
-	require("ufo").openAllFolds()
-end, "open all folds")
-map("n", "zM", function()
-	require("ufo").closeAllFolds()
-end, "close all folds")
+map("n", "zR", function() require("ufo").openAllFolds() end, "open all folds")
+map("n", "zM", function() require("ufo").closeAllFolds() end, "close all folds")

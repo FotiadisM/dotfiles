@@ -31,7 +31,6 @@ packer.startup({
 				{ "nvim-lua/plenary.nvim" },
 			},
 		})
-		use({ "nvim-telescope/telescope-packer.nvim", requires = "nvim-telescope/telescope.nvim" })
 		use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make", requires = "nvim-telescope/telescope.nvim" })
 		use({ "windwp/nvim-spectre", requires = "nvim-lua/plenary.nvim" })
 
@@ -104,6 +103,7 @@ packer.startup({
 		use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
 
 		-- misc
+		use("/home/fotiadis/src/neovim/submode.nvim")
 		use("dstein64/vim-startuptime")
 		use("lewis6991/impatient.nvim")
 		use({
