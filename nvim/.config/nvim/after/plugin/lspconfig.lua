@@ -38,7 +38,9 @@ require("typescript").setup({
 require("rust-tools").setup({
 	server = require("lsp.servers.rust_analyzer").setup(make_config(), on_attach),
 })
-lspconf["clangd"].setup(make_config())
+local clangd = make_config()
+clangd.filetypes = { "c", "cpp", "objc", "objcpp", "cuda" }
+lspconf["clangd"].setup(clangd)
 lspconf["bashls"].setup(make_config())
 lspconf["dockerls"].setup(make_config())
 lspconf["tailwindcss"].setup(make_config())

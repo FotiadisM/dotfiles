@@ -7,12 +7,8 @@ require("tabset").setup({
 		go = {
 			expandtab = false,
 		},
-		yaml = {
-			tabwidth = 2,
-			expandtab = true,
-		},
 		{
-			filetypes = { "terraform", "helm" },
+			filetypes = { "yaml", "terraform", "helm", "proto" },
 			config = {
 				tabwidth = 2,
 				expandtab = true,
