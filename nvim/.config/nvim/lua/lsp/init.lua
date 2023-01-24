@@ -24,7 +24,7 @@ local on_attach = function(client, bufnr)
 	map("n", "<space>f", vim.lsp.buf.format, "format")
 
 	map("n", "<space>ds", require("telescope.builtin").lsp_document_symbols, "document symbols")
-	map("n", "<space>f", require("telescope.builtin").lsp_dynamic_workspace_symbols, "workspace symbols")
+	map("n", "<space>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "workspace symbols")
 
 	-- lesser used lsp functionality
 	map("n", "<space>D", vim.lsp.buf.type_definition, "type definition")
