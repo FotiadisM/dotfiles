@@ -98,7 +98,10 @@ map("n", "<space>cn", ":cnext<CR>", "cnext")
 map("n", "<space>cp", ":cprev<CR>", "cprev")
 
 -- nvim-tree
-map("n", "<leader>b", function()
+-- map("n", "<leader>b", function()
+-- 	require("nvim-tree").toggle()
+-- end, "toggle NvimTree")
+map("n", "<space>s", function()
 	require("nvim-tree").toggle()
 end, "toggle NvimTree")
 
@@ -121,13 +124,22 @@ map({ "i", "s" }, "<C-l>", function()
 end)
 
 -- bufferline
-map("n", "gb", ":BufferLinePick<CR>", "go to buffer")
-map("n", "L", ":BufferLineCycleNext<CR>")
-map("n", "<space>l", ":BufferLineMoveNext<CR>", "move buffer next")
-map("n", "H", ":BufferLineCyclePrev<CR>")
-map("n", "<space>h", ":BufferLineMovePrev<CR>", "move buffer prev")
+-- map("n", "gb", ":BufferLinePick<CR>", "go to buffer")
+-- map("n", "L", ":BufferLineCycleNext<CR>")
+-- map("n", "<space>l", ":BufferLineMoveNext<CR>", "move buffer next")
+-- map("n", "H", ":BufferLineCyclePrev<CR>")
+-- map("n", "<space>h", ":BufferLineMovePrev<CR>", "move buffer prev")
 
 -- stylua: ignore start
+
+-- harpoon
+map("n", "<space>h", function() require("harpoon.ui").toggle_quick_menu() end, "harpoon menu")
+map("n", "<space>l", function() require("harpoon.mark").add_file() end, "harpoon menu")
+map("n", "1", function () require("harpoon.ui").nav_file(1) end, "harpoon move to 1")
+map("n", "2", function () require("harpoon.ui").nav_file(2) end, "harpoon move to 2")
+map("n", "3", function () require("harpoon.ui").nav_file(3) end, "harpoon move to 3")
+map("n", "4", function () require("harpoon.ui").nav_file(4) end, "harpoon move to 4")
+map("n", "5", function () require("harpoon.ui").nav_file(5) end, "harpoon move to 5")
 
 -- telescope
 map("n", "gf", function()
@@ -145,6 +157,7 @@ map("n", "<leader>fh", function() require("telescope.builtin").find_files({
 }) end, "nvim config")
 map("n", "gt", function() require("telescope.builtin").builtin() end, "Telescope builtin")
 map("n", "gh", function() require("telescope.builtin").help_tags() end, "help_tags")
+map("n", "gb", function() require("telescope.builtin").buffers() end, "buffers")
 map("n", "<leader>fg", function() require("telescope.builtin").live_grep() end, "live_grep")
 map("n", "<leader>fd", function() require("telescope.builtin").diagnostics() end, "diagnostics")
 map("n", "<leader>fb", function() require("telescope.builtin").git_branches() end, "git_branches")

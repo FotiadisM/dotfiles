@@ -20,7 +20,7 @@ packer.startup({
 		-- theme
 		use("folke/tokyonight.nvim")
 		use({ "nvim-lualine/lualine.nvim", requires = "kyazdani42/nvim-web-devicons" })
-		use({ "akinsho/nvim-bufferline.lua", requires = "kyazdani42/nvim-web-devicons" })
+		use({ "akinsho/nvim-bufferline.lua", disable = true, requires = "kyazdani42/nvim-web-devicons" })
 		use("DaikyXendo/nvim-material-icon")
 
 		-- file managing
@@ -106,6 +106,7 @@ packer.startup({
 		use("/home/fotiadis/src/neovim/submode.nvim")
 		use("dstein64/vim-startuptime")
 		use("lewis6991/impatient.nvim")
+		use({ "ThePrimeagen/harpoon", requires = "nvim-lua/plenary.nvim" })
 		use({
 			"ggandor/leap.nvim",
 			requires = { "tpope/vim-repeat", "ggandor/flit.nvim" },

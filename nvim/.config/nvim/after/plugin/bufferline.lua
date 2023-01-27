@@ -1,3 +1,7 @@
+if not package.loaded["bufferline"] then
+	return
+end
+
 require("bufferline").setup({
 	options = {
 		diagnostics = "nvim_lsp",

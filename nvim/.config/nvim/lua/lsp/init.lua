@@ -44,14 +44,14 @@ local on_attach = function(client, bufnr)
 		})
 	end
 
-	if client.server_capabilities.codeLensProvider then
-		vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-			group = vim.api.nvim_create_augroup("lsp_codelens", { clear = true }),
-			callback = function()
-				vim.lsp.codelens.refresh()
-			end,
-		})
-	end
+	-- if client.server_capabilities.codeLensProvider then
+	-- 	vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+	-- 		group = vim.api.nvim_create_augroup("lsp_codelens", { clear = true }),
+	-- 		callback = function()
+	-- 			vim.lsp.codelens.refresh()
+	-- 		end,
+	-- 	})
+	-- end
 end
 
 local function make_config()
