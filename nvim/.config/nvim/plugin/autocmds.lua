@@ -1,3 +1,4 @@
+-- better term ui/ux
 local term_augroup = vim.api.nvim_create_augroup("term_augroup", { clear = true })
 
 vim.api.nvim_create_autocmd("TermOpen", {
@@ -16,7 +17,22 @@ vim.api.nvim_create_autocmd("TermClose", {
 	end,
 })
 
+-- create directories when needed, when saving a file
+vim.api.nvim_create_autocmd("BufWritePre", {
+	group = vim.api.nvim_create_augroup("auto_create_dir", { clear = true }),
+	callback = function(event)
+		local file = vim.loop.fs_realpath(event.match) or event.match
+
+		vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
+		local backup = vim.fn.fnamemodify(file, ":p:~:h")
+		backup = backup:gsub("[/\\]", "%%")
+		vim.go.backupext = backup
+	end,
+})
+
+-- toggle on and off winbar
 local winbar_filetype_exclude = {
+	"qf",
 	"help",
 	"term",
 	"packer",
@@ -41,7 +57,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 			end
 			return
 		else
-			vim.o.winbar = "%{%luaeval('require(\"util\").winbar()')%}"
+			vim.o.winbar = "%{%luaeval('require(\"util.winbar\").set_winbar()')%}"
 		end
 	end,
 })

@@ -1,5 +1,0 @@
-vim.keymap.del({ "n", "x" }, "gb")
-vim.keymap.del("n", "gbc")
-vim.keymap.set("n", "gb", function()
-	require("telescope.builtin").buffers()
-end, { noremap = true, silent = true, desc = "buffers" })

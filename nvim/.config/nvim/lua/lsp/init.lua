@@ -1,13 +1,12 @@
 local on_attach = function(client, bufnr)
-	require("illuminate").on_attach(client)
-
 	-- Mappings
 	local map = function(m, l, r, desc, opts)
 		opts = opts or { buffer = bufnr, noremap = true, silent = true }
-		desc = desc or ""
+		desc = desc or nil
 		opts.desc = desc
 		vim.keymap.set(m, l, r, opts)
 	end
+
 	map("n", "gD", vim.lsp.buf.declaration, "go declaration")
 	map("n", "gd", vim.lsp.buf.definition, "go definition")
 	map("n", "gr", vim.lsp.buf.references, "references")
@@ -23,8 +22,10 @@ local on_attach = function(client, bufnr)
 	map("n", "<space>cl", vim.diagnostic.setqflist, "diagnostics quicklist")
 	map("n", "<space>f", vim.lsp.buf.format, "format")
 
-	map("n", "<space>ds", require("telescope.builtin").lsp_document_symbols, "document symbols")
-	map("n", "<space>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "workspace symbols")
+	-- stylua: ignore start
+	map("n", "<space>ds", function() require("telescope.builtin").lsp_document_symbols() end, "document symbols")
+	map("n", "<space>ws", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, "workspace symbols")
+	-- stylua: ignore end
 
 	-- lesser used lsp functionality
 	map("n", "<space>D", vim.lsp.buf.type_definition, "type definition")

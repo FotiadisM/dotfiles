@@ -1,33 +1,8 @@
-# My Neovim config
+# My Neovim configuration
 
 ```
 .
-├── after
-│   ├── ftplugin
-│   │   └── netrw.vim
-│   └── plugin
-│       ├── bufferline.lua
-│       ├── comment.lua
-│       ├── fidget.lua
-│       ├── gitsigns.lua
-│       ├── indent-blankline.lua
-│       ├── lspconfig.lua
-│       ├── mappings.lua
-│       ├── nvim-autopairs.lua
-│       ├── nvim-cmp.lua
-│       ├── nvim-dap.lua
-│       ├── nvim-lightbulb.lua
-│       ├── nvim-notify.lua
-│       ├── nvim-tree.lua
-│       ├── nvim-treesitter.lua
-│       ├── rest.lua
-│       ├── tabset.lua
-│       ├── telescope.lua
-│       └── todo-comments.lua
 ├── lua
-│   ├── dap
-│   │   └── languages
-│   │       └── go.lua
 │   ├── lsp
 │   │   ├── servers
 │   │   │   ├── gopls.lua
@@ -42,15 +17,43 @@
 │   │   │   └── yamlls.lua
 │   │   └── init.lua
 │   ├── plugins
+│   │   ├── autopairs.lua
+│   │   ├── comment.lua
+│   │   ├── gitsigns.lua
+│   │   ├── indent-blankline.lua
+│   │   ├── init.lua
+│   │   ├── lspconfig.lua
 │   │   ├── luasnip.lua
-│   │   └── nvim-ufo.lua
-│   └── pluginsList.lua
+│   │   ├── nvim-cmp.lua
+│   │   ├── nvim-dap.lua
+│   │   ├── nvim-lightbulb.lua
+│   │   ├── nvim-tree.lua
+│   │   ├── nvim-treesitter.lua
+│   │   ├── tabset.lua
+│   │   ├── telescope.lua
+│   │   ├── theme.lua
+│   │   └── todo-comments.lua
+│   ├── snippets
+│   │   ├── all.lua
+│   │   ├── lua.lua
+│   │   └── typescriptreact.lua
+│   └── util
+│       └── winbar.lua
 ├── plugin
+│   ├── autocmds.lua
 │   ├── commands.lua
+│   ├── globals.lua
 │   ├── mappings.lua
-│   ├── options.lua
-│   ├── packer_compiled.lua
-│   └── theme.lua
+│   └── options.lua
+├── spell
+│   ├── en.utf-8.add
+│   ├── en.utf-8.add.spl
+│   └── gr.utf-8.spl
+├── syntax
+│   └── helm.vim
+├── filetype.lua
 ├── init.lua
+├── lazy-lock.json
 └── README.md
+
 ```

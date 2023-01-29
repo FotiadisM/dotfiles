@@ -1,18 +1,18 @@
 local map = function(m, l, r, desc, opts)
 	opts = opts or { noremap = true, silent = true }
-	desc = desc or ""
+	desc = desc or nil
 	opts.desc = desc
 	vim.keymap.set(m, l, r, opts)
 end
 
-map("i", "jj", "<ESC>", { noremap = true })
-map("v", "<space>", "<ESC>", { noremap = true })
-map({ "n", "i" }, "<C-s>", "<CMD>w<CR>", { noremap = true })
+map("i", "jj", "<ESC>")
+map("v", "<space>", "<ESC>")
+map({ "n", "i" }, "<C-s>", "<CMD>w<CR>")
 
-map("n", "j", "gj", { noremap = true })
-map("n", "k", "gk", { noremap = true })
-map("v", "j", "gj", { noremap = true })
-map("v", "k", "gk", { noremap = true })
+map("n", "j", "gj")
+map("n", "k", "gk")
+map("v", "j", "gj")
+map("v", "k", "gk")
 
 -- close current buffer and jump to previous one
 map("n", "<space>q", ":bp<bar>sp<bar>bn<bar>bd<CR>", "close buffer")
@@ -106,29 +106,21 @@ map("n", "<space>s", function()
 end, "toggle NvimTree")
 
 -- luasnip
-local ls = require("luasnip")
 map({ "i", "s" }, "<C-k>", function()
-	if ls.expand_or_jumpable() then
-		ls.expand_or_jump()
+	if require("luasnip").expand_or_jumpable() then
+		require("luasnip").expand_or_jump()
 	end
 end)
 map({ "i", "s" }, "<C-j>", function()
-	if ls.jumpable(-1) then
-		ls.jump(-1)
+	if require("luasnip").jumpable(-1) then
+		require("luasnip").jump(-1)
 	end
 end)
 map({ "i", "s" }, "<C-l>", function()
-	if ls.choice_active() then
-		ls.change_choice(1)
+	if require("luasnip").choice_active() then
+		require("luasnip").change_choice(1)
 	end
 end)
-
--- bufferline
--- map("n", "gb", ":BufferLinePick<CR>", "go to buffer")
--- map("n", "L", ":BufferLineCycleNext<CR>")
--- map("n", "<space>l", ":BufferLineMoveNext<CR>", "move buffer next")
--- map("n", "H", ":BufferLineCyclePrev<CR>")
--- map("n", "<space>h", ":BufferLineMovePrev<CR>", "move buffer prev")
 
 -- stylua: ignore start
 
@@ -155,7 +147,7 @@ map("n", "<leader>fh", function() require("telescope.builtin").find_files({
 	follow = true,
 	hidden = true
 }) end, "nvim config")
-map("n", "gt", function() require("telescope.builtin").builtin() end, "Telescope builtin")
+map("n", "gt", function() require("telescope.builtin").builtin() end, "telescope builtins")
 map("n", "gh", function() require("telescope.builtin").help_tags() end, "help_tags")
 map("n", "gb", function() require("telescope.builtin").buffers() end, "buffers")
 map("n", "<leader>fg", function() require("telescope.builtin").live_grep() end, "live_grep")
@@ -164,14 +156,20 @@ map("n", "<leader>fb", function() require("telescope.builtin").git_branches() en
 map("n", "<leader>fc", function() require("telescope.builtin").git_commits() end, "git_commits")
 
 -- debugging
-map("n", "<leader>dc", function() require("dap").continue() end, "continue")
-map("n", "<leader>dt", function() require("dap").terminate() end, "terminate")
-map("n", "<leader>dq", function() require("dap").repl.close() end, "repl.close")
+map("n", "<leader>dc", function()
+	require("dap").continue()
+	require("dapui").open()
+end, "dap continue")
+map( "n", "<leader>dt", function()
+	require("dap").terminate()
+	require("dapui").close()
+end, "dap terminate")
 map("n", "<F10>", function() require("dap").step_over() end, "step_over")
 map("n", "<F11>", function() require("dap").step_into() end, "step_into")
 map("n", "<F12>", function() require("dap").step_out() end, "step_out")
-map("n", "<leader>db", function() require("dap").toggle_breakpoint() end, "toggle_breakpoint")
-map("n", "<leader>du", function() require("dapui").toggle() end, "toggle dapui")
+map("n", "<leader>dr", function() require("dap").restart() end, "dap restart")
+map("n", "<leader>db", function() require("dap").toggle_breakpoint() end, "dap toggle_breakpoint")
+map("n", "<leader>du", function() require("dapui").toggle() end, "dap toggle dapui")
 
 -- refactoring
 map({ "n", "v" }, "<leader>r", function() require("refactoring").select_refactor() end, "refactoring")
@@ -181,7 +179,6 @@ map("n", "<leader>S", function() require("spectre").open() end, "toggle spectre"
 
 -- spread.nvim
 map("n", "gS", function() require("spread").out() end, "spread out")
-
 map("n", "gJ", function() require("spread").combine() end, "spread combine")
 
 -- nvim-ufo

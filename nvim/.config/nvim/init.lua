@@ -1,9 +1,38 @@
-vim.g.loaded_netrwPlugin = 1
+-- install lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable",
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
 
--- using pcal to avoid errors on initial run
-pcall(require, "impatient")
-
-require("pluginsList")
+require("lazy").setup("plugins", {
+	defaults = {
+		lazy = true,
+	},
+	dev = {
+		path = "~/src/neovim",
+	},
+	install = { colorscheme = { "tokyonight" } },
+	rtp = {
+		disabled_plugins = {
+			"gzip",
+			"matchit",
+			"matchparen",
+			"netrwPlugin",
+			"tarPlugin",
+			"tohtml",
+			"tutor",
+			"zipPlugin",
+		},
+	},
+})
 
 -- if nvim starts with a directory as an argument, cd into it
 if vim.fn.argc() == 1 then
