@@ -67,7 +67,6 @@ return {
 		lspconf["dockerls"].setup(make_config())
 		lspconf["tailwindcss"].setup(make_config())
 		lspconf["terraformls"].setup(make_config())
-		lspconf["emmet_ls"].setup(make_config())
 
 		require("lsp.servers.null_ls").setup(on_attach)
 		require("mason-null-ls").setup({
