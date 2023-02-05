@@ -98,9 +98,6 @@ map("n", "<space>cn", ":cnext<CR>", "cnext")
 map("n", "<space>cp", ":cprev<CR>", "cprev")
 
 -- nvim-tree
--- map("n", "<leader>b", function()
--- 	require("nvim-tree").toggle()
--- end, "toggle NvimTree")
 map("n", "<space>s", function()
 	require("nvim-tree").toggle()
 end, "toggle NvimTree")
@@ -121,6 +118,9 @@ map({ "i", "s" }, "<C-l>", function()
 		require("luasnip").change_choice(1)
 	end
 end)
+map("n", "<space>p", function()
+	require("luasnip.loaders").edit_snippet_files()
+end, "edit snippets")
 
 -- stylua: ignore start
 
