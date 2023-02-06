@@ -32,3 +32,5 @@ export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
 
 export KREW_ROOT="${XDG_DATA_HOME:-$HOME/.local/share/}/krew"
 export PATH=$KREW_ROOT/bin:$PATH
+
+export PATH=$PATH:$XDG_DATA_HOME/nvim/mason/bin
