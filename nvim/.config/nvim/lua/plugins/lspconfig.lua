@@ -36,7 +36,14 @@ return {
 		local on_attach = require("lsp").on_attach
 		local make_config = require("lsp").make_config
 
-		require("fidget").setup({ text = { spinner = "dots" } })
+		require("fidget").setup({
+			text = { spinner = "dots" },
+			sources = {
+				["null-ls"] = {
+					ignore = true,
+				},
+			},
+		})
 
 		require("mason").setup()
 		require("mason-lspconfig").setup({
@@ -69,9 +76,7 @@ return {
 		lspconf["terraformls"].setup(make_config())
 
 		require("lsp.servers.null_ls").setup(on_attach)
-		require("mason-null-ls").setup({
-			automatic_installation = { exclude = { "golangci_lint" } },
-		})
+		require("mason-null-ls").setup({ automatic_installation = true })
 
 		local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 		for type, icon in pairs(signs) do
