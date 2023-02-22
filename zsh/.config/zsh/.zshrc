@@ -141,8 +141,8 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias c='clear'
-alias ls='ls -v --color=auto --group-directories-first'
-alias la='ls -lAhv --color=auto --group-directories-first'
+alias ls='lsd -v --group-directories-first'
+alias la='lsd -lAhv --group-directories-first'
 alias l='la $(fd -H -E .git -E node_modules | fzf)'
 alias ip='ip -color'
 alias open='xdg-open'
