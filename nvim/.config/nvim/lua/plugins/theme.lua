@@ -71,8 +71,6 @@ return {
 			require("lualine").setup({
 				options = {
 					theme = theme,
-					section_separators = "",
-					component_separators = "",
 				},
 				extensions = { "nvim-tree" },
 			})

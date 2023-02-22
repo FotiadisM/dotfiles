@@ -53,7 +53,7 @@ return {
 		local lspconf = require("lspconfig")
 
 		require("neodev").setup()
-		lspconf["sumneko_lua"].setup(require("lsp.servers.sumneko_lua").setup(make_config(), on_attach))
+		lspconf["lua_ls"].setup(require("lsp.servers.sumneko_lua").setup(make_config(), on_attach))
 
 		lspconf["gopls"].setup(require("lsp.servers.gopls").setup(make_config(), on_attach))
 		lspconf["texlab"].setup(require("lsp.servers.texlab").setup(make_config(), on_attach))

@@ -11,7 +11,7 @@ return {
 		local telescope = require("telescope")
 		telescope.setup({
 			defaults = {
-				file_ignore_patterns = { "^.git/", "^node_modules/", "^vendor/" },
+				file_ignore_patterns = { ".git/", "node_modules/", "vendor/", ".terraform/" },
 			},
 			extensions = {
 				fzf = {
