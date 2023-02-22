@@ -24,6 +24,8 @@ vim.o.shiftwidth = 4
 
 vim.o.spelllang = "en_us"
 
+vim.o.swapfile = false
+
 -- nvim-ufo
 vim.o.foldcolumn = "0"
 vim.o.foldlevel = 99
