@@ -184,3 +184,11 @@ map("n", "gJ", function() require("spread").combine() end, "spread combine")
 -- nvim-ufo
 map("n", "zR", function() require("ufo").openAllFolds() end, "open all folds")
 map("n", "zM", function() require("ufo").closeAllFolds() end, "close all folds")
+
+-- other.nvim
+map("n", "<space>o", function() require("other").open() end, "open other file")
+vim.keymap.set("n", "<space><space>o", require("other").clear, {
+	noremap = true,
+	silent = true,
+	desc = "clear other file"
+})

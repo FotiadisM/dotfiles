@@ -103,4 +103,14 @@ return {
 		event = "VeryLazy",
 		config = true,
 	},
+	{
+		"Tummetott/reticle.nvim",
+		event = "VeryLazy",
+		opts = { follow = { cursorline = true, cursorcolumn = false } },
+	},
+	{
+		"FotiadisM/other.nvim",
+		dev = true,
+		config = true,
+	},
 }
