@@ -43,12 +43,15 @@ return {
 			diagnostics = {
 				enable = true,
 				show_on_dirs = true,
+				show_on_open_dirs = false,
 			},
 			filters = {
 				custom = { "^.git$" },
 			},
 			git = {
 				ignore = false,
+				show_on_dirs = true,
+				show_on_open_dirs = false,
 			},
 		})
 
