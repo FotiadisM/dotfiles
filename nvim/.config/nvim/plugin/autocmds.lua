@@ -30,34 +30,16 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
--- toggle on and off winbar
-local winbar_filetype_exclude = {
-	"qf",
-	"help",
-	"term",
-	"packer",
-	"neogitstatus",
-	"NvimTree",
-	"spectre_panel",
-}
-
-local is_winbar_exclude = function()
-	if vim.tbl_contains(winbar_filetype_exclude, vim.bo.filetype) then
-		return true
-	end
-	return false
-end
-
-vim.api.nvim_create_autocmd("BufEnter", {
-	group = vim.api.nvim_create_augroup("winbar_togle", { clear = true }),
+vim.api.nvim_create_autocmd("RecordingEnter", {
+	group = vim.api.nvim_create_augroup("recording_enter", { clear = true }),
 	callback = function()
-		if is_winbar_exclude() then
-			if vim.o.winbar then
-				vim.o.winbar = nil
-			end
-			return
-		else
-			vim.o.winbar = "%{%luaeval('require(\"util.winbar\").set_winbar()')%}"
-		end
+		vim.o.cmdheight = 1
+	end,
+})
+
+vim.api.nvim_create_autocmd("RecordingLeave", {
+	group = vim.api.nvim_create_augroup("recording_leave", { clear = true }),
+	callback = function()
+		vim.o.cmdheight = 0
 	end,
 })
