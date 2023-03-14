@@ -99,7 +99,7 @@ map("n", "<space>cp", ":cprev<CR>", "cprev")
 
 -- nvim-tree
 map("n", "<space>s", function()
-	require("nvim-tree").toggle()
+	require("nvim-tree.api").tree.toggle()
 end, "toggle NvimTree")
 
 -- luasnip
