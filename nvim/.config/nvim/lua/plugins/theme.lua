@@ -116,6 +116,7 @@ return {
 			require("lualine").setup({
 				options = {
 					theme = "onedark",
+					globalstatus = true,
 				},
 				extensions = { "nvim-tree" },
 			})
