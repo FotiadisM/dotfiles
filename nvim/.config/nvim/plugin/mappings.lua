@@ -152,8 +152,9 @@ map("n", "gh", function() require("telescope.builtin").help_tags() end, "help_ta
 map("n", "gb", function() require("telescope.builtin").buffers() end, "buffers")
 map("n", "<leader>fg", function() require("telescope.builtin").live_grep() end, "live_grep")
 map("n", "<leader>fd", function() require("telescope.builtin").diagnostics() end, "diagnostics")
-map("n", "<leader>fb", function() require("telescope.builtin").git_branches() end, "git_branches")
-map("n", "<leader>fc", function() require("telescope.builtin").git_commits() end, "git_commits")
+map("n", "<leader>gb", function() require("telescope.builtin").git_branches() end, "git_branches")
+map("n", "<leader>gc", function() require("telescope.builtin").git_commits() end, "git_commits")
+map("n", "<leader>gs", function() require("telescope.builtin").git_status() end, "git_commits")
 
 -- debugging
 map("n", "<leader>dc", function()
@@ -192,3 +193,13 @@ vim.keymap.set("n", "<space><space>o", require("other").clear, {
 	silent = true,
 	desc = "clear other file"
 })
+
+-- urlview.nvim
+map("n", "<space>u", function ()
+	require("urlview").search("lazy")
+end, "open a plugin's github page")
+
+-- nvim-navbuddy
+map("n", "<space>n", function ()
+	require("nvim-navbuddy").open()
+end, "open navbuddy")
