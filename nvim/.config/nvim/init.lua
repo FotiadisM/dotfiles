@@ -19,17 +19,22 @@ require("lazy").setup("plugins", {
 	dev = {
 		path = "~/src/neovim",
 	},
-	install = { colorscheme = { "tokyonight" } },
-	rtp = {
-		disabled_plugins = {
-			"gzip",
-			"matchit",
-			"matchparen",
-			"netrwPlugin",
-			"tarPlugin",
-			"tohtml",
-			"tutor",
-			"zipPlugin",
+	install = { colorscheme = { "gruvbox", "tokyonight" } },
+	change_detection = {
+		notify = false,
+	},
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"gzip",
+				"matchit",
+				"matchparen",
+				"netrwPlugin",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
 		},
 	},
 })
