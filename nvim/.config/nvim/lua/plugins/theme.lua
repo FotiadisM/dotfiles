@@ -23,8 +23,6 @@ return {
 				contrast = "hard",
 				palette_overrides = { dark0_hard = "#0E1018" },
 				overrides = {
-					-- Comment = {fg = "#626A73", italic = true, bold = true},
-					-- #736B62,  #626273, #627273
 					Comment = { fg = "#81878f", italic = true, bold = true },
 					Define = { link = "GruvboxPurple" },
 					Macro = { link = "GruvboxPurple" },
@@ -41,11 +39,9 @@ return {
 					FoldColumn = { fg = "#fe8019", bg = "#0E1018" },
 					SignColumn = { bg = "#0E1018" },
 
-					-- new git colors
-					-- DiffAdd = { bold = true, reverse = false, fg = "", bg = "#2a4333" },
-					-- DiffChange = { bold = true, reverse = false, fg = "", bg = "#333841" },
-					-- DiffDelete = { bold = true, reverse = false, fg = "#442d30", bg = "#442d30" },
-					-- DiffText = { bold = true, reverse = false, fg = "", bg = "#213352" },
+					-- ui
+					NonText = { fg = "#0E1018" },
+
 					-- statusline
 					StatusLine = { bg = "#ffffff", fg = "#0E1018" },
 					StatusLineNC = { bg = "#3c3836", fg = "#0E1018" },
@@ -115,7 +111,7 @@ return {
 
 			require("lualine").setup({
 				options = {
-					theme = "onedark",
+					theme = theme,
 					globalstatus = true,
 				},
 				extensions = { "nvim-tree" },

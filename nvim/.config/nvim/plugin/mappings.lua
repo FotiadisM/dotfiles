@@ -152,9 +152,9 @@ map("n", "gh", function() require("telescope.builtin").help_tags() end, "help_ta
 map("n", "gb", function() require("telescope.builtin").buffers() end, "buffers")
 map("n", "<leader>fg", function() require("telescope.builtin").live_grep() end, "live_grep")
 map("n", "<leader>fd", function() require("telescope.builtin").diagnostics() end, "diagnostics")
-map("n", "<leader>gb", function() require("telescope.builtin").git_branches() end, "git_branches")
-map("n", "<leader>gc", function() require("telescope.builtin").git_commits() end, "git_commits")
-map("n", "<leader>gs", function() require("telescope.builtin").git_status() end, "git_commits")
+map("n", "<leader>gb", function() require("telescope.builtin").git_branches() end, "git branches")
+map("n", "<leader>gc", function() require("telescope.builtin").git_commits() end, "git commits")
+map("n", "<leader>gs", function() require("telescope.builtin").git_status() end, "git status")
 
 -- debugging
 map("n", "<leader>dc", function()

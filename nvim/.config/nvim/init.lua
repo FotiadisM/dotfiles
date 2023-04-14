@@ -39,7 +39,7 @@ require("lazy").setup("plugins", {
 	},
 })
 
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("tokyonight-night")
 
 -- if nvim starts with a directory as an argument, cd into it
 if vim.fn.argc() == 1 then
