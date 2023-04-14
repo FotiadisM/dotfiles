@@ -53,26 +53,14 @@ colors:
 font:
   size: 12
   normal:
-    family: DejaVu Sans Mono
+    family: DejaVu Sans Mono Alias
     style: Regular
   italic:
-    family: DejaVu Sans Mono
+    family: DejaVu Sans Mono Alias
     style: Oblique
   bold:
-    family: DejaVu Sans Mono
+    family: DejaVu Sans Mono Alias
     style: Bold
   bold_italic:
-    family: DejaVu Sans Mono
+    family: DejaVu Sans Mono Alias
     style: Bold Oblique
-  # normal:
-  #   family: DejaVuSansMono Nerd Font Mono
-  #   style: Regular
-  # italic:
-  #   family: DejaVuSansMono Nerd Font Mono
-  #   style: Oblique
-  # bold:
-  #   family: DejaVuSansMono Nerd Font Mono
-  #   style: Bold
-  # bold_italic:
-  #   family: DejaVuSansMono Nerd Font Mono
-  #   style: Bold Oblique
