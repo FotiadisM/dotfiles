@@ -30,7 +30,7 @@ return {
 	colors = gruvbox,
 	enable_tab_bar = false,
 	enable_scroll_bar = false,
-	font_size = 11.8,
+	font_size = 11,
 	font = wezterm.font_with_fallback({
 		{ family = "JetBrains Mono", weight = "Bold" },
 		{ family = "Symbols Nerd Font Mono", scale = 0.75 },
