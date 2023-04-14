@@ -29,7 +29,7 @@ case "$(printf "%s\n" "$(readlink -f "$1")" | awk '{print tolower($0)}')" in
 	*.tar) tar tf "$1" ;;
 	*.zip|*.jar|*.war|*.ear|*.oxt) unzip -l "$1" ;;
 	*.rar) unrar l "$1" ;;
-  *.md) glow -s dark "$1" ;;
+	*.md) glow -s dark "$1" ;;
 	*.7z) 7z l "$1" ;;
 	*.[1-8]) man "$1" | col -b ;;
 	*.o) nm "$1";;
@@ -38,7 +38,7 @@ case "$(printf "%s\n" "$(readlink -f "$1")" | awk '{print tolower($0)}')" in
 	*.odt|*.ods|*.odp|*.sxw) odt2txt "$1" ;;
 	*.doc) catdoc "$1" ;;
 	*.docx) docx2txt "$1" - ;;
-  *.xml|*.html) w3m -dump "$1";;
+	*.xml|*.html) w3m -dump "$1";;
 	*.xls|*.xlsx)
 		ssconvert --export-type=Gnumeric_stf:stf_csv "$1" "fd://1" | batorcat --language=csv
 		;;
