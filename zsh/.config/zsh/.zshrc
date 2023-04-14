@@ -1,5 +1,3 @@
-pfetch
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -141,6 +139,7 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias c='clear'
+alias e='exit'
 alias ls='lsd -v --group-directories-first'
 alias la='lsd -lAhv --group-directories-first'
 alias l='la $(fd -H -E .git -E node_modules | fzf)'
@@ -166,3 +165,5 @@ alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 autoload -U compinit && compinit
+
+pfetch
