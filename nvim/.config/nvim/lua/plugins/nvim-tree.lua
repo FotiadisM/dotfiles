@@ -72,16 +72,5 @@ return {
 				end
 			end,
 		})
-
-		vim.api.nvim_set_hl(0, "WinBar", { bg = "#16161e" })
-		vim.api.nvim_set_hl(0, "FoldColumn", { bg = "#16161e" })
-
-		vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", { fg = "#0db9d7" })
-		vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { fg = "#0db9d7" })
-
-		vim.api.nvim_set_hl(0, "NvimTreeGitDirty", { fg = "#fd7f20" })
-		vim.api.nvim_set_hl(0, "NvimTreeGitStaged", { fg = "#1abc9c" })
-		vim.api.nvim_set_hl(0, "NvimTreeGitNew", { fg = "#03fcc2" })
-		vim.api.nvim_set_hl(0, "NvimTreeGitDeleted", { fg = "#db4b4b" })
 	end,
 }

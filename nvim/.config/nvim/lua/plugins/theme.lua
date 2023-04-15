@@ -11,6 +11,19 @@ return {
 					"spectre_panel",
 				},
 				lualine_bold = true,
+				on_highlights = function(hl, c)
+					hl.WinBar = { bg = c.bg_dark }
+					hl.WinBarModified = { fg = "#fd7f20" }
+					hl.FoldColumn = { bg = c.bg_dark }
+
+					hl.NvimTreeIndentMarker = { fg = c.blue2 }
+					hl.NvimTreeFolderIcon = { fg = c.blue2 }
+
+					hl.NvimTreeGitDirty = { fg = "#fd7f20" }
+					hl.NvimTreeGitStaged = { fg = c.teal }
+					hl.NvimTreeGitNew = { fg = "#03fcc2" }
+					hl.NvimTreeGitDeleted = { fg = c.red1 }
+				end,
 			})
 		end,
 	},
