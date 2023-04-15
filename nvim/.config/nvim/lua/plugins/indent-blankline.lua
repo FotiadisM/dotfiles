@@ -13,6 +13,7 @@ return {
 				"lsp-installer",
 				"checkhealth",
 				"NvimTree",
+				"noice",
 			},
 			buftype_exclude = { "terminal" },
 		})
