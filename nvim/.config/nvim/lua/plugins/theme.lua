@@ -73,8 +73,6 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "DaikyXendo/nvim-material-icon" },
-		lazy = false,
-		priority = 1000,
 		config = function()
 			-- custom tokyonight inspired theme
 			local colors = {
