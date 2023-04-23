@@ -29,8 +29,6 @@ return {
 	},
 	{
 		"ellisonleao/gruvbox.nvim",
-		lazy = false,
-		priority = 1000,
 		config = function()
 			require("gruvbox").setup({
 				contrast = "hard",
@@ -72,6 +70,8 @@ return {
 	},
 	{
 		"nvim-lualine/lualine.nvim",
+		lazy = false,
+		priority = 1000,
 		dependencies = { "DaikyXendo/nvim-material-icon" },
 		config = function()
 			-- custom tokyonight inspired theme
