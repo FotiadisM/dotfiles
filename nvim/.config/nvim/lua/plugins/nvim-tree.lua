@@ -9,6 +9,7 @@ return {
 			-- on_attach = "disable",
 			select_prompts = true,
 			view = {
+				cursorline = true,
 				adaptive_size = true,
 				preserve_window_proportions = true,
 			},

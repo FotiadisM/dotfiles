@@ -106,7 +106,10 @@ return {
 	{
 		"Tummetott/reticle.nvim",
 		event = "VeryLazy",
-		opts = { follow = { cursorline = true, cursorcolumn = false } },
+		opts = {
+			follow = { cursorline = true, cursorcolumn = false },
+			ignore = { cursorline = { "lspinfo", "NvimTree" } },
+		},
 	},
 	{
 		"FotiadisM/other.nvim",
