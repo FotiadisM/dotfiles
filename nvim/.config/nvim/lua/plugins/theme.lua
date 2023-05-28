@@ -23,6 +23,8 @@ return {
 					hl.NvimTreeGitStaged = { fg = c.teal }
 					hl.NvimTreeGitNew = { fg = "#03fcc2" }
 					hl.NvimTreeGitDeleted = { fg = c.red1 }
+
+					hl.IndentBlanklineContextChar = { fg = c.blue2 }
 				end,
 			})
 		end,
