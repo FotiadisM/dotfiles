@@ -80,7 +80,6 @@ return {
 				theme = "auto",
 				globalstatus = true,
 			},
-			extensions = { "nvim-tree" },
 		},
 	},
 	{
