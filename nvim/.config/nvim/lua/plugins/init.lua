@@ -99,11 +99,6 @@ return {
 		config = true,
 	},
 	{
-		"folke/drop.nvim",
-		event = "VeryLazy",
-		config = true,
-	},
-	{
 		"Tummetott/reticle.nvim",
 		event = "VeryLazy",
 		opts = {
