@@ -5,6 +5,7 @@ function M.setup(on_attach)
 
 	local sources = {
 		nl.builtins.code_actions.gomodifytags,
+		nl.builtins.code_actions.impl,
 
 		nl.builtins.formatting.prettierd,
 		nl.builtins.formatting.goimports,
