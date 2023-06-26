@@ -111,4 +111,9 @@ return {
 		dev = true,
 		config = true,
 	},
+	{
+		"tomiis4/Hypersonic.nvim", -- regex explainer
+		cmd = { "Hypersonic" },
+		config = true,
+	},
 }
