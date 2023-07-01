@@ -9,7 +9,6 @@ function M.setup(on_attach)
 
 		nl.builtins.formatting.prettierd,
 		nl.builtins.formatting.goimports,
-		nl.builtins.formatting.gofumpt,
 		nl.builtins.formatting.stylua,
 		nl.builtins.formatting.buf,
 

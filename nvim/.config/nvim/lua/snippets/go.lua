@@ -51,7 +51,7 @@ local function str_to_Go_type(str, err_name)
 		if err_name then
 			return c(1, {
 				i(1, err_name),
-				fmt(string.format('fmt.Errof("{}: %%w", %s)', err_name), { i(1) }),
+				fmt(string.format('fmt.Errorf("{}: %%w", %s)', err_name), { i(1) }),
 			})
 		end
 		return t("nil")

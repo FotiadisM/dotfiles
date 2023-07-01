@@ -1,13 +1,9 @@
 local go = {}
 
-function go.setup(config, on_attach)
-	config.on_attach = function(client, bufnr)
-		client.server_capabilities.documentFormattingProvider = false
-		on_attach(client, bufnr)
-	end
-
+function go.setup(config, _)
 	config.settings = {
 		gopls = {
+			gofumpt = true,
 			codelenses = {
 				gc_details = true,
 				generate = true,

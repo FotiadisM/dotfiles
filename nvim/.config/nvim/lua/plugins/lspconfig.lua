@@ -4,8 +4,6 @@ return {
 		dependencies = {
 			"j-hui/fidget.nvim",
 
-			"hrsh7th/cmp-nvim-lsp",
-
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"jayp0521/mason-null-ls.nvim",
