@@ -12,9 +12,9 @@ return {
 
 			"folke/neodev.nvim",
 			"simrat39/rust-tools.nvim",
-			"jose-elias-alvarez/typescript.nvim",
 			"b0o/schemastore.nvim",
 			{ "someone-stole-my-name/yaml-companion.nvim", dependencies = "nvim-lua/plenary.nvim" },
+			{ "pmizio/typescript-tools.nvim", dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" } },
 
 			"SmiteshP/nvim-navbuddy",
 		},
@@ -48,6 +48,7 @@ return {
 
 			require("mason").setup()
 			require("mason-lspconfig").setup({
+				ensure_installed = { "tsserver" },
 				automatic_installation = { exclude = { "clangd", "rust_analyzer" } },
 			})
 
@@ -62,9 +63,7 @@ return {
 			lspconf["jsonls"].setup(require("lsp.servers.jsonls").setup(make_config(), on_attach))
 			lspconf["yamlls"].setup(require("lsp.servers.yamlls").setup(make_config(), on_attach))
 			lspconf["volar"].setup(require("lsp.servers.volar").setup(make_config(), on_attach))
-			require("typescript").setup({
-				server = require("lsp.servers.tsserver").setup(make_config(), on_attach),
-			})
+			require("typescript-tools").setup(require("lsp.servers.tsserver").setup(make_config(), on_attach))
 			require("rust-tools").setup({
 				server = require("lsp.servers.rust_analyzer").setup(make_config(), on_attach),
 			})
