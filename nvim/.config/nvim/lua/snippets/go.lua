@@ -25,29 +25,29 @@ local function OR(str, ...)
 	return false
 end
 
-local function str_to_Go_type(str, err_name)
-	if str == "bool" then
+local function get_go_zero_value(type, err_name)
+	if type == "bool" then
 		return t("false")
 	end
-	if OR(str, "int", "uint", "int8", "uint8", "int16", "uint16", "int32", "uint32", "int64", "uint64") then
+	if OR(type, "int", "uint", "int8", "uint8", "int16", "uint16", "int32", "uint32", "int64", "uint64") then
 		return t("0")
 	end
-	if OR(str, "float32", "float64") then
+	if OR(type, "float32", "float64") then
 		return t("0.0")
 	end
-	if OR(str, "byte", "rune") then
+	if OR(type, "byte", "rune") then
 		return t("0")
 	end
-	if str == "string" then
+	if type == "string" then
 		return t('""')
 	end
-	if OR(str, "interface{}", "any") then
+	if OR(type, "interface{}", "any") then
 		return t("nil")
 	end
-	if startswith(str, "*") or startswith(str, "[]") or startswith(str, "map") or startswith(str, "chan") then
+	if startswith(type, "*") or startswith(type, "[]") or startswith(type, "map") or startswith(type, "chan") then
 		return t("nil")
 	end
-	if str == "error" then
+	if type == "error" then
 		if err_name then
 			return c(1, {
 				i(1, err_name),
@@ -59,7 +59,7 @@ local function str_to_Go_type(str, err_name)
 
 	-- it's ether a struct or and interface, we can't know for sure
 	-- so assume it's a struct
-	return t(str .. "{}")
+	return t(type .. "{}")
 end
 
 local handlers = {
@@ -67,18 +67,21 @@ local handlers = {
 		local out = {}
 		for n in node:iter_children() do
 			if n:type() == "parameter_declaration" then
-				local text = vim.treesitter.get_node_text(n:field("type")[1], 0)
-				local go_type = str_to_Go_type(text, err_name)
-				table.insert(out, go_type)
-				table.insert(out, t(", "))
+				local cnt = #n:field("name") -- this is needed in cases where are named return values with same type, ex (st1, st2 string)
+				local go_type = vim.treesitter.get_node_text(n:field("type")[1], 0)
+				local go_zero_value = get_go_zero_value(go_type, err_name)
+				for _ = 1, cnt do
+					table.insert(out, go_zero_value)
+					table.insert(out, t(", "))
+				end
 			end
 		end
-		table.remove(out, #out)
+		table.remove(out, #out) -- remove the last ", "
 		return out
 	end,
 	type_identifier = function(node, err_name)
 		local text = vim.treesitter.get_node_text(node, 0)
-		return { str_to_Go_type(text, err_name) }
+		return { get_go_zero_value(text, err_name) }
 	end,
 }
 
@@ -112,13 +115,14 @@ local function gen_snipet_node(err_name)
 
 	local query_str = string.format("(%s result: (_) @result)", function_type)
 	local query = vim.treesitter.query.parse("go", query_str)
-
 	for _, node in query:iter_captures(function_node, 0) do
 		if not handlers[node:type()] then
 			return t("")
 		end
 		return handlers[node:type()](node, err_name)
 	end
+
+	return t("") -- if the is no return variables
 end
 
 local function return_values(args)
