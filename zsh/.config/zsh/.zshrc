@@ -145,6 +145,7 @@ alias la='lsd -lAhv --group-directories-first'
 alias l='la $(fd -H -E .git -E node_modules | fzf)'
 alias ip='ip -color'
 alias open='xdg-open'
+alias watch='watch '
 alias nvimrc='(cd $HOME/.config/nvim && nvim)' # avoid creating buffer for dir
 alias zshrc='nvim $HOME/.config/zsh/.zshrc'
 alias d='cd $(fd -t d -H -E .git -E node_modules | fzf)'
