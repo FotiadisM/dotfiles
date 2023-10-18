@@ -19,6 +19,13 @@ return {
 					},
 				},
 				{
+					filetypes = { "python" },
+					config = {
+						tabwidth = 4,
+						expandtab = true,
+					},
+				},
+				{
 					filetypes = {
 						"javascript",
 						"typescript",

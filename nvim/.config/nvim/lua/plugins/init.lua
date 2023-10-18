@@ -99,14 +99,6 @@ return {
 		config = true,
 	},
 	{
-		"Tummetott/reticle.nvim",
-		event = "VeryLazy",
-		opts = {
-			follow = { cursorline = true, cursorcolumn = false },
-			ignore = { cursorline = { "lspinfo", "NvimTree" } },
-		},
-	},
-	{
 		"FotiadisM/other.nvim",
 		dev = true,
 		config = true,

@@ -39,8 +39,14 @@ return {
 				end, { expr = true }, "prev git change")
 
 				-- Actions
-				map({ "n", "v" }, "<leader>hs", gs.stage_hunk, {}, "stage hunk")
-				map({ "n", "v" }, "<leader>hr", gs.reset_hunk, {}, "reset hunk")
+				map("n", "<leader>hs", gs.stage_hunk, {}, "stage hunk")
+				map("n", "<leader>hr", gs.reset_hunk, {}, "reset hunk")
+				map("v", "<leader>hs", function()
+					gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+				end, {}, "stage hunk")
+				map("v", "<leader>hr", function()
+					gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+				end, {}, "reset hunk")
 				map("n", "<leader>hS", gs.stage_buffer, {}, "stage buffer")
 				map("n", "<leader>hu", gs.undo_stage_hunk, {}, "undo stage hunk")
 				map("n", "<leader>hp", gs.preview_hunk, {}, "preview hunk")

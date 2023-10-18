@@ -82,6 +82,17 @@ return {
 				{ name = "buffer", keyword_length = 4 },
 				{ name = "path" },
 			},
+			-- sorting = {
+			-- 	comparators = {
+			-- 		cmp.config.compare.offset,
+			-- 		cmp.config.compare.exact,
+			-- 		cmp.config.compare.score,
+			-- 		cmp.config.compare.kind,
+			-- 		cmp.config.compare.sort_text,
+			-- 		cmp.config.compare.length,
+			-- 		cmp.config.compare.order,
+			-- 	},
+			-- },
 			completion = {
 				completeopt = "menu,menuone",
 			},

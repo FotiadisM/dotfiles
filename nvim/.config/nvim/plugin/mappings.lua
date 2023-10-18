@@ -101,6 +101,9 @@ map("n", "<space>cp", ":cprev<CR>", "cprev")
 map("n", "<space>s", function()
 	require("nvim-tree.api").tree.toggle()
 end, "toggle NvimTree")
+map("n", "<space>S", function()
+	require("nvim-tree.api").tree.open({ find_file = true })
+end, "toggle NvimTree")
 
 -- luasnip
 map({ "i", "s" }, "<C-k>", function()

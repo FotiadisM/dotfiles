@@ -8,7 +8,7 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 			"jayp0521/mason-null-ls.nvim",
 
-			{ "jose-elias-alvarez/null-ls.nvim", dependencies = "nvim-lua/plenary.nvim" },
+			{ "nvimtools/none-ls.nvim", dependencies = "nvim-lua/plenary.nvim" },
 
 			"folke/neodev.nvim",
 			"simrat39/rust-tools.nvim",
@@ -57,6 +57,7 @@ return {
 			require("neodev").setup()
 			lspconf["lua_ls"].setup(require("lsp.servers.sumneko_lua").setup(make_config(), on_attach))
 
+			lspconf["pyright"].setup(make_config())
 			lspconf["gopls"].setup(require("lsp.servers.gopls").setup(make_config(), on_attach))
 			lspconf["texlab"].setup(require("lsp.servers.texlab").setup(make_config(), on_attach))
 			lspconf["html"].setup(require("lsp.servers.html").setup(make_config(), on_attach))
