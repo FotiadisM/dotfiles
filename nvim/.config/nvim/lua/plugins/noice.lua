@@ -15,18 +15,12 @@ return {
 					["vim.lsp.util.stylize_markdown"] = true,
 					["cmp.entry.get_documentation"] = true,
 				},
-				hover = {
-					enabled = false,
-				},
-				signature = {
-					enabled = false,
-				},
 			},
 			presets = {
 				bottom_search = true,
 				long_message_to_split = true,
 				inc_rename = false,
-				lsp_doc_border = false,
+				lsp_doc_border = true,
 			},
 			views = {
 				cmdline_popup = {
