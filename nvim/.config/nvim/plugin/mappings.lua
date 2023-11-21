@@ -126,7 +126,7 @@ map("n", "<space><space>e", function()
 end, "edit snippets")
 map("n", "<space><space>s", function()
 	require("luasnip.extras.snippet_list").open()
-end, "edit snippets")
+end, "list snippets")
 map("n", "<space><space>r", function()
 	require("luasnip.loaders.from_lua").load({
 		paths = vim.fn.stdpath("config") .. "/lua/snippets",
@@ -209,7 +209,7 @@ map("n", "<space>u", function ()
 	require("urlview").search("lazy")
 end, "open a plugin's github page")
 
--- nvim-navbuddy
+-- neogit
 map("n", "<space>n", function ()
-	require("nvim-navbuddy").open()
-end, "open navbuddy")
+	require("neogit").open()
+end, "open neogit")

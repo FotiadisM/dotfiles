@@ -34,11 +34,9 @@ return {
 			local make_config = require("lsp").make_config
 
 			require("fidget").setup({
-				text = { spinner = "dots" },
-				sources = {
-					["null-ls"] = {
-						ignore = true,
-					},
+				progress = {
+					suppress_on_insert = true,
+					ignore = { "null-ls" },
 				},
 			})
 
@@ -61,16 +59,14 @@ return {
 			lspconf["yamlls"].setup(require("lsp.servers.yamlls").setup(make_config(), on_attach))
 			lspconf["volar"].setup(require("lsp.servers.volar").setup(make_config(), on_attach))
 			require("typescript-tools").setup(require("lsp.servers.tsserver").setup(make_config(), on_attach))
-			require("rust-tools").setup({
-				server = require("lsp.servers.rust_analyzer").setup(make_config(), on_attach),
-			})
-			local clangd = make_config()
-			clangd.filetypes = { "c", "cpp", "objc", "objcpp", "cuda" }
-			lspconf["clangd"].setup(clangd)
+			lspconf["clangd"].setup(require("lsp.servers.clangd").setup(make_config(), on_attach))
 			lspconf["bashls"].setup(make_config())
 			lspconf["dockerls"].setup(make_config())
 			lspconf["tailwindcss"].setup(make_config())
 			lspconf["terraformls"].setup(make_config())
+			require("rust-tools").setup({
+				server = require("lsp.servers.rust_analyzer").setup(make_config(), on_attach),
+			})
 
 			require("lsp.servers.null_ls").setup(on_attach)
 			require("mason-null-ls").setup({ automatic_installation = true })
