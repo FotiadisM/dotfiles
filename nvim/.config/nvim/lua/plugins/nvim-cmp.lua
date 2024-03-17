@@ -7,7 +7,6 @@ return {
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-nvim-lsp-document-symbol",
-		"hrsh7th/cmp-nvim-lsp-signature-help",
 		{ "petertriho/cmp-git", dependencies = "nvim-lua/plenary.nvim" },
 
 		"L3MON4D3/LuaSnip",
@@ -78,7 +77,6 @@ return {
 			sources = {
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
-				{ name = "nvim_lsp_signature_help" },
 				{ name = "buffer", keyword_length = 4 },
 				{ name = "path" },
 			},
