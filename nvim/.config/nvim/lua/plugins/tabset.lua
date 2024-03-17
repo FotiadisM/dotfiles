@@ -34,6 +34,7 @@ return {
 						"json",
 						"vue",
 						"html",
+						"d2",
 					},
 					config = {
 						tabwidth = 2,

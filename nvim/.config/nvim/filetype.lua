@@ -14,4 +14,7 @@ vim.filetype.add({
 		yaml = helm,
 		tpl = helm,
 	},
+	pattern = {
+		[".env.*"] = "sh",
+	},
 })

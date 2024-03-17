@@ -11,7 +11,17 @@ return {
 		local telescope = require("telescope")
 		telescope.setup({
 			defaults = {
-				file_ignore_patterns = { ".git/", "node_modules/", "vendor/", ".terraform/" },
+				file_ignore_patterns = {
+					".git/",
+					"node_modules/",
+					"vendor/",
+					".terraform/",
+					".yarn/",
+					".next/",
+					".venv",
+					"__pycache__/",
+					".ruff_cache/",
+				},
 			},
 			extensions = {
 				fzf = {
