@@ -12,11 +12,9 @@ function M.setup(on_attach)
 		nl.builtins.formatting.stylua,
 		nl.builtins.formatting.buf,
 		nl.builtins.formatting.isort,
-		nl.builtins.formatting.ruff_format,
 
 		nl.builtins.diagnostics.golangci_lint,
 		nl.builtins.diagnostics.buf,
-		nl.builtins.diagnostics.ruff,
 	}
 
 	nl.setup({

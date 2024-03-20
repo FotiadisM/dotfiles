@@ -51,7 +51,6 @@ return {
 			require("neodev").setup()
 			lspconf["lua_ls"].setup(require("lsp.servers.sumneko_lua").setup(make_config(), on_attach))
 
-			lspconf["pyright"].setup(make_config())
 			lspconf["gopls"].setup(require("lsp.servers.gopls").setup(make_config(), on_attach))
 			lspconf["texlab"].setup(require("lsp.servers.texlab").setup(make_config(), on_attach))
 			lspconf["html"].setup(require("lsp.servers.html").setup(make_config(), on_attach))
@@ -60,6 +59,8 @@ return {
 			lspconf["volar"].setup(require("lsp.servers.volar").setup(make_config(), on_attach))
 			require("typescript-tools").setup(require("lsp.servers.tsserver").setup(make_config(), on_attach))
 			lspconf["clangd"].setup(require("lsp.servers.clangd").setup(make_config(), on_attach))
+			lspconf["pyright"].setup(require("lsp.servers.pyright").setup(make_config(), on_attach))
+			lspconf["ruff_lsp"].setup(require("lsp.servers.ruff_lsp").setup(make_config(), on_attach))
 			lspconf["bashls"].setup(make_config())
 			lspconf["dockerls"].setup(make_config())
 			lspconf["tailwindcss"].setup(make_config())

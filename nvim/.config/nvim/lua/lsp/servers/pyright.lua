@@ -2,11 +2,14 @@ local pyright = {}
 
 function pyright.setup(config, _)
 	config.settings = {
+		pyright = {
+			-- Using Ruff's import organizer
+			disableOrganizeImports = true,
+		},
 		python = {
 			analysis = {
-				autoSearchPaths = true,
-				diagnosticMode = "workspace",
-				useLibraryCodeForTypes = true,
+				-- Ignore all files for analysis to exclusively use Ruff for linting
+				ignore = { "*" },
 			},
 		},
 	}
