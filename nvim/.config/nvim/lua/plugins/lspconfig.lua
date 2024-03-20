@@ -15,8 +15,6 @@ return {
 			"b0o/schemastore.nvim",
 			{ "someone-stole-my-name/yaml-companion.nvim", dependencies = "nvim-lua/plenary.nvim" },
 			{ "pmizio/typescript-tools.nvim", dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" } },
-
-			"SmiteshP/nvim-navbuddy",
 		},
 		lazy = false,
 		config = function()
@@ -83,10 +81,5 @@ return {
 				make_config = make_config,
 			}
 		end,
-	},
-	{
-		"SmiteshP/nvim-navbuddy",
-		dependencies = { "neovim/nvim-lspconfig", "SmiteshP/nvim-navic", "MunifTanjim/nui.nvim" },
-		opts = { lsp = { auto_attach = true } },
 	},
 }
