@@ -96,15 +96,10 @@ return {
 			},
 			formatting = {
 				format = require("lspkind").cmp_format({
-					with_text = true,
+					mode = "symbol",
 					maxwidth = 50,
-					menu = {
-						buffer = "Buffer",
-						nvim_lsp = "LSP",
-						luasnip = "LuaSnip",
-						nvim_lua = "Lua",
-						latex_symbols = "Latex",
-					},
+					ellipsis_char = "...",
+					before = require("util.tailwindcss").lspkind_format,
 				}),
 			},
 		})
