@@ -85,24 +85,31 @@ plugins=(
 	zsh-autosuggestions
 
 	# included
+
+	# tools
 	git
-	docker
-	docker-compose
+	gh
 	lxd
 	tmux
-	golang
+	docker
+	docker-compose
 	terraform
 	kubectl
 	minikube
-	heroku
+	kind
+	fzf
+	colored-man-pages
+
+	# languages
+	golang
+	rust
+
+	# package managers
 	helm
 	npm
 	yarn
 	pip
-	fzf
-	gh
-	rust
-	colored-man-pages
+	poetry
 	poetry-env
 )
 
