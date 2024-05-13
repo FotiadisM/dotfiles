@@ -45,10 +45,10 @@ map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
 
 -- resize windows
-map("n", "<C-Up>", ":resize +1<CR>")
-map("n", "<C-Down>", ":resize -1<CR>")
-map("n", "<C-Left>", ":vertical resize +1<CR>")
-map("n", "<C-Right>", ":vertical resize -1<CR>")
+map("n", "<M-'>", ":resize +1<CR>")
+map("n", "<M-/>", ":resize -1<CR>")
+map("n", "<M-,>", ":vertical resize +1<CR>")
+map("n", "<M-.>", ":vertical resize -1<CR>")
 
 -- move lines quicly
 map("n", "[e", ":<C-u>execute 'move -1-'. v:count1<CR>")
