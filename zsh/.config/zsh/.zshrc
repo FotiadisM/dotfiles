@@ -1,3 +1,5 @@
+pfetch
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -101,6 +103,7 @@ plugins=(
 	gh
 	rust
 	colored-man-pages
+	poetry-env
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -156,6 +159,7 @@ alias f='fzf-nvim.sh'
 alias t='tmux'
 alias tn='tmux new -A -s default'
 alias nv='nvim'
+alias dv='devbox'
 
 alias kn='kubectl config set-context --current --namespace'
 alias kuc='kubectl config use-context'
@@ -166,5 +170,3 @@ alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 autoload -U compinit && compinit
-
-pfetch
