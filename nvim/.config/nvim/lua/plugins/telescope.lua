@@ -21,6 +21,7 @@ return {
 					".venv",
 					"__pycache__/",
 					".ruff_cache/",
+					".devbox",
 				},
 			},
 			extensions = {

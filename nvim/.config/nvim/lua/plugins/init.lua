@@ -62,12 +62,6 @@ return {
 		opts = { user_default_options = { names = false } },
 	},
 	{
-		"NTBBloodbath/rest.nvim",
-		dependencies = "nvim-lua/plenary.nvim",
-		ft = "http",
-		config = true,
-	},
-	{
 		"iamcco/markdown-preview.nvim",
 		build = "cd app && npm install",
 		ft = "markdown",
