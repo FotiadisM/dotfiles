@@ -8,11 +8,6 @@ return {
 
 	-- git
 	{
-		"sindrets/diffview.nvim",
-		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
-		config = true,
-	},
-	{
 		"NeogitOrg/neogit",
 		cmd = "Neogit",
 		dependencies = "nvim-lua/plenary.nvim",
