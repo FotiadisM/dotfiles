@@ -58,7 +58,7 @@ return {
 			require("typescript-tools").setup(require("lsp.servers.tsserver").setup(make_config(), on_attach))
 			lspconf["clangd"].setup(require("lsp.servers.clangd").setup(make_config(), on_attach))
 			lspconf["pyright"].setup(require("lsp.servers.pyright").setup(make_config(), on_attach))
-			lspconf["ruff_lsp"].setup(require("lsp.servers.ruff_lsp").setup(make_config(), on_attach))
+			lspconf["ruff"].setup(make_config())
 			lspconf["bashls"].setup(make_config())
 			lspconf["dockerls"].setup(make_config())
 			lspconf["tailwindcss"].setup(make_config())

@@ -18,8 +18,6 @@ local on_attach = function(client, bufnr)
 	map("n", "<space>rl", vim.lsp.codelens.run, "run codelens")
 	map("n", "<space>cr", vim.lsp.codelens.refresh, "refresh codelens")
 	map("n", "<space>e", vim.diagnostic.open_float, "open diagnostics")
-	map("n", "[d", vim.diagnostic.goto_prev, "diagnostics prev")
-	map("n", "]d", vim.diagnostic.goto_next, "diagnostics next")
 	map("n", "<space>cl", vim.diagnostic.setqflist, "diagnostics quicklist")
 	map("n", "<space>f", vim.lsp.buf.format, "format")
 

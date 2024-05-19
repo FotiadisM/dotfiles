@@ -7,7 +7,6 @@ return {
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-nvim-lsp-document-symbol",
-		{ "petertriho/cmp-git", dependencies = "nvim-lua/plenary.nvim" },
 
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
@@ -16,12 +15,6 @@ return {
 		"windwp/nvim-autopairs",
 	},
 	config = function()
-		local has_words_before = function()
-			local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-			return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-		end
-
-		require("cmp_git").setup()
 		local cmp = require("cmp")
 
 		cmp.setup({
@@ -35,27 +28,9 @@ return {
 				documentation = cmp.config.window.bordered(),
 			},
 			mapping = {
-				["<Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-					elseif has_words_before() then
-						cmp.complete()
-					else
-						fallback()
-					end
-				end, { "i", "s" }),
 				["<C-n>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-					elseif has_words_before() then
-						cmp.complete()
-					else
-						fallback()
-					end
-				end, { "i", "s" }),
-				["<S-Tab>"] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
 					else
 						fallback()
 					end
@@ -69,10 +44,7 @@ return {
 				end, { "i", "s" }),
 				["<C-Space>"] = cmp.mapping.complete(),
 				["<ESC>"] = cmp.mapping.close(),
-				["<CR>"] = cmp.mapping.confirm({
-					behavior = cmp.ConfirmBehavior.Replace,
-					select = true,
-				}),
+				["<CR>"] = cmp.mapping.confirm(),
 			},
 			sources = {
 				{ name = "nvim_lsp" },
@@ -80,36 +52,19 @@ return {
 				{ name = "buffer", keyword_length = 4 },
 				{ name = "path" },
 			},
-			-- sorting = {
-			-- 	comparators = {
-			-- 		cmp.config.compare.offset,
-			-- 		cmp.config.compare.exact,
-			-- 		cmp.config.compare.score,
-			-- 		cmp.config.compare.kind,
-			-- 		cmp.config.compare.sort_text,
-			-- 		cmp.config.compare.length,
-			-- 		cmp.config.compare.order,
-			-- 	},
-			-- },
 			completion = {
 				completeopt = "menu,menuone",
 			},
 			formatting = {
+				fields = { "kind", "abbr" },
 				format = require("lspkind").cmp_format({
 					mode = "symbol",
 					maxwidth = 50,
 					ellipsis_char = "...",
 					before = require("util.tailwindcss").lspkind_format,
 				}),
+				expandable_indicator = false,
 			},
-		})
-
-		cmp.setup.filetype("gitcommit", {
-			sources = cmp.config.sources({
-				{ name = "cmp_git" },
-			}, {
-				{ name = "buffer" },
-			}),
 		})
 
 		cmp.setup.cmdline("/", {

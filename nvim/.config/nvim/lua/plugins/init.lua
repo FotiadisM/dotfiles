@@ -57,9 +57,11 @@ return {
 		config = true,
 	},
 	{
-		"NvChad/nvim-colorizer.lua",
+		"brenoprata10/nvim-highlight-colors",
 		event = "BufReadPre",
-		opts = { user_default_options = { names = false } },
+		config = {
+			render = "virtual",
+		},
 	},
 	{
 		"iamcco/markdown-preview.nvim",
