@@ -16,6 +16,11 @@ return {
 
 	-- misc
 	{
+		"folke/ts-comments.nvim",
+		opts = {},
+		event = "VeryLazy",
+	},
+	{
 		"ThePrimeagen/harpoon",
 		dependencies = "nvim-lua/plenary.nvim",
 	},

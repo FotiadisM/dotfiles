@@ -43,7 +43,7 @@ return {
 					end
 				end, { "i", "s" }),
 				["<C-Space>"] = cmp.mapping.complete(),
-				["<ESC>"] = cmp.mapping.close(),
+				["<ESC>"] = cmp.mapping.abort(),
 				["<CR>"] = cmp.mapping.confirm(),
 			},
 			sources = {
@@ -67,8 +67,29 @@ return {
 			},
 		})
 
+		local cmdline_preset = {
+			["<C-n>"] = {
+				c = function(_)
+					if cmp.visible() then
+						cmp.select_next_item()
+					else
+						cmp.complete()
+					end
+				end,
+			},
+			["<C-p>"] = {
+				c = function(_)
+					if cmp.visible() then
+						cmp.select_prev_item()
+					else
+						cmp.complete()
+					end
+				end,
+			},
+		}
+
 		cmp.setup.cmdline("/", {
-			mapping = cmp.mapping.preset.cmdline(),
+			mapping = cmdline_preset,
 			sources = {
 				{ name = "buffer" },
 				{ name = "nvim_lsp_document_symbol" },
@@ -79,7 +100,7 @@ return {
 		})
 
 		cmp.setup.cmdline("?", {
-			mapping = cmp.mapping.preset.cmdline(),
+			mapping = cmdline_preset,
 			sources = {
 				{ name = "buffer" },
 				{ name = "nvim_lsp_document_symbol" },
@@ -90,7 +111,7 @@ return {
 		})
 
 		cmp.setup.cmdline(":", {
-			mapping = cmp.mapping.preset.cmdline(),
+			mapping = cmdline_preset,
 			sources = cmp.config.sources({
 				{ name = "path" },
 			}, {
