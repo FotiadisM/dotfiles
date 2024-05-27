@@ -108,8 +108,4 @@ return {
 		"terrastruct/d2-vim",
 		ft = "d2",
 	},
-	{
-		"hinell/lsp-timeout.nvim",
-		dependencies = { "neovim/nvim-lspconfig" },
-	},
 }

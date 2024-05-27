@@ -5,10 +5,12 @@
 ├── lua
 │   ├── lsp
 │   │   ├── servers
+│   │   │   ├── clangd.lua
 │   │   │   ├── gopls.lua
 │   │   │   ├── html.lua
 │   │   │   ├── jsonls.lua
 │   │   │   ├── null_ls.lua
+│   │   │   ├── pyright.lua
 │   │   │   ├── rust_analyzer.lua
 │   │   │   ├── sumneko_lua.lua
 │   │   │   ├── texlab.lua
@@ -16,14 +18,18 @@
 │   │   │   ├── volar.lua
 │   │   │   └── yamlls.lua
 │   │   └── init.lua
+│   ├── lualine
+│   │   └── themes
+│   │       └── tokyonight.lua
 │   ├── plugins
 │   │   ├── autopairs.lua
-│   │   ├── comment.lua
+│   │   ├── diffview.lua
 │   │   ├── gitsigns.lua
 │   │   ├── indent-blankline.lua
 │   │   ├── init.lua
 │   │   ├── lspconfig.lua
 │   │   ├── luasnip.lua
+│   │   ├── noice.lua
 │   │   ├── nvim-cmp.lua
 │   │   ├── nvim-dap.lua
 │   │   ├── nvim-lightbulb.lua
@@ -35,12 +41,14 @@
 │   │   └── todo-comments.lua
 │   ├── snippets
 │   │   ├── all.lua
+│   │   ├── go.lua
 │   │   ├── lua.lua
+│   │   ├── python.lua
 │   │   └── typescriptreact.lua
 │   └── util
+│       ├── tailwindcss.lua
 │       └── winbar.lua
 ├── plugin
-│   ├── autocmds.lua
 │   ├── commands.lua
 │   ├── globals.lua
 │   ├── mappings.lua
@@ -55,5 +63,4 @@
 ├── init.lua
 ├── lazy-lock.json
 └── README.md
-
 ```

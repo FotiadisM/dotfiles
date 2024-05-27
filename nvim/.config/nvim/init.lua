@@ -19,7 +19,7 @@ require("lazy").setup("plugins", {
 	dev = {
 		path = "~/src/neovim",
 	},
-	install = { colorscheme = { "gruvbox", "tokyonight" } },
+	install = { colorscheme = { "tokyonight" } },
 	change_detection = {
 		notify = false,
 	},
