@@ -188,10 +188,6 @@ map({ "n", "v" }, "<leader>r", function() require("refactoring").select_refactor
 -- nvim-spectre
 map("n", "<leader>S", function() require("spectre").open() end, "toggle spectre")
 
--- spread.nvim
-map("n", "gS", function() require("spread").out() end, "spread out")
-map("n", "gJ", function() require("spread").combine() end, "spread combine")
-
 -- nvim-ufo
 map("n", "zR", function() require("ufo").openAllFolds() end, "open all folds")
 map("n", "zM", function() require("ufo").closeAllFolds() end, "close all folds")

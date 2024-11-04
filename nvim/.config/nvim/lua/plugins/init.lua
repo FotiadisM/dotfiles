@@ -86,10 +86,6 @@ return {
 		config = true,
 	},
 	{
-		"aarondiel/spread.nvim",
-		dependencies = "nvim-treesitter/nvim-treesitter",
-	},
-	{
 		"axieax/urlview.nvim",
 		cmd = "UrlView",
 		config = true,
