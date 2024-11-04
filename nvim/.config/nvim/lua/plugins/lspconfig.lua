@@ -10,7 +10,6 @@ return {
 
 			{ "nvimtools/none-ls.nvim", dependencies = "nvim-lua/plenary.nvim" },
 
-			"folke/neodev.nvim",
 			"simrat39/rust-tools.nvim",
 			"b0o/schemastore.nvim",
 			{ "someone-stole-my-name/yaml-companion.nvim", dependencies = "nvim-lua/plenary.nvim" },
@@ -40,13 +39,12 @@ return {
 
 			require("mason").setup()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "tsserver" },
+				ensure_installed = { "ts_ls" },
 				automatic_installation = { exclude = { "clangd", "rust_analyzer" } },
 			})
 
 			local lspconf = require("lspconfig")
 
-			require("neodev").setup()
 			lspconf["lua_ls"].setup(require("lsp.servers.sumneko_lua").setup(make_config(), on_attach))
 
 			lspconf["gopls"].setup(require("lsp.servers.gopls").setup(make_config(), on_attach))

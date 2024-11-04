@@ -1,12 +1,13 @@
 return {
 	"hrsh7th/nvim-cmp",
-	event = "InsertEnter",
+	event = { "InsertEnter", "CmdlineEnter" },
 	dependencies = {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-nvim-lsp-document-symbol",
+		{ "folke/lazydev.nvim", ft = "lua" },
 
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
@@ -51,16 +52,24 @@ return {
 				{ name = "luasnip" },
 				{ name = "buffer", keyword_length = 4 },
 				{ name = "path" },
+				{ name = "lazydev", group_index = 0 },
 			},
 			completion = {
 				completeopt = "menu,menuone",
 			},
 			formatting = {
-				fields = { "kind", "abbr" },
+				-- fields = { "kind", "abbr" },
+				fields = { "abbr", "kind" },
 				format = require("lspkind").cmp_format({
-					mode = "symbol",
-					maxwidth = 50,
-					ellipsis_char = "...",
+					-- mode = "symbol",
+					mode = "symbol_text",
+					-- maxwidth = 50,
+					-- ellipsis_char = "...",
+					symbol_map = {
+						Variable = "",
+						Field = "",
+						Property = "",
+					},
 					before = require("util.tailwindcss").lspkind_format,
 				}),
 				expandable_indicator = false,
