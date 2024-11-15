@@ -34,4 +34,5 @@ return {
 			{ rep(1), i(2), i(1), i(3), rep(1), i(0) }
 		)
 	),
+	s({ trig = "sleep", name = "Sleep" }, fmt("await new Promise(r => setTimeout(r, {}));{}", { i(1, "5000"), i(0) })),
 }
