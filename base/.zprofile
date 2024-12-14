@@ -17,11 +17,13 @@ export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 export FZF_DEFAULT_COMMAND="fd -t f -H -E .git -E node_modules"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40% --border"
 
+# go
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export GOBIN="$GOPATH/bin"
 export PATH=$GOBIN:$PATH
 
+# rust
 export RUSTUP_HOME="${XDG_DATA_HOME:-$HOME/.local/share/}/rustup"
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share/}/cargo"
 export PATH=$CARGO_HOME/bin:$PATH
@@ -32,5 +34,8 @@ export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
 
 export KREW_ROOT="${XDG_DATA_HOME:-$HOME/.local/share/}/krew"
 export PATH=$KREW_ROOT/bin:$PATH
+
+# make `direnv` silent
+export DIRENV_LOG_FORMAT=
 
 export PATH=$PATH:$XDG_DATA_HOME/nvim/mason/bin
