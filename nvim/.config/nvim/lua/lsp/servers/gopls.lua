@@ -28,7 +28,7 @@ function go.setup(config, _)
 				constantValues = false,
 				functionTypeParameters = false,
 				parameterNames = false,
-				rangeVariableTypes = false,
+				rangeVariableTypes = true,
 			},
 		},
 	}

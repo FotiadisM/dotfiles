@@ -16,7 +16,6 @@ local on_attach = function(client, bufnr)
 	map("n", "<space>ca", vim.lsp.buf.code_action, "code action")
 	map("n", "<space>rn", vim.lsp.buf.rename, "rename")
 	map("n", "<space>rl", vim.lsp.codelens.run, "run codelens")
-	map("n", "<space>cr", vim.lsp.codelens.refresh, "refresh codelens")
 	map("n", "<space>e", vim.diagnostic.open_float, "open diagnostics")
 	map("n", "<space>cl", vim.diagnostic.setqflist, "diagnostics quicklist")
 	map("n", "<space>f", vim.lsp.buf.format, "format")
@@ -44,14 +43,14 @@ local on_attach = function(client, bufnr)
 		})
 	end
 
-	-- if client.server_capabilities.codeLensProvider then
-	-- 	vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-	-- 		group = vim.api.nvim_create_augroup("lsp_codelens", { clear = true }),
-	-- 		callback = function()
-	-- 			vim.lsp.codelens.refresh()
-	-- 		end,
-	-- 	})
-	-- end
+	if client.server_capabilities.codeLensProvider then
+		vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+			group = vim.api.nvim_create_augroup("lsp_codelens_refresh", { clear = true }),
+			callback = function()
+				vim.lsp.codelens.refresh({ bufnr = 0 })
+			end,
+		})
+	end
 end
 
 local function make_config()

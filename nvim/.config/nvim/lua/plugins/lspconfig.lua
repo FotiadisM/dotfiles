@@ -68,6 +68,8 @@ return {
 			require("lsp.servers.null_ls").setup(on_attach)
 			require("mason-null-ls").setup({ automatic_installation = true })
 
+			vim.lsp.inlay_hint.enable(true, nil)
+
 			local signs = { Error = " 󰅙", Warn = " ", Hint = " 󰋼", Info = " 󰌵" }
 			for type, icon in pairs(signs) do
 				local hl = "DiagnosticSign" .. type
