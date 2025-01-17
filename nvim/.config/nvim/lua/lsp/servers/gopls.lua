@@ -3,7 +3,10 @@ local go = {}
 function go.setup(config, _)
 	config.settings = {
 		gopls = {
+			-- ["local"] = "github.com/FotiadisM/mock-microservice",
 			gofumpt = true,
+			semanticTokens = true,
+			usePlaceholders = false,
 			codelenses = {
 				gc_details = true,
 				generate = true,
@@ -11,15 +14,9 @@ function go.setup(config, _)
 				tidy = true,
 				upgrade_dependency = true,
 			},
-			usePlaceholders = true,
 			analyses = {
-				fieldalignment = false,
-				nilness = true,
 				shadow = true,
-				unusedparams = false,
-				unusedwrite = true,
 				useany = true,
-				unusedvariable = true,
 			},
 			hints = {
 				assignVariableTypes = false,
@@ -32,6 +29,18 @@ function go.setup(config, _)
 			},
 		},
 	}
+
+	if vim.fn.executable("go") ~= 1 then
+		return config
+	end
+
+	local module = vim.fn.trim(vim.fn.system("go list -m"))
+	if vim.v.shell_error ~= 0 then
+		return config
+	end
+
+	module = module:gsub("\n", ",")
+	config.settings.gopls["local"] = module
 
 	return config
 end

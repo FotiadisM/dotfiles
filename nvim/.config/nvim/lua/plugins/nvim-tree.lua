@@ -14,6 +14,7 @@ return {
 				preserve_window_proportions = true,
 			},
 			renderer = {
+				group_empty = true,
 				root_folder_modifier = ":t",
 				indent_markers = {
 					enable = true,

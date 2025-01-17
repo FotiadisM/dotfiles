@@ -11,9 +11,7 @@ function M.setup(on_attach)
 		nl.builtins.formatting.goimports,
 		nl.builtins.formatting.stylua,
 		nl.builtins.formatting.buf,
-		nl.builtins.formatting.isort.with({
-			extra_args = { "--profile", "black" },
-		}),
+		nl.builtins.formatting.isort,
 
 		nl.builtins.diagnostics.golangci_lint,
 		nl.builtins.diagnostics.buf,
