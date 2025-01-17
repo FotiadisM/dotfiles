@@ -106,8 +106,6 @@ plugins=(
 	# package managers
 	helm
 	npm
-	pip
-	poetry
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -119,14 +117,17 @@ bindkey -v
 # Enter Normal mode faster
 KEYTIMEOUT=1
 
-# commands that start with space are not
-# writtern in history
+# commands that start with space
+# are not writtern in history
 setopt HIST_IGNORE_SPACE
 
-# Ctrl-x-e to edit command in nvim
+# Ctrl-e to edit command in nvim
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^E" edit-command-line
+
+# remove annoying keybind
+bindkey "^[[Z" undefined-key
 
 # source lf icons
 [ -f "$HOME/.config/lf/icons.sh" ] && source "$HOME/.config/lf/icons.sh"
@@ -137,9 +138,6 @@ bindkey "^E" edit-command-line
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

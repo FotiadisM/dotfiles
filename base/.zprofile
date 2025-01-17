@@ -28,14 +28,14 @@ export RUSTUP_HOME="${XDG_DATA_HOME:-$HOME/.local/share/}/rustup"
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share/}/cargo"
 export PATH=$CARGO_HOME/bin:$PATH
 
+# npm
 export NPM_CONFIG_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/npm"
 export NPM_CONFIG_PREFIX="${XDG_DATA_HOME:-$HOME/.local/share/}/npm"
 export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
 
+# kubernetes
 export KREW_ROOT="${XDG_DATA_HOME:-$HOME/.local/share/}/krew"
 export PATH=$KREW_ROOT/bin:$PATH
 
 # make `direnv` silent
 export DIRENV_LOG_FORMAT=
-
-export PATH=$PATH:$XDG_DATA_HOME/nvim/mason/bin
