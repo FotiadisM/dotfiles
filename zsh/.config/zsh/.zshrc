@@ -117,6 +117,9 @@ bindkey -v
 # Enter Normal mode faster
 KEYTIMEOUT=1
 
+bindkey '^n' expand-or-complete
+bindkey '^p' reverse-menu-complete
+
 # commands that start with space
 # are not writtern in history
 setopt HIST_IGNORE_SPACE
