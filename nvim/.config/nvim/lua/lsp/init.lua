@@ -54,7 +54,7 @@ local on_attach = function(client, bufnr)
 end
 
 local function make_config()
-	local capabilities = require("cmp_nvim_lsp").default_capabilities()
+	local capabilities = require("blink.cmp").get_lsp_capabilities()
 	capabilities.textDocument.foldingRange = {
 		dynamicRegistration = false,
 		lineFoldingOnly = true,
