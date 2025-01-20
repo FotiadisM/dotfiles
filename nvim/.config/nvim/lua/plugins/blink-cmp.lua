@@ -1,3 +1,31 @@
+local icons = {
+	Text = "",
+	Method = "",
+	Function = "",
+	Constructor = "",
+	Field = "",
+	Variable = "",
+	Class = "",
+	Interface = "",
+	Module = "",
+	Property = "",
+	Unit = "",
+	Value = "",
+	Enum = "",
+	Keyword = "",
+	Snippet = "",
+	Color = "",
+	File = "",
+	Reference = "",
+	Folder = "",
+	EnumMember = "",
+	Constant = "",
+	Struct = "",
+	Event = "",
+	Operator = "",
+	TypeParameter = "",
+}
+
 return {
 	"saghen/blink.cmp",
 	version = "*",
@@ -24,70 +52,14 @@ return {
 		completion = {
 			menu = {
 				border = "rounded",
+				scrollbar = false,
 				draw = {
 					padding = 2,
 					columns = { { "kind_icon" }, { "label", "label_description", "kind", gap = 1 } },
 					components = {
 						kind_icon = {
 							text = function(ctx)
-								local default_icosn = {
-									Text = "󰉿",
-									Method = "󰆧",
-									Function = "󰊕",
-									Constructor = "",
-									Field = "󰜢",
-									Variable = "󰀫",
-									Class = "󰠱",
-									Interface = "",
-									Module = "",
-									Property = "󰜢",
-									Unit = "󰑭",
-									Value = "󰎠",
-									Enum = "",
-									Keyword = "󰌋",
-									Snippet = "",
-									Color = "󰏘",
-									File = "󰈙",
-									Reference = "󰈇",
-									Folder = "󰉋",
-									EnumMember = "",
-									Constant = "󰏿",
-									Struct = "󰙅",
-									Event = "",
-									Operator = "󰆕",
-									TypeParameter = "",
-								}
-
-								local vs_codicons = {
-									Text = "",
-									Method = "",
-									Function = "",
-									Constructor = "",
-									Field = "",
-									Variable = "",
-									Class = "",
-									Interface = "",
-									Module = "",
-									Property = "",
-									Unit = "",
-									Value = "",
-									Enum = "",
-									Keyword = "",
-									Snippet = "",
-									Color = "",
-									File = "",
-									Reference = "",
-									Folder = "",
-									EnumMember = "",
-									Constant = "",
-									Struct = "",
-									Event = "",
-									Operator = "",
-									TypeParameter = "",
-								}
-								return vs_codicons[ctx.kind] .. ctx.icon_gap
-								--
-								-- return ctx.kind_icon .. ctx.icon_gap
+								return icons[ctx.kind] .. ctx.icon_gap
 							end,
 						},
 					},
