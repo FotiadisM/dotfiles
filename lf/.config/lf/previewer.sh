@@ -1,12 +1,13 @@
 #! /bin/env bash
 
 image() {
-	if [ -n "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ]; then
-		printf '{"action": "add", "identifier": "PREVIEW", "x": "%s", "y": "%s", "width": "%s", "height": "%s", "scaler": "contain", "path": "%s"}\n' "$4" "$5" "$(($2-1))" "$(($3-1))" "$1" > "$FIFO_UEBERZUG"
-		exit 1
-	else
-		chafa "$1" -s "$4x"
-	fi
+	file="$1"
+	w="$2"
+	h="$3"
+	x="$4"
+	y="$5"
+
+	# TODO: fix wezterm with tmux
 }
 
 batorcat() {
@@ -46,33 +47,28 @@ case "$(printf "%s\n" "$(readlink -f "$1")" | awk '{print tolower($0)}')" in
 		exiftool "$1"
 		;;
 	*.pdf)
-		[ ! -f "${CACHE}.jpg" ] && \
-			pdftoppm -jpeg -f 1 -singlefile "$1" "$CACHE"
+		[ ! -f "${CACHE}.jpg" ] && pdftoppm -jpeg -f 1 -singlefile "$1" "$CACHE"
 		image "${CACHE}.jpg" "$2" "$3" "$4" "$5"
 		;;
 	*.epub)
-		[ ! -f "$CACHE" ] && \
-			epub-thumbnailer "$1" "$CACHE" 1024
+		[ ! -f "$CACHE" ] && epub-thumbnailer "$1" "$CACHE" 1024
 		image "$CACHE" "$2" "$3" "$4" "$5"
 		;;
 	*.cbz|*.cbr|*.cbt)
-		[ ! -f "$CACHE" ] && \
-			comicthumb "$1" "$CACHE" 1024
+		[ ! -f "$CACHE" ] && comicthumb "$1" "$CACHE" 1024
 		image "$CACHE" "$2" "$3" "$4" "$5"
 		;;
 	*.avi|*.mp4|*.wmv|*.dat|*.3gp|*.ogv|*.mkv|*.mpg|*.mpeg|*.vob|*.fl[icv]|*.m2v|*.mov|*.webm|*.ts|*.mts|*.m4v|*.r[am]|*.qt|*.divx)
-		[ ! -f "${CACHE}.jpg" ] && \
-			ffmpegthumbnailer -i "$1" -o "${CACHE}.jpg" -s 0 -q 5
+		[ ! -f "${CACHE}.jpg" ] && ffmpegthumbnailer -i "$1" -o "${CACHE}.jpg" -s 0 -q 5
 		image "${CACHE}.jpg" "$2" "$3" "$4" "$5"
 		;;
 	*.bmp|*.jpg|*.jpeg|*.png|*.xpm|*.webp|*.gif|*.jfif)
 		image "$1" "$2" "$3" "$4" "$5"
 		;;
-  *.svg)
-    [ ! -f "${CACHE}.jpg" ] && \
-      convert "$1" "${CACHE}.jpg"
-    image "${CACHE}.jpg" "$2" "$3" "$4" "$5"
-    ;;
+	*.svg)
+		[ ! -f "${CACHE}.jpg" ] && convert "$1" "${CACHE}.jpg"
+		image "${CACHE}.jpg" "$2" "$3" "$4" "$5"
+		;;
 	*.ino)
 		batorcat --language=cpp "$1"
 		;;

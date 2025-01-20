@@ -5,4 +5,3 @@ set tabstop 4
 set icons
 
 set previewer ~/.config/lf/previewer.sh
-set cleaner ~/.config/lf/cleaner.sh

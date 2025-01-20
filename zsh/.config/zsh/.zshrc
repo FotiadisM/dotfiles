@@ -112,11 +112,12 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# Enable vi mode
+# enable vi mode
 bindkey -v
-# Enter Normal mode faster
+# enter Normal mode faster
 KEYTIMEOUT=1
 
+# use vim-style keybinds for completion
 bindkey '^n' expand-or-complete
 bindkey '^p' reverse-menu-complete
 
@@ -131,11 +132,6 @@ bindkey "^E" edit-command-line
 
 # remove annoying keybind
 bindkey "^[[Z" undefined-key
-
-# source lf icons
-[ -f "$HOME/.config/lf/icons.sh" ] && source "$HOME/.config/lf/icons.sh"
-# source lfcd
-[ -f "$HOME/.config/lf/lfcd.sh" ] && source $HOME/.config/lf/lfcd.sh
 
 # Preferred editor for remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -161,6 +157,7 @@ alias dn='nvim $(fd -t d -E .git -E node_modules | fzf)'
 alias dnh='nvim $(fd -t d -H -E .git -E node_modules | fzf)'
 alias dt='tmux-sessioner.sh'
 alias f='fzf-nvim.sh'
+alias lfcd='cd "$(command lf -print-last-dir "$@")"'
 alias t='tmux'
 alias tn='tmux new -A -s default'
 alias nv='nvim'
