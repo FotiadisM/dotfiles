@@ -13,6 +13,7 @@ vim.filetype.add({
 	extension = {
 		yaml = helm,
 		tpl = helm,
+		k = "kcl",
 	},
 	pattern = {
 		[".env.*"] = "sh",
