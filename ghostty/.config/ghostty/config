@@ -1,0 +1,14 @@
+theme = tokyonight_night
+
+font-family = JetBrains Mono
+font-family = Symbols Nerd Font Mono
+font-size = 11
+font-style = Bold
+font-style-bold = ExtraBold
+font-style-italic = Bold Italic
+font-style-bold-italic = ExtraBold Italic
+
+gtk-tabs-location = hidden
+
+cursor-style = block
+shell-integration-features = no-cursor
