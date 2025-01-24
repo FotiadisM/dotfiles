@@ -11,4 +11,5 @@ font-style-bold-italic = ExtraBold Italic
 gtk-tabs-location = hidden
 
 cursor-style = block
+cursor-style-blink = false
 shell-integration-features = no-cursor
