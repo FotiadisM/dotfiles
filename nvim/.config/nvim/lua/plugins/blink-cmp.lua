@@ -71,6 +71,15 @@ return {
 				["<CR>"] = { "select_and_accept", "fallback" },
 				cmdline = {
 					preset = "default",
+					["<CR>"] = {
+						function(cmp)
+							cmp.accept({
+								callback = function()
+									vim.api.nvim_feedkeys("\n", "n", true)
+								end,
+							})
+						end,
+					},
 				},
 			},
 
