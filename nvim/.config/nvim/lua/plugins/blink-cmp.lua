@@ -71,15 +71,6 @@ return {
 				["<CR>"] = { "select_and_accept", "fallback" },
 				cmdline = {
 					preset = "default",
-					["<CR>"] = {
-						function(cmp)
-							cmp.accept({
-								callback = function()
-									vim.api.nvim_feedkeys("\n", "n", true)
-								end,
-							})
-						end,
-					},
 				},
 			},
 
@@ -92,6 +83,13 @@ return {
 			},
 
 			completion = {
+				list = {
+					selection = {
+						preselect = function(ctx)
+							return ctx.mode ~= "cmdline" and not require("blink.cmp").snippet_active({ direction = 1 })
+						end,
+					},
+				},
 				accept = {
 					auto_brackets = {
 						enabled = false,

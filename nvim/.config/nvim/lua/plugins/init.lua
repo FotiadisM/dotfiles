@@ -48,9 +48,9 @@ return {
 	},
 	{
 		"windwp/nvim-ts-autotag",
+		dependencies = "nvim-treesitter/nvim-treesitter",
 		ft = { "html", "typescriptreact", "javascript" },
 		config = true,
-		dependencies = "nvim-treesitter/nvim-treesitter",
 	},
 	{
 		"folke/which-key.nvim",
