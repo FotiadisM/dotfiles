@@ -37,5 +37,6 @@ export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
 export KREW_ROOT="${XDG_DATA_HOME:-$HOME/.local/share/}/krew"
 export PATH=$KREW_ROOT/bin:$PATH
 
-# make `direnv` silent
+# direnv
 export DIRENV_LOG_FORMAT=
+export DIRENV_WARN_TIMEOUT=0
