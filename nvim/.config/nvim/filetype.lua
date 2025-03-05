@@ -10,6 +10,9 @@ local helm = function(path)
 end
 
 vim.filetype.add({
+	filename = {
+		Tiltfile = "tiltfile",
+	},
 	extension = {
 		yaml = helm,
 		tpl = helm,
