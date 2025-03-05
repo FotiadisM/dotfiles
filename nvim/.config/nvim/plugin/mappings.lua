@@ -209,3 +209,6 @@ end, "open a plugin's github page")
 map("n", "<space>n", function ()
 	require("neogit").open()
 end, "open neogit")
+
+-- dabbot
+map("n", "<space>d", function() require("dbee").toggle() end, "toggle dabbot-ui")

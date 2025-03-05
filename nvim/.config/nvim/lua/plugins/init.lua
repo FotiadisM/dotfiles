@@ -105,4 +105,14 @@ return {
 		"terrastruct/d2-vim",
 		ft = "d2",
 	},
+	{
+		"kndndrj/nvim-dbee",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
+		build = function()
+			require("dbee").install()
+		end,
+		config = true,
+	},
 }
