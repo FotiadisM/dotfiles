@@ -62,6 +62,8 @@ return {
 			lspconf["tailwindcss"].setup(make_config())
 			lspconf["terraformls"].setup(make_config())
 			lspconf["kcl"].setup(make_config())
+			lspconf["buf_ls"].setup(make_config())
+			lspconf["tilt_ls"].setup(make_config())
 			require("rust-tools").setup({
 				server = require("lsp.servers.rust_analyzer").setup(make_config(), on_attach),
 			})

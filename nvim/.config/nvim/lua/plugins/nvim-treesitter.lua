@@ -77,6 +77,8 @@ return {
 				},
 				autotag = { enable = true },
 			})
+
+			vim.treesitter.language.register("starlark", "tiltfile")
 		end,
 	},
 }
