@@ -1,0 +1,46 @@
+k9s:
+  # Enable periodic refresh of resource browser windows. Default false
+  liveViewAutoRefresh: false
+  refreshRate: 2
+  maxConnRetry: 5
+  readOnly: false
+  noExitOnCtrlC: false
+  portForwardAddress: localhost
+  ui:
+    enableMouse: true
+    # Set to true to hide K9s header. Default false
+    headless: false
+    # Set to true to hide K9s logo. Default false
+    logoless: false
+    # Set to true to hide K9s crumbs. Default false
+    crumbsless: false
+    # Toggles reactive UI. This option provide for watching on disk artifacts changes and update the UI live  Defaults to false.
+    reactive: false
+    # Toggles icons display as not all terminal support these chars.
+    noIcons: false
+    skin: dracula
+  skipLatestRevCheck: false
+  disablePodCounting: false
+  shellPod:
+    image: busybox:1.35.0
+    namespace: default
+    limits:
+      cpu: 100m
+      memory: 100Mi
+    tty: true
+  imageScans:
+    enable: false
+  logger:
+    tail: 100
+    buffer: 5000
+    sinceSeconds: 300
+    fullScreen: false
+    textWrap: false
+    showTime: false
+  thresholds:
+    cpu:
+      critical: 90
+      warn: 70
+    memory:
+      critical: 90
+      warn: 70
