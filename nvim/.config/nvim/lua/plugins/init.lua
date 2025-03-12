@@ -66,11 +66,33 @@ return {
 	},
 	{
 		"iamcco/markdown-preview.nvim",
-		build = "cd app && npm install",
-		ft = "markdown",
-		config = function()
-			vim.g.mkdp_filetypes = { "markdown" }
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview" },
+		build = function()
+			require("lazy").load({ plugins = { "markdown-preview.nvim" } })
+			vim.fn["mkdp#util#install"]()
 		end,
+		config = function()
+			vim.cmd([[do FileType]])
+		end,
+	},
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+		cmd = "RenderMarkdown",
+		opts = {
+			code = {
+				sign = false,
+				width = "block",
+				right_pad = 1,
+			},
+			heading = {
+				sign = false,
+				icons = {},
+			},
+			checkbox = {
+				enabled = false,
+			},
+		},
 	},
 	{
 		"stevearc/dressing.nvim",

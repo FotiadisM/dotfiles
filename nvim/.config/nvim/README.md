@@ -23,6 +23,7 @@
 │   │       └── tokyonight.lua
 │   ├── plugins
 │   │   ├── autopairs.lua
+│   │   ├── blink-cmp.lua
 │   │   ├── diffview.lua
 │   │   ├── gitsigns.lua
 │   │   ├── indent-blankline.lua
@@ -30,7 +31,6 @@
 │   │   ├── lspconfig.lua
 │   │   ├── luasnip.lua
 │   │   ├── noice.lua
-│   │   ├── nvim-cmp.lua
 │   │   ├── nvim-dap.lua
 │   │   ├── nvim-lightbulb.lua
 │   │   ├── nvim-tree.lua
@@ -46,7 +46,6 @@
 │   │   ├── python.lua
 │   │   └── typescriptreact.lua
 │   └── util
-│       ├── tailwindcss.lua
 │       └── winbar.lua
 ├── plugin
 │   ├── commands.lua
@@ -58,7 +57,8 @@
 │   ├── en.utf-8.add.spl
 │   └── gr.utf-8.spl
 ├── syntax
-│   └── helm.vim
+│   ├── helm.vim
+│   └── kcl.vim
 ├── filetype.lua
 ├── init.lua
 ├── lazy-lock.json
