@@ -69,9 +69,13 @@ return {
 				["<Tab>"] = {},
 				["<S-Tab>"] = {},
 				["<CR>"] = { "select_and_accept", "fallback" },
-				cmdline = {
-					preset = "default",
+			},
+
+			cmdline = {
+				keymap = {
+					["<Tab>"] = { "show", "accept" }, -- recommended, as the default keymap will only show and select the next item
 				},
+				completion = { menu = { auto_show = true } },
 			},
 
 			snippets = { preset = "luasnip" },
