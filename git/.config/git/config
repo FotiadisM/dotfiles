@@ -5,17 +5,41 @@
 [core]
 	editor = nvim
 
-[pull]
-	rebase = true
-
-[rebase]
-	autoStash = true
-
 [init]
 	defaultBranch = main
 
 [pager]
 	branch = false
+
+[tag]
+	sort = version:refname
+
+[help]
+	autocorrect = prompt
+
+[diff]
+	algorithm = histogram
+	renames = true
+	colorMoved = plain
+	mnemonicPrefix = true
+
+[fetch]
+	prune = true
+
+[pull]
+	rebase = true
+
+[rebase]
+	autoStash = true
+	autoSquash = true
+	updateRefs = true
+
+; [rerere]
+; 	enabled = true
+; 	autoupdate = true
+
+[merge]
+	confflictStyle = zdiff3
 
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
