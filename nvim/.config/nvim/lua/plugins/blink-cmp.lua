@@ -30,22 +30,15 @@ local icons = {
 
 return {
 	{
-		"zbirenbaum/copilot.lua",
-		opts = {
-			panel = { enabled = false },
-			suggestion = { enabled = false },
-		},
-	},
-	{
 		"saghen/blink.cmp",
 		version = "*",
 		event = { "InsertEnter", "CmdlineEnter" },
-		dependencies = { "L3MON4D3/LuaSnip", "giuxtaposition/blink-cmp-copilot" },
+		dependencies = { "L3MON4D3/LuaSnip", "giuxtaposition/blink-cmp-copilot", "Kaiser-Yang/blink-cmp-avante" },
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "copilot", "lazydev" },
+				default = { "lsp", "path", "snippets", "buffer", "copilot", "lazydev", "avante" },
 				providers = {
 					copilot = {
 						name = "copilot",
@@ -67,6 +60,10 @@ return {
 						module = "lazydev.integrations.blink",
 						-- make lazydev completions top priority (see `:h blink.cmp`)
 						score_offset = 100,
+					},
+					avante = {
+						module = "blink-cmp-avante",
+						name = "Avante",
 					},
 				},
 			},
