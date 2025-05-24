@@ -111,7 +111,9 @@ return {
 	{
 		"axieax/urlview.nvim",
 		cmd = "UrlView",
-		config = true,
+		opts = {
+			default_action = "system",
+		},
 	},
 	{
 		"FotiadisM/other.nvim",

@@ -39,12 +39,13 @@ return {
 	{
 		"saghen/blink.cmp",
 		version = "*",
+		event = { "InsertEnter", "CmdlineEnter" },
 		dependencies = { "L3MON4D3/LuaSnip", "giuxtaposition/blink-cmp-copilot" },
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "copilot" },
+				default = { "lsp", "path", "snippets", "buffer", "copilot", "lazydev" },
 				providers = {
 					copilot = {
 						name = "copilot",
@@ -60,6 +61,12 @@ return {
 							end
 							return items
 						end,
+					},
+					lazydev = {
+						name = "LazyDev",
+						module = "lazydev.integrations.blink",
+						-- make lazydev completions top priority (see `:h blink.cmp`)
+						score_offset = 100,
 					},
 				},
 			},

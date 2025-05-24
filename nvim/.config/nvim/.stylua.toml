@@ -1,0 +1,2 @@
+syntax = "LuaJIT"
+indent_width = 4

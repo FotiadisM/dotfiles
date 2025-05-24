@@ -6,6 +6,8 @@ vim.o.hlsearch = false
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+vim.o.formatoptions = "cqj"
+
 vim.o.mouse = "a"
 vim.o.wrap = false
 vim.o.linebreak = true
