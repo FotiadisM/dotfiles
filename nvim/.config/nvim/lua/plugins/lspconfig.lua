@@ -71,7 +71,7 @@ return {
 
 			local lspconf = require("lspconfig")
 
-			lspconf["lua_ls"].setup(require("lsp.lua_ls.sumneko_lua").setup(make_config(), on_attach))
+			lspconf["lua_ls"].setup(require("lsp.servers.lua_ls").setup(make_config(), on_attach))
 			lspconf["gopls"].setup(require("lsp.servers.gopls").setup(make_config(), on_attach))
 			lspconf["texlab"].setup(require("lsp.servers.texlab").setup(make_config(), on_attach))
 			lspconf["html"].setup(require("lsp.servers.html").setup(make_config(), on_attach))
