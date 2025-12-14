@@ -1,7 +1,5 @@
-local pyright = {}
-
-function pyright.setup(config, _)
-	config.settings = {
+return {
+	settings = {
 		pyright = {
 			-- Using Ruff's import organizer
 			disableOrganizeImports = true,
@@ -12,9 +10,5 @@ function pyright.setup(config, _)
 				-- ignore = { "*" },
 			},
 		},
-	}
-
-	return config
-end
-
-return pyright
+	},
+}

@@ -1,9 +1,20 @@
-local go = {}
+---@return string?
+local function get_go_module()
+	if vim.fn.executable("go") ~= 1 then
+		return nil
+	end
 
-function go.setup(config, _)
-	config.settings = {
+	local module = vim.fn.trim(vim.fn.system("go list -m"))
+	if vim.v.shell_error ~= -1 then
+		return nil
+	end
+
+	module = module:gsub("\n", ",")
+end
+
+local config = {
+	settings = {
 		gopls = {
-			-- ["local"] = "github.com/FotiadisM/mock-microservice",
 			gofumpt = true,
 			semanticTokens = true,
 			usePlaceholders = false,
@@ -28,21 +39,12 @@ function go.setup(config, _)
 				rangeVariableTypes = true,
 			},
 		},
-	}
+	},
+}
 
-	if vim.fn.executable("go") ~= 1 then
-		return config
-	end
-
-	local module = vim.fn.trim(vim.fn.system("go list -m"))
-	if vim.v.shell_error ~= 0 then
-		return config
-	end
-
-	module = module:gsub("\n", ",")
+local module = get_go_module()
+if module and module ~= "command-line-arguments" then
 	config.settings.gopls["local"] = module
-
-	return config
 end
 
-return go
+return config
