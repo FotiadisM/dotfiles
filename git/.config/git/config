@@ -32,7 +32,7 @@
 [rebase]
 	autoStash = true
 	autoSquash = true
-	updateRefs = true
+	; updateRefs = true
 
 ; [rerere]
 ; 	enabled = true
