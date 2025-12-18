@@ -31,7 +31,6 @@ local icons = {
 return {
 	{
 		"saghen/blink.cmp",
-		version = "*",
 		event = { "InsertEnter", "CmdlineEnter" },
 		dependencies = { "L3MON4D3/LuaSnip", "giuxtaposition/blink-cmp-copilot", "Kaiser-Yang/blink-cmp-avante" },
 		---@module 'blink.cmp'

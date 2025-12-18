@@ -20,6 +20,7 @@ require("lazy").setup({
 	},
 	defaults = {
 		lazy = true,
+		version = "*",
 	},
 	dev = {
 		path = "~/src/neovim",

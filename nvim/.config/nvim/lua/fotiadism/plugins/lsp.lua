@@ -105,12 +105,10 @@ vim.lsp.config("*", {
 return {
 	{
 		"neovim/nvim-lspconfig",
-		version = "*",
 		lazy = false,
 	},
 	{
 		"j-hui/fidget.nvim",
-		version = "*",
 		event = "LspAttach",
 		opts = {
 			progress = {
@@ -121,7 +119,6 @@ return {
 	},
 	{
 		"williamboman/mason.nvim",
-		version = "*",
 		lazy = false,
 		config = true,
 	},
@@ -146,7 +143,7 @@ return {
 				"terraformls",
 				"kcl",
 				"buf_ls",
-				"tilt",
+				"tilt_ls",
 			},
 			automatic_enable = {
 				exclude = {
@@ -157,7 +154,6 @@ return {
 	},
 	{
 		"folke/lazydev.nvim",
-		version = "*",
 		ft = "lua",
 		opts = {
 			library = {
@@ -195,7 +191,6 @@ return {
 	},
 	{
 		"jay-babu/mason-null-ls.nvim",
-		version = "*",
 		lazy = false,
 		dependencies = { "williamboman/mason.nvim", "nvimtools/none-ls.nvim" },
 		opts = { automatic_installation = true },

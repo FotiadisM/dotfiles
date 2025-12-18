@@ -20,6 +20,7 @@ return {
 					".next/",
 					".venv",
 					"__pycache__/",
+					".mypy_cache/",
 					".ruff_cache/",
 					".devbox",
 				},

@@ -19,7 +19,7 @@ return {
 		})
 
 		require("luasnip.loaders.from_lua").load({
-			paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
+			paths = { vim.fn.stdpath("config") .. "/lua/fotiadism/snippets" },
 		})
 	end,
 }

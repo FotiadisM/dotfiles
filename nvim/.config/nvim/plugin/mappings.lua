@@ -129,7 +129,7 @@ map("n", "<space><space>s", function()
 end, "list snippets")
 map("n", "<space><space>r", function()
 	require("luasnip.loaders.from_lua").load({
-		paths = vim.fn.stdpath("config") .. "/lua/snippets",
+		paths = vim.fn.stdpath("config") .. "/lua/fotiadism/snippets",
 	})
 end, "refresh snippets")
 -- stylua: ignore start
