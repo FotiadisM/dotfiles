@@ -38,6 +38,7 @@ return {
 					},
 					config = {
 						tabwidth = 2,
+						expandtab = true,
 					},
 				},
 			},
