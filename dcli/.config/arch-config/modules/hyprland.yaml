@@ -1,0 +1,23 @@
+description: Example module - customize or delete this
+
+packages:
+  - ly
+  - uwsm
+  - hyprland
+
+  - xdg-utils
+  - xdg-user-dirs
+  - xdg-desktop-portal-hyprland
+
+  - libnotify
+  - swaync
+  - hyprpaper
+  - hyprsunset
+  - hyprpolkitagent
+  - wl-clipboard
+  - waybar
+  - walker
+  - elephant
+  - elephant-desktopapplications
+
+post_install_hook: scripts/hyprland.sh

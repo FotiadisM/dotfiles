@@ -37,7 +37,8 @@ return {
 		---@type blink.cmp.Config
 		opts = {
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "copilot", "lazydev", "avante" },
+				-- default = { "lsp", "path", "snippets", "buffer", "copilot", "lazydev", "avante" },
+				default = { "lsp", "path", "snippets", "buffer", "lazydev" },
 				providers = {
 					copilot = {
 						name = "copilot",
