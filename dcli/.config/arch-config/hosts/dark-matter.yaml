@@ -1,0 +1,22 @@
+host: dark-matter
+description: Configuration for dark-matter
+
+aur_helper: yay
+auto_prune: false
+flatpak_scope: user
+
+enabled_modules:
+  - base-devel
+  - hyprland
+
+module_processing: parallel
+
+packages: []
+
+exclude: []
+
+config_backups:
+  enabled: false
+
+system_backups:
+  enabled: false

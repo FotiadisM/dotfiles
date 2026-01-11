@@ -1,0 +1,58 @@
+description: Base system development packages
+
+packages:
+  # base
+  - git
+  - base-devel
+  - curl
+  - wget
+  - man-db
+  - man-pages
+
+  # utils
+  - fzf
+  - fd
+  - lsd
+  - ripgrep
+  - jq
+  - yq
+  - pfetch-rs
+  - tldr
+  - tree
+  - lf
+  - pandoc-bin
+  - zip
+  - unzip
+
+  - gcc
+  - go
+  - rustup
+  - nodejs
+  - npm
+  - kubectl
+  - helm
+  - k9s
+  - github-cli
+
+  - stow
+  - zsh
+  - neovim
+  - tmux
+  - btop
+  - ghostty
+
+  - ttf-nerd-fonts-symbols-mono
+  - ttf-jetbrains-mono-nerd
+  - ttf-bitstream-vera
+  - ttf-dejavu
+  - ttf-droid
+  - gnu-free-fonts
+  - ttf-ibm-plex
+  - ttf-liberation
+  # - ttf-ms-win11
+  - noto-fonts
+  - ttf-roboto
+  - ttf-ubuntu-font-family
+  - ttf-nunito
+
+post_install_hook: scripts/base-devel.sh
