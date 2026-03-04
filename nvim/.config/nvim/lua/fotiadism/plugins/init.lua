@@ -32,13 +32,7 @@ return {
 		config = true,
 	},
 	{
-		"ggandor/leap.nvim",
-		dependencies = { "tpope/vim-repeat", "ggandor/flit.nvim" },
-		event = "BufReadPre",
-		config = function()
-			require("flit").setup()
-			require("leap").set_default_keymaps()
-		end,
+		url = "https://codeberg.org/andyg/leap.nvim",
 	},
 	{
 		"kylechui/nvim-surround",

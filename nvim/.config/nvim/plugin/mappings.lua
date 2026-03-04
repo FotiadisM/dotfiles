@@ -134,6 +134,11 @@ map("n", "<space><space>r", function()
 end, "refresh snippets")
 -- stylua: ignore start
 
+-- leap.nvim
+map({ "n", "x", "o" }, "s" , function() require("leap").leap({ inclusive = true }) end, "leap")
+map({ "n", "x", "o" }, "S" , function() require("leap").leap({ backward = true, }) end, "leap backwards")
+map("n", "gs" , function() require("leap").leap({ windows = require('leap.user').get_enterable_windows() }) end, "leap backwards")
+
 -- harpoon
 map("n", "<space>h", function() require("harpoon.ui").toggle_quick_menu() end, "harpoon menu")
 map("n", "<space>l", function() require("harpoon.mark").add_file() end, "harpoon menu")
