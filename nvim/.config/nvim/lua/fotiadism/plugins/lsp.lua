@@ -61,7 +61,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		-- Set some keybinds conditional on server capabilities
 		if client.server_capabilities.documentFormattingProvider then
-			local disabled_lsp_formatters = { "ts_ls", "html" }
+			local disabled_lsp_formatters = { "tsc", "html" }
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				group = vim.api.nvim_create_augroup("lsp_format", { clear = true }),
 				callback = function()
@@ -84,7 +84,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
 				group = vim.api.nvim_create_augroup("lsp_codelens_refresh", { clear = true }),
 				callback = function()
-					vim.lsp.codelens.refresh({ bufnr = 0 })
+					vim.lsp.codelens.enable(true, { bufnr = 0 })
 				end,
 			})
 		end
@@ -130,7 +130,7 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"gopls",
-				"ts_ls",
+				"tsc",
 				"html",
 				"jsonls",
 				"yamlls",
@@ -143,12 +143,8 @@ return {
 				"terraformls",
 				"kcl",
 				"buf_ls",
-				"tilt_ls",
-			},
-			automatic_enable = {
-				exclude = {
-					"ts_ls",
-				},
+				"tilt",
+				"tinymist", -- typst files
 			},
 		},
 	},
@@ -197,11 +193,5 @@ return {
 	},
 	{
 		"b0o/schemastore.nvim",
-	},
-	{
-		"pmizio/typescript-tools.nvim",
-		ft = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
-		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-		opts = {},
 	},
 }

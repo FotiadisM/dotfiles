@@ -205,6 +205,8 @@ vim.keymap.set("n", "<space><space>o", require("other").clear, {
 	desc = "clear other file"
 })
 
+map("n", "<space>8", ":TSContext toggle<CR>", "toggle TSContext")
+
 -- urlview.nvim
 map("n", "<space>u", function ()
 	require("urlview").search("lazy")

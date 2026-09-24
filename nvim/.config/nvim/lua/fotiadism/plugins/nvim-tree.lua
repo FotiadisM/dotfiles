@@ -55,7 +55,7 @@ return {
 				end
 
 				-- default mappings
-				api.config.mappings.default_on_attach(bufnr)
+				api.map.on_attach.default(bufnr)
 
 				vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
 				vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close Directory"))
@@ -63,7 +63,5 @@ return {
 				vim.keymap.set("n", "s", api.node.open.horizontal, opts("Open: Horizontal Split"))
 			end,
 		})
-
-		require("nvim-tree.view").View.winopts.foldcolumn = "1"
 	end,
 }

@@ -10,8 +10,6 @@ local c = ls.choice_node
 local fmt = require("luasnip.extras.fmt").fmt
 local fmta = require("luasnip.extras.fmt").fmta
 
-local ts_locals = require("nvim-treesitter.locals")
-
 local function startswith(str, prefix)
 	return str:sub(1, #prefix) == prefix
 end
@@ -97,11 +95,14 @@ local function get_function_node()
 		func_literal = true,
 	}
 
-	local curr_scope = ts_locals.get_scope_tree(curr_node, 0)
-	for _, n in pairs(curr_scope) do
+	-- Walk up the tree from the current node until we find an enclosing
+	-- function. This replaces the removed `nvim-treesitter.locals` API.
+	local n = curr_node
+	while n do
 		if function_node_types[n:type()] then
 			return n, n:type()
 		end
+		n = n:parent()
 	end
 
 	return nil, nil
